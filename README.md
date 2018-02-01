@@ -4,6 +4,5 @@ Jack
 Rob
 Let's try this again
 function jacksACunt() {
-  return slaphimintheface
-};
-const myWeekend = {activity: -----@}
+  return slaphiminthefa
+go fuck yourself team. i am the git master  
