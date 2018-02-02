@@ -1,0 +1,27 @@
+@import "bulma/sass/utilities/initial-variables";
+
+$primary: #3454D1;
+$danger: #D81159;
+$family-serif: 'Inconsolata', monospace;
+$family-primary: $family-serif;
+
+@import "bulma/bulma";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  &.home {
+    background-image: url('../images/popcorn.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+a.logo {
+  color: #363636;
+  font-weight: 700;
+  font-size: 22px;
+}

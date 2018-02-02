@@ -1,0 +1,96 @@
+{
+  "name": "angular-gulp-setup",
+  "version": "1.0.0",
+  "description": "A example stack with gulp and angular",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install && gulp deploy"
+  },
+  "author": "Alex Chin <alex@alexchin.co.uk>",
+  "license": "ISC",
+  "gulp": {
+    "srcDir": "src/",
+    "destDir": "public/",
+    "src": {
+      "js": "src/js/",
+      "scss": "src/scss/",
+      "fonts": "src/fonts/",
+      "images": "src/images/"
+    },
+    "dest": {
+      "js": "public/js/",
+      "css": "public/css/",
+      "fonts": "public/fonts/",
+      "images": "public/images/"
+    },
+    "main": {
+      "js": "app.js",
+      "index": "index.html",
+      "scss": "style.scss",
+      "server": "index.js",
+      "gulpfile": "gulpfile.js",
+      "packageJson": "package.json"
+    },
+    "vendor": {
+      "js": "vendor.js",
+      "css": "vendor.css"
+    },
+    "output": {
+      "js": "app.js",
+      "css": "style.css"
+    },
+    "selectors": {
+      "all": "*",
+      "js": "**/*.js",
+      "css": "**/*.css",
+      "scss": "**/*.scss",
+      "html": "**/*.html",
+      "images": "**/*.{png,jpg,jpeg,gif,ico}",
+      "fonts": "**/*.{eot,svg,ttf,woff,woff2}"
+    }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bower": "^1.8.2",
+    "browser-sync": "^2.23.5",
+    "event-stream": "^3.3.4",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlhint": "^1.0.0",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-inject": "^4.3.0",
+    "gulp-jshint": "^2.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-order": "^1.1.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^1.12.1",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-uglify": "^3.0.0",
+    "htmlhint-stylish": "^1.0.3",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1",
+    "main-bower-files": "^2.13.1",
+    "require-dir": "^0.3.2"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.1",
+    "morgan": "^1.9.0"
+  }
+}

@@ -1,0 +1,9 @@
+<section class="section">
+  <div class="columns is-multiline">
+    <div ng-repeat="movie in vm.all" class="column is-one-fifth">
+      <a ui-sref="moviesShow({ id: movie.id })">
+        <img ng-src="{{ movie.poster }}">
+      </a>
+    </div>
+  </div>
+</section>

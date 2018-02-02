@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="movieApp">
+<head>
+  <title>The Movies</title>
+  <base href="/">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main" ng-class="main.pageName">
+
+  <nav class="nav has-shadow">
+    <div class="nav-left">
+      <a class="nav-item logo" ui-sref="home">
+        The Movies
+      </a>
+    </div>
+
+    <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+    <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
+    <span class="nav-toggle" ng-class="{ 'is-active': main.menuIsOpen}" ng-click="main.menuIsOpen = !main.menuIsOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+
+    <!-- This "nav-menu" is hidden on mobile -->
+    <!-- Add the modifier "is-active" to display it on mobile -->
+    <div class="nav-right nav-menu" ng-class="{ 'is-active': main.menuIsOpen}">
+      <a class="nav-item" ui-sref="moviesIndex">
+        All Movies
+      </a>
+      <a class="nav-item" ui-sref="moviesNew" ng-if="main.isAuthenticated()">
+        New Movie
+      </a>
+      <a class="nav-item" ui-sref="login" ng-if="!main.isAuthenticated()">
+        Login
+      </a>
+      <a class="nav-item" ui-sref="register" ng-if="!main.isAuthenticated()">
+        Register
+      </a>
+      <a class="nav-item" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+        Logout
+      </a>
+    </div>
+  </nav>
+
+  <div class="notification" ng-if="main.message">{{ main.message }}</div>
+  <main class="container" ui-view></main>
+
+</body>
+</html>
