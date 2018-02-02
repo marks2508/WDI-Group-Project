@@ -19,4 +19,4 @@ const tripSchema = new mongoose.Schema({
 
 tripSchema.set('toJSON', { virtuals: true });
 
-module.exports = mongoose.model('Post', tripSchema);
+module.exports = mongoose.model('Trip', tripSchema);
