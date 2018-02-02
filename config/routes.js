@@ -13,9 +13,6 @@ router.route('/trips')
   .get(trips.index)
   .post(trips.create);
 
-router.route('/trips/new')
-  .post(trips.create);
-
 router.route('/trips/:id')
   .get(trips.show);
 
