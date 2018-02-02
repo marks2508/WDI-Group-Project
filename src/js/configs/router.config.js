@@ -27,5 +27,4 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/trips/new.html',
       controller: 'TripsNewCtrl as vm'
     });
-
 }
