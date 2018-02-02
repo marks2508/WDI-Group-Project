@@ -12,7 +12,6 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/trips/index.html',
       controller: 'TripsIndexCtrl as vm'
     })
-<<<<<<< HEAD
     .state('login', {
       url: '/login',
       templateUrl: 'js/views/auth/login.html',
@@ -22,12 +21,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/register',
       templateUrl: 'js/views/trips/register.html',
       controller: 'RegisterCtrl as vm'
-=======
+    })
     .state('tripsNew', {
       url: '/trips/new',
       templateUrl: 'js/views/trips/new.html',
       controller: 'TripsNewCtrl as vm'
->>>>>>> bf7f5b5481c7504f13b9ce743e41beca894d3f4b
     });
 
 }
