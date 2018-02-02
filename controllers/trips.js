@@ -23,7 +23,7 @@ function showRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
-  req.body.createdBy = req.user;
+  // req.body.createdBy = req.user;
 
   Trip
     .create(req.body)
