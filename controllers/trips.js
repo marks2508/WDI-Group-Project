@@ -27,7 +27,7 @@ function createRoute(req, res, next) {
 
   Trip
     .create(req.body)
-    .then((post) => res.status(201).json(post))
+    .then((trip) => res.status(201).json(trip))
     .catch(next);
 }
 
