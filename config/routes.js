@@ -14,7 +14,8 @@ router.route('/trips')
   .post(trips.create);
 
 router.route('/trips/:id')
-  .get(trips.show);
+  .get(trips.show)
+  .delete(trips.delete);
 
 router.route('/register')
   .get(auth.register);
