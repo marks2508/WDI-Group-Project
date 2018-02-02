@@ -31,8 +31,22 @@ function createRoute(req, res, next) {
     .catch(next);
 }
 
+function deleteRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+
+      return trip.remove();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 module.exports = {
   index: indexRoute,
   show: showRoute,
-  create: createRoute
+  create: createRoute,
+  delete: deleteRoute
 };
