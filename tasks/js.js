@@ -28,7 +28,7 @@ const fetchLocalJs = () => {
   return validateLocalJs()
     .pipe(order([config.main.js,config.selectors.js]))
     .pipe(babel({
-      presets: ['env']
+      presets: ['es2015']
     }));
 };
 

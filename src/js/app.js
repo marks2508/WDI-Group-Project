@@ -1,2 +1,1 @@
-angular
-  .module('movieApp', ['ui.router', 'ngResource', 'satellizer']);
+// angular module goes here
