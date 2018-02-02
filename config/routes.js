@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const posts = require('../controllers/trips');
+const trips = require('../controllers/trips');
 // const auth = require('../controllers/auth');
 // const users = require('../controllers/users');
 // const secureRoute = require('../lib/secureRoute');
@@ -8,13 +8,13 @@ const posts = require('../controllers/trips');
 // Routes go here
 
 router.route('/trips')
-  .get(posts.index)
-  .post(posts.create);
+  .get(trips.index)
+  .post(trips.create);
 
 router.route('/trips/new')
-  .post(posts.create);
+  .post(trips.create);
 
 router.route('/trips/:id')
-  .get(posts.show);
+  .get(trips.show);
 
 module.exports = router;
