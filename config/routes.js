@@ -18,9 +18,9 @@ router.route('/trips/:id')
   .delete(trips.delete);
 
 router.route('/register')
-  .get(auth.register);
+  .post(auth.register);
 
 router.route('/login')
-  .get(auth.login);
+  .post(auth.login);
 
 module.exports = router;
