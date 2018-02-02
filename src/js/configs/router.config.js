@@ -19,7 +19,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state('register', {
       url: '/register',
-      templateUrl: 'js/views/trips/register.html',
+      templateUrl: 'js/views/auth/register.html',
       controller: 'RegisterCtrl as vm'
     })
     .state('tripsNew', {

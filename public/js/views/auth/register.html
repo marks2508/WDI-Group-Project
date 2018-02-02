@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-4">
+    <h2>Register</h2>
+    <form name="vm.registerForm" ng-submit="vm.submit()" novalidate>
+      <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" ng-model="vm.user.username" required>
+        <div ng-messages="vm.registerForm.username.$error" role="alert" ng-show="(vm.registerForm.$submitted || vm.registerForm.username.$touched) && vm.registerForm.username.$invalid" class="error">
+          <div ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" ng-model="vm.user.email" required>
+        <div ng-messages="vm.registerForm.email.$error" role="alert" ng-show="(vm.registerForm.$submitted || vm.registerForm.email.$touched) && vm.registerForm.email.$invalid" class="error">
+          <div ng-message="required">Please enter a value for this field.</div>
+          <div ng-message="email">This field must be a valid email address.</div>
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" ng-model="vm.user.password" required>
+        <div ng-messages="vm.registerForm.password.$error" role="alert" ng-show="(vm.registerForm.$submitted || vm.registerForm.password.$touched) && vm.registerForm.password.$invalid" class="error">
+          <div ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+      <div>
+        <label for="passwordConfirmation">Password Confirmation</label>
+        <input type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="vm.user.passwordConfirmation" required>
+        <div ng-messages="vm.registerForm.passwordConfirmation.$error" role="alert" ng-show="(vm.registerForm.$submitted || vm.registerForm.passwordConfirmation.$touched) && vm.registerForm.passwordConfirmation.$invalid" class="error">
+          <div ng-message="required">Please enter a value for this field.</div>
+        </div>
+      </div>
+
+      <button class="button">Register</button>
+    </form>
+  </div>
+</div>
