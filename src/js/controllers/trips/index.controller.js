@@ -2,9 +2,15 @@ angular
   .module('roadTrippers')
   .controller('TripsIndexCtrl', TripsIndexCtrl);
 
-TripsIndexCtrl.$inject = ['Trip'];
-function TripsIndexCtrl(Trip) {
+TripsIndexCtrl.$inject = ['Trip', '$http'];
+function TripsIndexCtrl(Trip, $http) {
   const vm = this;
-  console.log(vm.all);
-  vm.all = Trip.query();
+  vm.all = [];
+  // vm.all = Trip.query();
+  $http
+    .get('api/trips')
+    .then((res) => {
+      vm.all = res.data;
+      return vm.all;
+    });
 }
