@@ -5,5 +5,6 @@ module.exports = {
     production: process.env.MONGODB_URI,
     development: 'mongodb://localhost/wdi-group-project-development',
     test: 'mongodb://localhost/wdi-group-project-test'
-  }
+  },
+  secret: process.env.SECRET || 'shh'
 };
