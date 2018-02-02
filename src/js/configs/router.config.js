@@ -1,5 +1,5 @@
 angular
-  .module('instagramApp')
+  .module('roadTrippers')
   .config(Router);
 
 Router.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
