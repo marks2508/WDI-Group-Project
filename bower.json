@@ -1,9 +1,9 @@
 {
-  "name": "bird-api",
-  "description": "Bird App Homework",
+  "name": "wdi group project",
+  "description": "wdi group project",
   "main": "index.js",
   "authors": [
-    "alexpchin <alex@alexchin.co.uk>"
+    "Put group member names here"
   ],
   "license": "ISC",
   "homepage": "",
@@ -15,12 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "^1.6.8",
-    "angular-ui-router": "^1.0.13",
-    "angular-resource": "^1.6.8",
-    "satellizer": "^0.15.5"
-  },
-  "resolutions": {
-    "angular": "1.6.8"
+    "angular": "^1.4.8"
   }
 }

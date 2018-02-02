@@ -1,25 +1,30 @@
-const express = require('express');
-const morgan = require('morgan');
+const express    = require('express');
+const mongoose   = require('mongoose');
+const morgan     = require('morgan');
+const bluebird   = require('bluebird');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
-const { port, dbURI } = require('./config/environment');
-const routes = require('./config/routes');
+const app        = express();
+const env        = app.get('env');
+
+const { port, db }    = require('./config/environment');
 const customResponses = require('./lib/customResponses');
-const errorHandler = require('./lib/errorHandler');
+const errorHandler    = require('./lib/errorHandler');
+const routes          = require('./config/routes');
 
-const app = express();
+const dest = `${__dirname}/public`;
 
-mongoose.connect(dbURI);
+mongoose.Promise = bluebird;
+mongoose.connect(db[env]);
 
 app.use(morgan('dev'));
-app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(dest));
 
 app.use(customResponses);
 app.use('/api', routes);
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
-
+app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 app.use(errorHandler);
 
-app.listen(port, () => console.log(`Express is listening on port ${port}`));
+
+app.listen(port, () => console.log(`Express is running on port: ${port}`));
