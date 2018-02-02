@@ -4,6 +4,7 @@
   "description": "wdi group project",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "postinstall": "bower install && gulp deploy"
   },
   "author": "put group memeber names here",
