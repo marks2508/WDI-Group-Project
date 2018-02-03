@@ -16,20 +16,20 @@ function googleMap($window) {
         zoom: 4,
         center: scope.center
       });
-      const infoWindow = new $window.google.maps.InfoWindow({
-        content: `${scope.center.lat} ${scope.center.lng}`
-      });
-      const marker = new $window.google.maps.Marker({
-        position: scope.center,
-        map
-      });
-      marker.addListener('click', () => {
-        infoWindow.open(map, marker);
-      });
+      // const infoWindow = new $window.google.maps.InfoWindow({
+      //   content: `${scope.center.lat} ${scope.center.lng}`
+      // });
+      // const marker = new $window.google.maps.Marker({
+      //   position: scope.center,
+      //   map
+      // });
+      // marker.addListener('click', () => {
+      //   infoWindow.open(map, marker);
+      // });
       map.addListener('click', (e) => {
         console.log(e);
         new $window.google.maps.Marker({
-          position: { lat: e.latLng.lat['[[scopes]]'][0].a, lng: e.latLng.lng['[[scopes]]'][0].a },
+          position: e.latLng,
           map
         });
       });
