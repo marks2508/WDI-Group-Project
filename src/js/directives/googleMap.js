@@ -4,6 +4,7 @@ angular
 
 googleMap.$inject = ['$window'];
 function googleMap($window) {
+  const markers = [];
   return {
     restrict: 'E',
     replace: true,
@@ -16,22 +17,29 @@ function googleMap($window) {
         zoom: 4,
         center: scope.center
       });
-      // const infoWindow = new $window.google.maps.InfoWindow({
-      //   content: `${scope.center.lat} ${scope.center.lng}`
-      // });
+
       // const marker = new $window.google.maps.Marker({
       //   position: scope.center,
       //   map
       // });
-      // marker.addListener('click', () => {
-      //   infoWindow.open(map, marker);
-      // });
-      map.addListener('click', (e) => {
-        console.log(e);
-        new $window.google.maps.Marker({
+      function addMarker(e) {
+        const marker = new $window.google.maps.Marker({
           position: e.latLng,
           map
         });
+        console.log(marker);
+        const infoWindow = new $window.google.maps.InfoWindow({
+          content: `${marker.lat} ${marker.lng}`
+        });
+        markers.push(marker);
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
+        return marker;
+      }
+      map.addListener('click', (e) => {
+        addMarker(e);
+
       });
     }
   };
