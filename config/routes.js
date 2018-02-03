@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const trips = require('../controllers/trips');
 const auth = require('../controllers/auth');
+const secureRoute = require('../lib/secureRoute');
 // const users = require('../controllers/users')
 // const auth = require('../controllers/auth');
 // const users = require('../controllers/users');
