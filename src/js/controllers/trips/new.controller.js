@@ -7,6 +7,8 @@ function TripsNewCtrl(Trip, $state) {
   const vm = this;
   vm.post = {};
 
+  
+
   function tripsCreate() {
     if(vm.newForm.$valid) {
       Trip
