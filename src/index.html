@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="roadTrippers">
+<script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
 <head>
   <title>WDI Group Project</title>
   <base href="/">
@@ -9,10 +14,30 @@
   <!-- endinject -->
 </head>
 <body>
-  <h1>WDI Group Project! by Fatals Errors</h1>
-  <a ui-sref="register">register</a>
-  <a ui-sref="login">login</a>
-  <main ui-view>
-  </main>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      </a>
+    </div>
+    <div class="navbar-end">
+      <a ui-sref="register" class="navbar-item">register</a>
+      <br>
+      <a ui-sref="login" class="navbar-end">login</a>
+    <button class="button navbar-burger">
+    </div>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+
+<h1>WDI Group Project! by Fatals Errors</h1>
+
+<main ui-view>
+</main>
 </body>
 </html>
