@@ -1,9 +1,22 @@
+<br>
+<h1>Index page - list of seeded trips</h1>
+<br>
 <div ng-repeat="trip in vm.all">
   <div>
     <!-- <div ui-sref="postsShow({ id: post.id })"></div> -->
-
     <p><strong>{{ trip.title }}</strong></p>
-  </div>
+    <p>{{ trip.description }}</p>
+    <img ng-src="{{trip.image}}">
 </div>
 <!-- <p>{{ vm.all }}</p> -->
-<h1>Index page - list of seeded trips</h1>
+
+
+
+<!--
+itle: 'Route 66',
+description: 'Grab your cowboy hat and hit the road on the historic Route 66 - America\'s most famous highway. Follow in the tyre-marks of settlers, cowboys, migrants and travellers on the main street of America and learn about the importance of this pathway through America\'s heartland. From the green shores of the Great Lakes, watch the landscape gradually change from fertile farmlands to arid desert, eventually giving way to the celebrated beaches of the Californian coastline.',
+startPointLat: '41.878245',
+startPointLng: '-87.624432',
+endPointLat: '34.010959',
+endPointLng: '-118.495381',
+image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/USA/Route%2066/AP_Route66_Travel.jpg' -->
