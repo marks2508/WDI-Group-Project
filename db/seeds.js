@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const User = require('../models/user');
-const Trip = require('../models/post');
+const Trip = require('../models/trip');
 
 mongoose.connect(dbURI);
 
