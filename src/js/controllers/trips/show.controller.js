@@ -33,7 +33,7 @@ function TripsShowCtrl(Trip, TripComment, $state, $http, $rootScope) {
   }
 
   function TripsDelete() {
-    vm.post
+    vm.trip
       .$remove()
       .then(() => $state.go('tripsIndex'));
   }
