@@ -3,4 +3,7 @@
   width: 300px;
   display: inline-block; }
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLmdvb2dsZS1tYXAge1xuICBoZWlnaHQ6IDMwMHB4O1xuICB3aWR0aDogMzAwcHg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsgfVxuIl0sImZpbGUiOiJzdHlsZS5jc3MifQ== */
+.searchbar {
+  height: 20px; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlcyI6WyJzdHlsZS5jc3MiXSwic291cmNlc0NvbnRlbnQiOlsiLmdvb2dsZS1tYXAge1xuICBoZWlnaHQ6IDMwMHB4O1xuICB3aWR0aDogMzAwcHg7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jazsgfVxuXG4uc2VhcmNoYmFyIHtcbiAgaGVpZ2h0OiAyMHB4OyB9XG4iXSwiZmlsZSI6InN0eWxlLmNzcyJ9 */
