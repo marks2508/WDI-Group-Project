@@ -8,6 +8,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
   vm.logout = logout;
+  const protectedStates = ['postsNew'];
 
   function logout() {
     $auth.logout();
@@ -28,7 +29,14 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     vm.menuIsOpen = false;
     // attaches the state name to the main controller to be used as a class name on the body
     vm.pageName = transition.to().name;
+    if(vm.stateHasChanged) vm.messgae = null;
+    if(!vm.stateHasChanged) vm.stateHasChanged = true;
+    if($auth.getPayLoad()) vm.currentUserId = $auth.getPayLoad().userId;
 
+    if(!$auth.isAuthenticated() && protectedStates.includes(vm.pageName)) {
+      vm.message = 'You must be logged in';
+      return $state.go('login');
+    }
     if (vm.stateHasChanged) vm.message = null;
     if (!vm.stateHasChanged) vm.stateHasChanged = true;
   });
