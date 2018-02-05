@@ -34,15 +34,15 @@ User
       description: 'Grab your cowboy hat and hit the road on the historic Route 66 - America\'s most famous highway. Follow in the tyre-marks of settlers, cowboys, migrants and travellers on the main street of America and learn about the importance of this pathway through America\'s heartland. From the green shores of the Great Lakes, watch the landscape gradually change from fertile farmlands to arid desert, eventually giving way to the celebrated beaches of the Californian coastline.',
       start: {
         location: {
-          lat: '41.878245',
-          lng: '-87.624432'
+          lat: 41.878245,
+          lng: -87.624432
         },
         description: 'Chicago'
       },
       end: {
         location: {
-          lat: '34.010959',
-          lng: '-118.495381'
+          lat: 34.010959,
+          lng: -118.495381
         },
         description: 'Hollywood'
       },

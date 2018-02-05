@@ -11,18 +11,34 @@ function googleMap($window, $rootScope) {
     scope: {
       center: '=',
       start: '=',
-      end: '='
+      end: '=',
+      showPage: '='
     },
     link(scope, element) {
       let start = null;
-      let end   = null;
-
+      let end = null;
+      const bounds = new $window.google.maps.LatLngBounds();
       const map = new $window.google.maps.Map(element[0], {
         zoom: 5,
-        center: scope.center
+        center: {lat: 0, lng: 0}
       });
 
+      if(scope.showPage) {
+        // if(!scope.start || !scope.end) return false;
+        // console.log('its true');
+        // createMarker(scope.start);
+        // createMarker(scope.end);
+        // bounds.extend(scope.start);
+        // bounds.extend(scope.end);
+        // map.fitBounds(bounds);
+        // calcRoute();
+      }
+
+
+
       $rootScope.$on('NewPlaceEntered', (e, data) => {
+        let start = null;
+        let end   = null;
         if (start === null) {
           start = data.location;
           createMarker(start);
@@ -33,17 +49,34 @@ function googleMap($window, $rootScope) {
         if(start && end) calcRoute();
       });
 
+      scope.$watch('start', createMarker);
+      scope.$watch('end', createMarker);
+
       function createMarker(location) {
+        if (!location) return false;
+
         new $window.google.maps.Marker({
           position: location,
           map: map
         });
 
+        bounds.extend(location);
+        map.fitBounds(bounds);
+        if(scope.start && scope.end) {
+          calcRoute();
+        }
 
       }
 
 
 
+      const marker = new $window.google.maps.Marker({
+        position: scope.center,
+        map: map
+      });
+      marker.addListener('click', () => {
+        infoWindow.open(map, marker);
+      });
 
 
       // scope.$watch('start', addStartMarker);
@@ -99,8 +132,8 @@ function googleMap($window, $rootScope) {
 
       function calcRoute() {
         const request = {
-          origin: start,
-          destination: end,
+          origin: scope.start,
+          destination: scope.end,
           travelMode: $window.google.maps.TravelMode.DRIVING
         };
 
