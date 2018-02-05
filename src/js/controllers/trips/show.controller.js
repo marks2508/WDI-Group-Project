@@ -14,7 +14,7 @@ function TripsShowCtrl(Trip, TripComment, $state) {
     });
 
   function TripsDelete() {
-    vm.post
+    vm.trip
       .$remove()
       .then(() => $state.go('tripsIndex'));
   }

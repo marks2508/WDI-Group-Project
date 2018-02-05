@@ -1,5 +1,5 @@
 angular
-  .module('roadTrippers', [])
+  .module('roadTrippers')
   .directive('googleMap', googleMap)
   .controller('GeoCodeCtrl', GeoCodeCtrl);
 
