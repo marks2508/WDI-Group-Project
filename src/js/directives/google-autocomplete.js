@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .directive('googleAutocomplete', googleAutocomplete);
 
-googleAutocomplete.$inject = ['$window'];
-function googleAutocomplete($window) {
+googleAutocomplete.$inject = ['$window', '$rootScope'];
+function googleAutocomplete($window, $rootScope) {
   return {
     restrict: 'A',
     require: 'ngModel',
@@ -17,6 +17,8 @@ function googleAutocomplete($window) {
         const place = autocomplete.getPlace();
         scope.location = place.geometry.location.toJSON();
         model.$setViewValue(element.val());
+
+        $rootScope.$broadcast('NewPlaceEntered', { location: scope.location });
       });
     }
   };
