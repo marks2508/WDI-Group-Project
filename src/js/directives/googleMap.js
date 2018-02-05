@@ -43,17 +43,7 @@ function googleMap($window, $rootScope) {
       }
 
 
-      function addEndMarker() {
-        if(!scope.end) return false;
-        console.log(scope.end);
-        new $window.google.maps.Marker({
-          position: scope.end,
-          map: map,
-          bounds: {}
-        });
-        map.setCenter(scope.end);
-      }
-      map-update
+
 
 
       // scope.$watch('start', addStartMarker);
