@@ -23,9 +23,9 @@ router.route('/login')
   .post(auth.login);
 
 router.route('/trips/:id/comments')
-  .post(trips.addComment);
+  .post(secureRoute, trips.addComment);
 
 router.route('/trips/:id/comments/:commentId')
-  .delete(trips.deleteComment);
+  .delete(secureRoute, trips.deleteComment);
 
 module.exports = router;
