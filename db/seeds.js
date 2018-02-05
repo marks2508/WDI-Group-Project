@@ -36,7 +36,8 @@ User
       startPointLng: '-87.624432',
       endPointLat: '34.010959',
       endPointLng: '-118.495381',
-      image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/USA/Route%2066/AP_Route66_Travel.jpg'
+      image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/USA/Route%2066/AP_Route66_Travel.jpg',
+      createdBy: users[0]
 
     }, {
       title: 'The Red Centre Way',
@@ -45,7 +46,8 @@ User
       startPointLng: '133.8807',
       endPointLat: '25.3507',
       endPointLng: '131.0674',
-      image: 'https://www.mappingmegan.com/wp-content/uploads/2015/01/IMG_1196.jpg'
+      image: 'https://www.mappingmegan.com/wp-content/uploads/2015/01/IMG_1196.jpg',
+      createdBy: users[1]
     }]);
   })
   .then((trips) => {
