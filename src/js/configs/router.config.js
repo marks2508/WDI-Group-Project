@@ -7,6 +7,10 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'js/views/static/home.html'
+    })
     .state('tripsIndex', {
       url: '/trips',
       templateUrl: 'js/views/trips/index.html',

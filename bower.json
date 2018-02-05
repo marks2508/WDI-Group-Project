@@ -19,9 +19,11 @@
     "angular-ui-router": "^1.0.14",
     "angular-resource": "^1.6.7",
     "angular-messages": "^1.6.4",
-    "satellizer": "^0.15.5"
+    "satellizer": "^0.15.5",
+    "angular-slick": "^0.2.1",
+    "angular-ui-carousel": "^0.1.10"
   },
   "resolutions": {
-    "angular": "^1.4.8"
+    "angular": "1.6.9"
   }
 }

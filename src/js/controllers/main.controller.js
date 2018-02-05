@@ -40,4 +40,9 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     if (vm.stateHasChanged) vm.message = null;
     if (!vm.stateHasChanged) vm.stateHasChanged = true;
   });
+
+  vm.slides = [
+    { image: 'http://fillmurray.com/1000/1000' },
+    { image: 'http://fillmurray.com/1000/800' }
+  ];
 }
