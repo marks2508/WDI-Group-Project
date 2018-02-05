@@ -8,3 +8,21 @@
     <button class="button is-small is-danger" ng-click="vm.delete()">Delete</button>
   </div>
 </section>
+<google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
+<body ng-controller="GeoCodeCtrl as vm">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Geocoding App</h1>
+        <form ng-submit="vm.submit()">
+          <label type="text" value="Enter a postcode">Enter a postcode</label>
+          <br>
+          <input type="text" ng-model="vm.address.postcode"></input>
+          <input type="submit"></input>
+        </form>
+        <p>{{vm.all.results[0].formatted_address}}</p>
+        <p class="error" ng-if="vm.status == 1">Invalid Postcode</p>
+      </div>
+    </div>
+  </div>
+</body>

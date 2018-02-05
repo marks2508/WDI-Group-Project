@@ -1,64 +1,43 @@
 angular
-  .module('roadTrippers')
-  .directive('googleMap', googleMap);
+  .module('roadTrippers', [])
+  .directive('googleMap', googleMap)
+  .controller('GeoCodeCtrl', GeoCodeCtrl);
 
-googleMap.$inject = ['$window'];
+googleMap.$inject =['$window'];
 function googleMap($window) {
-  let firstMarker = null;
-  let secondMarker = null;
   return {
     restrict: 'E',
     replace: true,
-    template: '<div class="google-map">GOOGLE MAP GOES HERE</div>',
+    template: '<div class="google-map">Google map goes here"</div>',
     scope: {
       center: '='
     },
     link(scope, element) {
-      const map = new $window.google.maps.Map(element[0], {
-        zoom: 4,
+      new $window.google.maps.Map(element[0], {
+        zoom: 14,
         center: scope.center
-
-      });
-
-      // const marker = new $window.google.maps.Marker({
-      //   position: scope.center,
-      //   map
-      // });
-      function addFirstMarker(e) {
-        if (firstMarker === null) {
-          firstMarker = new $window.google.maps.Marker({
-            position: e.latLng,
-            map
-          });
-          const infoWindow = new $window.google.maps.InfoWindow({
-            content: `${e.latLng}`
-          });
-          firstMarker.addListener('click', () => {
-            infoWindow.open(map, firstMarker);
-          });
-        } else {
-          firstMarker.position = e.latLng;
-        }
-
-      }
-      function addSecondMarker(e) {
-        if ( secondMarker === null) {
-          secondMarker = new $window.google.maps.Marker({
-            position: e.latLng,
-            map
-          });
-          const infoWindow = new $window.google.maps.InfoWindow({
-            content: `${e.latLng}`
-          });
-          secondMarker.addListener('click', () => {
-            infoWindow.open(map, secondMarker);
-          });
-        }
-      }
-      map.addListener('click', (e) => {
-        addFirstMarker(e);
-
       });
     }
   };
+}
+GeoCodeCtrl.$inject = ['$http'];
+function GeoCodeCtrl($http) {
+  const vm = this;
+  vm.all = [];
+  vm.address = {postcode: ''};
+  vm.submit = submit;
+  vm.status = null;
+
+  function submit() {
+    $http
+      .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${vm.address.postcode}&key=AIzaSyDWkmuGQBG6zeDihrTekF0yf0OsBMfKHTI`)
+      .then(res => {
+        vm.all = res.data;
+        if (vm.all.status !== 'OK') {
+          vm.status = 1;
+        } else {
+          vm.status = 0;
+        }
+      });
+  }
 }
