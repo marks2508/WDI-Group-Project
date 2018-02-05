@@ -35,21 +35,14 @@ function googleMap($window, $rootScope) {
 
       function createMarker(location) {
         new $window.google.maps.Marker({
-<<<<<<< HEAD
           position: location,
           map: map
-=======
-          position: scope.start,
-          map: map,
-          bounds: {}
->>>>>>> map-update
         });
 
 
       }
 
-<<<<<<< HEAD
-=======
+
       function addEndMarker() {
         if(!scope.end) return false;
         console.log(scope.end);
@@ -60,7 +53,7 @@ function googleMap($window, $rootScope) {
         });
         map.setCenter(scope.end);
       }
->>>>>>> map-update
+      map-update
 
 
       // scope.$watch('start', addStartMarker);
