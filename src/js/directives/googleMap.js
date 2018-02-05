@@ -57,7 +57,7 @@ function googleMap($window, $rootScope) {
         console.log(data.address);
         console.log(data.address.geometry.location);
         console.log(data.address.geometry.location.lat);
-        marker.setPosition(data.address.geometry.location)
+        marker.setPosition(data.address.geometry.location);
         // create marker for new address
         // set center of map to the new marker
       });
