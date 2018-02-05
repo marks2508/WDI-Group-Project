@@ -4,7 +4,7 @@ angular
 
 Trip.$inject = ['$resource'];
 function Trip($resource) {
-  return new $resource('/api/trips/:id', { id: '@id' }, {
+  return $resource('/api/trips/:id', { id: '@id' }, {
     update: { method: 'PUT' }
   });
 }

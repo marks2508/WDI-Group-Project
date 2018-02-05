@@ -7,6 +7,8 @@
     <p><strong>{{ trip.title }}</strong></p>
     <p>{{ trip.description }}</p>
     <img ng-src="{{trip.image}}">
+    <button class="button is-small" ui-sref="tripsShow({ id: trip.id })">View</button>
+
 </div>
 <!-- <p>{{ vm.all }}</p> -->
 

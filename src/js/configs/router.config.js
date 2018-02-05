@@ -12,6 +12,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/trips/index.html',
       controller: 'TripsIndexCtrl as vm'
     })
+    .state('tripsShow', {
+      url: '/trips/:id',
+      templateUrl: 'js/views/trips/show.html',
+      controller: 'TripsShowCtrl as vm'
+    })
     .state('login', {
       url: '/login',
       templateUrl: 'js/views/auth/login.html',
@@ -27,4 +32,5 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/trips/new.html',
       controller: 'TripsNewCtrl as vm'
     });
+  $urlRouterProvider.otherwise('/');
 }

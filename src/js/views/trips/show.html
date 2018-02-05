@@ -1,0 +1,10 @@
+<section class="section">
+  <h2 class="title">{{ vm.trip.title}}</h2>
+  <h3>Description: <em>{{ vm.trip.description }}</em></h3>
+  <img ng-src="{{ vm.trip.image }}">
+
+  <div>
+    <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit</button>
+    <button class="button is-small is-danger" ng-click="vm.delete()">Delete</button>
+  </div>
+</section>
