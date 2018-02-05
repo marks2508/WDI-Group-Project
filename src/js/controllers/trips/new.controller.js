@@ -5,18 +5,18 @@ angular
 TripsNewCtrl.$inject = ['Trip', '$state'];
 function TripsNewCtrl(Trip, $state) {
   const vm = this;
-  vm.post = {};
+  vm.trip = {};
 
-  
+
 
   function tripsCreate() {
-    if(vm.newForm.$valid) {
-      Trip
-        .save(vm.trip)
-        .$promise
-        .then(() => $state.go('tripsIndex'));
-    }
+    // if(vm.post.$valid) {
+    Trip
+      .save(vm.trip)
+      .$promise
+      .then(() => $state.go('tripsIndex'));
   }
+  // }
 
   vm.create = tripsCreate;
 }
