@@ -20,7 +20,7 @@
 
   <nav class="navbar is-primary">
     <div class="navbar-brand">
-      <a class="navbar-item" ui-sref="/">
+      <a class="navbar-item" href="/">
         <i class="fas fa-road" height="100"></i>
       </a>
       <div class="navbar-burger burger nav-toggle" ng-class="{ 'is-active': main.menuIsOpen }" ng-click="main.menuIsOpen = !main.menuIsOpen" data-target="navbarExampleTransparentExample">
@@ -38,7 +38,7 @@
             Trips
           </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="/trips/new">
+            <a class="navbar-item" href="/trips/new" ng-if="main.isAuthenticated()">
               Add a trip
             </a>
             <a class="navbar-item" href="/trips">
@@ -68,7 +68,7 @@
               </a>
             </p>
             <p class="control">
-              <a class="button is-primary" ng-click="main.logout()" ng-if="main.isAuthenticated()" ui-sref="login">
+              <a class="button is-primary" ng-click="main.logout()" ng-if="main.isAuthenticated()" ui-sref="/">
                 <span class="icon">
                   <i class="fas fa-sign-out-alt"></i>
                 </span>
@@ -90,6 +90,10 @@
   <main ui-view>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> development
 
   </main>
 

@@ -20,10 +20,21 @@
     "angular-resource": "^1.6.7",
     "angular-messages": "^1.6.4",
     "satellizer": "^0.15.5",
-    "angular-slick": "^0.2.1",
     "angular-ui-carousel": "^0.1.10"
   },
   "resolutions": {
     "angular": "1.6.9"
+  },
+  "overrides": {
+    "angular-ui-carousel": {
+      "main": [
+        "./dist/fonts/ui-carousel.eot",
+        "./dist/fonts/ui-carousel.svg",
+        "./dist/fonts/ui-carousel.ttf",
+        "./dist/fonts/ui-carousel.woff",
+        "./dist/ui-carousel.min.js",
+        "./dist/ui-carousel.min.css"
+      ]
+    }
   }
 }

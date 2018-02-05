@@ -46,13 +46,7 @@ function googleMap($window, $rootScope) {
           end = data.location;
           createMarker(end);
         }
-        if(start && end) {
-          const bounds = new $window.google.maps.LatLngBounds();
-          bounds.extend(start);
-          bounds.extend(end);
-          map.fitBounds(bounds);
-          calcRoute();
-        }
+        if(start && end) calcRoute();
       });
 
       scope.$watch('start', createMarker);
@@ -76,6 +70,7 @@ function googleMap($window, $rootScope) {
 
 
 
+<<<<<<< HEAD
       const marker = new $window.google.maps.Marker({
         position: scope.center,
         map: map
@@ -83,6 +78,41 @@ function googleMap($window, $rootScope) {
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
       });
+=======
+
+
+      // scope.$watch('start', addStartMarker);
+      // scope.$watch('end', addEndMarker);
+
+      // function addStartMarker() {
+      //   if(!scope.start) return false;
+      //   console.log(scope.start);
+      //   const marker = new $window.google.maps.Marker({
+      //     position: scope.start,
+      //     map: map
+      //   });
+      //   map.setCenter(scope.start);
+      // }
+      //
+      // function addEndMarker() {
+      //   if(!scope.end) return false;
+      //   console.log(scope.end);
+      //   const marker = new $window.google.maps.Marker({
+      //     position: scope.end,
+      //     map: map
+      //   });
+      //   map.setCenter(scope.end);
+      // }
+
+
+      // const marker = new $window.google.maps.Marker({
+      //   position: scope.center,
+      //   map: map
+      // });
+      // marker.addListener('click', () => {
+      //   infoWindow.open(map, marker);
+      // });
+>>>>>>> development
 
 
 
