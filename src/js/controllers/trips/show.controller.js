@@ -17,20 +17,20 @@ function TripsShowCtrl(Trip, TripComment, $state, $http, $rootScope) {
 
 
 
-  function geocode() {
-    $http
-      .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${vm.address}&key=AIzaSyDFdykQIbI6dMLCGyov2befnGnaHEtKA5w`,
-        { skipAuthorization: true })
-      .then(res => {
-        if (res.data.results.length) {
-          $rootScope.$broadcast('newAddressFound', { address: res.data.results[0] });
-          vm.error = false;
-        } else {
-          vm.result = null;
-          vm.error = true;
-        }
-      });
-  }
+  // function geocode() {
+  //   $http
+  //     .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${vm.address}&key=AIzaSyDFdykQIbI6dMLCGyov2befnGnaHEtKA5w`,
+  //       { skipAuthorization: true })
+  //     .then(res => {
+  //       if (res.data.results.length) {
+  //         $rootScope.$broadcast('newAddressFound', { address: res.data.results[0] });
+  //         vm.error = false;
+  //       } else {
+  //         vm.result = null;
+  //         vm.error = true;
+  //       }
+  //     });
+  // }
 
   function TripsDelete() {
     vm.trip

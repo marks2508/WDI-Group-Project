@@ -30,7 +30,13 @@ function googleMap($window, $rootScope) {
           end = data.location;
           createMarker(end);
         }
-        if(start && end) calcRoute();
+        if(start && end) {
+          const bounds = new $window.google.maps.LatLngBounds();
+          bounds.extend(start);
+          bounds.extend(end);
+          map.fitBounds(bounds);
+          calcRoute();
+        }
       });
 
       function createMarker(location) {
