@@ -8,12 +8,12 @@ const secureRoute = require('../lib/secureRoute');
 // Routes go here
 
 router.route('/trips')
-  .get(secureRoute, trips.index)
-  .post(secureRoute, trips.create);
+  .get(trips.index)
+  .post(trips.create);
 
 router.route('/trips/:id')
-  .get(secureRoute, trips.show)
-  .delete(secureRoute, trips.delete);
+  .get(trips.show)
+  .delete(trips.delete);
 
 router.route('/register')
   .post(auth.register);
