@@ -4,14 +4,7 @@
 </form>
 
 <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-=======
-<!DOCTYPE html>
->>>>>>> development
->>>>>>> development
 <html ng-app="roadTrippers">
 <section class="section">
   <h2 class="title">{{ vm.trip.title}}</h2>
@@ -29,7 +22,6 @@
 
     <p ng-if="!vm.post.comments.length">0 comments</p>
 
-<<<<<<< HEAD
     <ul class="comments__created">
       <li ng-repeat="comment in vm.trip.comments track by $index">
         <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
@@ -37,15 +29,6 @@
         <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id"   >Delete</button>
       </li>
     </ul>
-=======
-      <ul class="comments__created">
-        <li ng-repeat="comment in vm.trip.comments track by $index">
-          <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-          <p>{{ main.currentUserId }}/{{ comment.createdBy.id }}</p>
-          <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete</button>
-        </li>
-      </ul>
->>>>>>> development
 
     <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
       <label>Add comment</label>
@@ -53,7 +36,6 @@
       <button class="button button--full">Comment</button>
     </form>
 
-<<<<<<< HEAD
     </div>
 </section>
 <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
@@ -72,12 +54,5 @@
         <p class="error" ng-if="geo.status == 1">Invalid Postcode</p>
       </div>
     </div>
-=======
->>>>>>> development
   </div>
-<<<<<<< HEAD
 </section>
-=======
-</body>
-</html>
->>>>>>> development

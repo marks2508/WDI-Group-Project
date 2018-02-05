@@ -18,17 +18,17 @@
 
   <nav class="navbar is-primary">
     <div class="navbar-brand">
-      <a class="navbar-item">
+      <a class="navbar-item" ui-sref="/">
         <i class="fas fa-road" height="100"></i>
       </a>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <div class="navbar-burger burger nav-toggle" ng-class="{ 'is-active': main.menuIsOpen }" ng-click="main.menuIsOpen = !main.menuIsOpen" data-target="navbarExampleTransparentExample">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
 
-    <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div id="navbarExampleTransparentExample" class="navbar-menu" ng-class="{ 'is-active': main.menuIsOpen}">
       <div class="navbar-start">
 
         <div class="navbar-item has-dropdown is-hoverable">
@@ -36,10 +36,10 @@
             Trips
           </a>
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="/documentation/overview/start/">
+            <a class="navbar-item" href="/trips/new">
               Add a trip
             </a>
-            <a class="navbar-item" href="">
+            <a class="navbar-item" href="/trips">
               See all trips
             </a>
           </div>
@@ -66,7 +66,7 @@
               </a>
             </p>
             <p class="control">
-              <a class="button is-primary" ng-click="main.logout()" ng-if="main.isAuthenticated()">
+              <a class="button is-primary" ng-click="main.logout()" ng-if="main.isAuthenticated()" ui-sref="login">
                 <span class="icon">
                   <i class="fas fa-sign-out-alt"></i>
                 </span>
