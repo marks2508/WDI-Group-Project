@@ -31,7 +31,8 @@ function googleMap($window, $rootScope) {
         console.log(scope.start);
         new $window.google.maps.Marker({
           position: scope.start,
-          map: map
+          map: map,
+          bounds: {}
         });
         map.setCenter(scope.start);
 
@@ -43,7 +44,8 @@ function googleMap($window, $rootScope) {
         console.log(scope.end);
         new $window.google.maps.Marker({
           position: scope.end,
-          map: map
+          map: map,
+          bounds: {}
         });
         map.setCenter(scope.end);
       }
