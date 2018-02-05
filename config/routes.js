@@ -22,4 +22,10 @@ router.route('/register')
 router.route('/login')
   .post(auth.login);
 
+router.route('/trips/:id/comments')
+  .post(trips.addComment);
+
+router.route('/trips/:id/comments/:commentId')
+  .delete(trips.deleteComment);
+
 module.exports = router;
