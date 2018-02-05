@@ -19,6 +19,7 @@ const tripSchema = new mongoose.Schema({
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
+commentSchema.set('toJSON', { virtuals: true });
 tripSchema.set('toJSON', { virtuals: true });
 
 module.exports = mongoose.model('Trip', tripSchema);
