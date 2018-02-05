@@ -1,3 +1,12 @@
+<form ng-submit=vm.geocode()>
+  <input type="text" name="" ng-model="vm.address">
+  <input type="submit" value="Geocode">
+</form>
+
+<google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
+
+<!-- <!DOCTYPE html>
+<html ng-app="roadTrippers">
 <section class="section">
   <h2 class="title">{{ vm.trip.title}}</h2>
   <h3>Description: <em>{{ vm.trip.description }}</em></h3>
@@ -31,20 +40,21 @@
     </div>
 </section>
 <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
-<body ng-controller="GeoCodeCtrl as vm">
+<body ng-controller="GeoCodeCtrl as geo">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h1>Geocoding App</h1>
-        <form ng-submit="vm.submit()">
+        <form ng-submit="geo.geocode()">
           <label type="text" value="Enter a postcode">Enter a postcode</label>
           <br>
-          <input type="text" ng-model="vm.address.postcode"></input>
-          <input type="submit"></input>
+          <input type="text" ng-model="geo.address"></input>
+          <button type="submit"></button>
         </form>
-        <p>{{vm.all.results[0].formatted_address}}</p>
-        <p class="error" ng-if="vm.status == 1">Invalid Postcode</p>
+        <p>Results: {{geo.result.formatted_address}}</p>
+        <p class="error" ng-if="geo.status == 1">Invalid Postcode</p>
       </div>
     </div>
   </div>
 </body>
+</html> -->

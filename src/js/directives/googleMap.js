@@ -1,10 +1,8 @@
 angular
   .module('roadTrippers')
-  .directive('googleMap', googleMap)
-  .controller('GeoCodeCtrl', GeoCodeCtrl);
-
-googleMap.$inject =['$window'];
-function googleMap($window) {
+  .directive('googleMap', googleMap);
+googleMap.$inject =['$window', '$rootScope'];
+function googleMap($window, $rootScope) {
   return {
     restrict: 'E',
     replace: true,
@@ -17,27 +15,16 @@ function googleMap($window) {
         zoom: 14,
         center: scope.center
       });
+
+
+      $rootScope.$on('newAddressFound', (e, data) => {
+        console.log('listening for a new address');
+        console.log(data.address);
+
+        // create marker for new address
+        // set center of map to the new marker
+      });
+
     }
   };
-}
-GeoCodeCtrl.$inject = ['$http'];
-function GeoCodeCtrl($http) {
-  const vm = this;
-  vm.all = [];
-  vm.address = {postcode: ''};
-  vm.submit = submit;
-  vm.status = null;
-
-  function submit() {
-    $http
-      .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${vm.address.postcode}&key=AIzaSyDWkmuGQBG6zeDihrTekF0yf0OsBMfKHTI`)
-      .then(res => {
-        vm.all = res.data;
-        if (vm.all.status !== 'OK') {
-          vm.status = 1;
-        } else {
-          vm.status = 0;
-        }
-      });
-  }
 }
