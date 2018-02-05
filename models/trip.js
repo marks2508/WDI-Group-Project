@@ -11,11 +11,21 @@ const tripSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   comments: [ commentSchema ],
-  // image: { type: String, required: true },
-  // startPointLat: { type: Number, required: true },
-  // startPointLng: { type: Number, required: true },
-  // endPointLat: { type: Number, required: true },
-  // endPointLng: { type: Number, required: true }
+  image: { type: String},
+  start: {
+    location: {
+      lat: Number,
+      lng: Number
+    },
+    description: String
+  },
+  end: {
+    location: {
+      lat: Number,
+      lng: Number
+    },
+    description: String
+  },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
