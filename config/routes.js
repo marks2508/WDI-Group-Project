@@ -3,21 +3,18 @@ const router  = express.Router();
 const trips = require('../controllers/trips');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
-// const users = require('../controllers/users')
-// const auth = require('../controllers/auth');
 // const users = require('../controllers/users');
-// const secureRoute = require('../lib/secureRoute');
 
 // Routes go here
 
 router.route('/trips')
-  .get(trips.index)
-  .post(trips.create);
+  .get(secureRoute, trips.index)
+  .post(secureRoute, trips.create);
 
 router.route('/trips/:id')
-  .get(trips.show)
-  .put(trips.update)
-  .delete(trips.delete);
+  .get(secureRoute, trips.show)
+  .put(secureRoute, trips.update)
+  .delete(secureRoute,trips.delete);
 
 router.route('/register')
   .post(auth.register);
