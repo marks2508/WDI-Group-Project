@@ -1,0 +1,9 @@
+<h1>Create a map thing</h1>
+<google-map center="{ lat: 0, lng: 0}"></google-map>
+<form ng-submit="vm.create()">
+  <label class="label" for="title">Title</label>
+  <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title">
+  <label class="label" for="description">Description</label>
+  <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description">
+  <input type="submit" value="add">
+</form>
