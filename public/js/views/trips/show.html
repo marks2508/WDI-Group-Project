@@ -38,24 +38,3 @@
 
     </div>
 </section>
-<<<<<<< HEAD
-=======
-<google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
-<body ng-controller="GeoCodeCtrl as geo">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Geocoding App</h1>
-        <form ng-submit="geo.geocode()">
-          <label type="text" value="Enter a postcode">Enter a postcode</label>
-          <br>
-          <input type="text" ng-model="geo.address">
-          <button type="submit"></button>
-        </form>
-        <p>Results: {{geo.result.formatted_address}}</p>
-        <p class="error" ng-if="geo.status == 1">Invalid Postcode</p>
-      </div>
-    </div>
-  </div>
-</section>
->>>>>>> f9db59cf44d96e030b74da4f427d5c9c9d24625f
