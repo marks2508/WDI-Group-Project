@@ -20,6 +20,7 @@ function googleMap($window, $rootScope) {
       $rootScope.$on('newAddressFound', (e, data) => {
         console.log('listening for a new address');
         console.log(data.address);
+        console.log(data.address.geometry.location);
 
         // create marker for new address
         // set center of map to the new marker
