@@ -2,11 +2,11 @@ angular
   .module('roadTrippers')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', 'TripComment', '$state', '$http', '$rootScope'];
-function TripsShowCtrl(Trip, TripComment, $state, $http, $rootScope) {
+TripsShowCtrl.$inject = ['Trip', 'TripComment', '$state', '$http'];
+function TripsShowCtrl(Trip, TripComment, $state, $http) {
   const vm = this;
-  // vm.trip = Trip.get($state.params);
-  vm.geocode = geocode;
+  vm.trip = Trip.get($state.params);
+  // vm.geocode = geocode;
 
   Trip
     .get($state.params)
