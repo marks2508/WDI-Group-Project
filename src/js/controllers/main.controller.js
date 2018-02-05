@@ -31,7 +31,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     vm.pageName = transition.to().name;
     if(vm.stateHasChanged) vm.messgae = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
-    if($auth.getPayLoad()) vm.currentUserId = $auth.getPayLoad().userId;
+    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
 
     if(!$auth.isAuthenticated() && protectedStates.includes(vm.pageName)) {
       vm.message = 'You must be logged in';
