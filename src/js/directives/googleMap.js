@@ -24,31 +24,36 @@ function googleMap($window, $rootScope) {
       scope.$watch('start', addStartMarker);
       scope.$watch('end', addEndMarker);
 
+
+
       function addStartMarker() {
         if(!scope.start) return false;
         console.log(scope.start);
-        const marker = new $window.google.maps.Marker({
+        new $window.google.maps.Marker({
           position: scope.start,
           map: map
         });
         map.setCenter(scope.start);
+
+
       }
 
       function addEndMarker() {
         if(!scope.end) return false;
         console.log(scope.end);
-        const marker = new $window.google.maps.Marker({
+        new $window.google.maps.Marker({
           position: scope.end,
           map: map
         });
         map.setCenter(scope.end);
       }
 
-
       const marker = new $window.google.maps.Marker({
         position: scope.center,
         map: map
       });
+
+
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
       });
