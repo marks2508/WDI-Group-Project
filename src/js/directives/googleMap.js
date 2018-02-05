@@ -70,7 +70,6 @@ function googleMap($window, $rootScope) {
 
 
 
-<<<<<<< HEAD
       const marker = new $window.google.maps.Marker({
         position: scope.center,
         map: map
@@ -78,7 +77,6 @@ function googleMap($window, $rootScope) {
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
       });
-=======
 
 
       // scope.$watch('start', addStartMarker);
@@ -112,7 +110,6 @@ function googleMap($window, $rootScope) {
       // marker.addListener('click', () => {
       //   infoWindow.open(map, marker);
       // });
->>>>>>> development
 
 
 
