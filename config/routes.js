@@ -13,6 +13,7 @@ router.route('/trips')
 
 router.route('/trips/:id')
   .get(trips.show)
+  .put(trips.update)
   .delete(trips.delete);
 
 router.route('/register')
