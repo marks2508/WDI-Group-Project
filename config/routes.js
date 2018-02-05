@@ -8,18 +8,24 @@ const secureRoute = require('../lib/secureRoute');
 // Routes go here
 
 router.route('/trips')
-  .get(trips.index)
-  .post(trips.create);
+  .get(secureRoute, trips.index)
+  .post(secureRoute, trips.create);
 
 router.route('/trips/:id')
-  .get(trips.show)
-  .put(trips.update)
-  .delete(trips.delete);
+  .get(secureRoute, trips.show)
+  .put(secureRoute, trips.update)
+  .delete(secureRoute, trips.delete);
 
 router.route('/register')
   .post(auth.register);
 
 router.route('/login')
   .post(auth.login);
+
+router.route('/trips/:id/comments')
+  .post(secureRoute, trips.addComment);
+
+router.route('/trips/:id/comments/:commentId')
+  .delete(secureRoute, trips.deleteComment);
 
 module.exports = router;

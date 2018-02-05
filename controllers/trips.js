@@ -23,7 +23,7 @@ function showRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
-  // req.body.createdBy = req.user;
+  req.body.createdBy = req.user;
 
   Trip
     .create(req.body)
@@ -45,6 +45,42 @@ function updateRoute(req, res, next) {
     .catch(next);
 }
 
+function addCommentRoute(req, res, next) {
+
+  req.body.createdBy = req.user;
+
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+
+      const comment = trip.comments.create(req.body);
+      trip.comments.push(comment);
+
+      return trip.save()
+        .then(() => res.json(comment));
+    })
+    .catch(next);
+}
+
+function deleteCommentRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+
+      const comment = trip.comments.id(req.params.commentId);
+      comment.remove();
+
+      return trip.save();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
+
 function deleteRoute(req, res, next) {
   Trip
     .findById(req.params.id)
@@ -63,5 +99,7 @@ module.exports = {
   show: showRoute,
   create: createRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  addComment: addCommentRoute,
+  deleteComment: deleteCommentRoute
 };

@@ -5,15 +5,15 @@ angular
 TripsEditCtrl.$inject = ['$state', 'Trip'];
 function TripsEditCtrl($state, Trip) {
   const vm = this;
-  vm.bird = Trip.get($state.params);
-  vm.update = birdsUpdate;
+  vm.trip = Trip.get($state.params);
+  vm.update = tripsUpdate;
 
-  function birdsUpdate(){
+  function tripsUpdate(){
     Trip
-      .update($state.params, vm.bird)
+      .update($state.params, vm.trip)
       .$promise
       .then(() => {
-        $state.go('birdsShow', $state.params);
+        $state.go('tripsShow', $state.params);
       });
   }
 }
