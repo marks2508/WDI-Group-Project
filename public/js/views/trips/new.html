@@ -7,15 +7,22 @@
 
 
 <google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
-<google-map center="{ lat: 0, lng: 0}"></google-map>
+<!-- <google-map center="{ lat: 0, lng: 0}"></google-map> -->
+
+
 <form ng-submit="vm.create()">
   <label class="label" for="title">Title</label>
   <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title">
   <label class="label" for="description">Description</label>
   <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description">
+
+
+
   <input type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location">
   <input type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location">
   {{vm.trip}}
+
+  <button ng-submit="calcRoute()">Route</button>
   <!-- <div class="field">
     <p class="control">
       <label class="label" for="family">Family</label>
@@ -32,7 +39,7 @@
 
   <div class="field">
     <p class="control"> -->
-    <button type="submit" name="button">ADd</button>
+    <button type="submit" name="button">Add Trip</button>
   <!-- <input type="submit" class="button is-primary is-fullwidth" value="Add"> -->
     <!-- </p>
   </div> -->
