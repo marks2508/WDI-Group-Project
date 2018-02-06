@@ -12,7 +12,8 @@ function googleMap($window, $rootScope) {
       center: '=',
       start: '=',
       end: '=',
-      showPage: '='
+      showPage: '=',
+      waypoints: '='
     },
     link(scope, element) {
       let start = null;
@@ -23,16 +24,7 @@ function googleMap($window, $rootScope) {
         center: {lat: 0, lng: 0}
       });
 
-      if(scope.showPage) {
-        // if(!scope.start || !scope.end) return false;
-        // console.log('its true');
-        // createMarker(scope.start);
-        // createMarker(scope.end);
-        // bounds.extend(scope.start);
-        // bounds.extend(scope.end);
-        // map.fitBounds(bounds);
-        // calcRoute();
-      }
+
 
 
 
@@ -134,7 +126,9 @@ function googleMap($window, $rootScope) {
         const request = {
           origin: scope.start,
           destination: scope.end,
-          travelMode: $window.google.maps.TravelMode.DRIVING
+          travelMode: $window.google.maps.TravelMode.DRIVING,
+          waypoints: scope.waypoints,
+          optimizeWaypoints: true
         };
 
         directionsService.route(request, (response, status) => {
