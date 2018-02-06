@@ -19,14 +19,15 @@ function googlePlaces($window, $rootScope) {
         const service = new $window.google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: scope.location,
-          radius: 500,
+          radius: 1000,
           type: [selectedIntrest]
         }, (results) => {
           results.forEach(place => createMarker(place));
           map.setCenter(scope.location);
-          map.setZoom(15);
+          map.setZoom(14);
           // set map center to be location
           // set zoom
+
         });
 
       });
@@ -40,7 +41,8 @@ function googlePlaces($window, $rootScope) {
             url: place.icon,
             scaledSize: new $window.google.maps.Size(20, 20)
           },
-          map: map
+          map: map,
+          animation: $window.google.maps.Animation.DROP
         });
       }
     }
