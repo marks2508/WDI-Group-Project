@@ -62,6 +62,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   wrappedResult.bind('change', e => {
     console.log(e);
     vm.trip.images.push(e.url);
+    
   });
 
   // function geocode() {
