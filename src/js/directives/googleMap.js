@@ -24,7 +24,18 @@ function googleMap($window, $rootScope) {
         center: {lat: 0, lng: 0}
       });
 
+      $rootScope.$broadcast('mapInit', { map });
 
+      if(scope.showPage) {
+        // if(!scope.start || !scope.end) return false;
+        // console.log('its true');
+        // createMarker(scope.start);
+        // createMarker(scope.end);
+        // bounds.extend(scope.start);
+        // bounds.extend(scope.end);
+        // map.fitBounds(bounds);
+        // calcRoute();
+      }
 
 
 
