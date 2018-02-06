@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bower install && gulp deploy",
-    "test": "node_modules/.bin/_mocha"
+    "postinstall": "bower install && gulp deploy"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
@@ -57,7 +56,6 @@
     "babel-preset-env": "^1.6.1",
     "bower": "^1.8.2",
     "browser-sync": "^2.23.5",
-    "chai": "^4.1.2",
     "event-stream": "^3.3.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
@@ -85,9 +83,7 @@
     "jshint": "^2.9.5",
     "jshint-stylish": "^2.2.1",
     "main-bower-files": "^2.13.1",
-    "mocha": "^5.0.0",
-    "require-dir": "^0.3.2",
-    "supertest": "^3.0.0"
+    "require-dir": "^0.3.2"
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
