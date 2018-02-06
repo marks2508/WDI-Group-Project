@@ -12,8 +12,8 @@ function googleMap($window, $rootScope) {
       center: '=',
       start: '=',
       end: '=',
-      showPage: '=',
-      waypoints: '='
+      showPage: '='
+      // waypoints: '='
     },
     link(scope, element) {
       let start = null;
@@ -137,9 +137,9 @@ function googleMap($window, $rootScope) {
         const request = {
           origin: scope.start,
           destination: scope.end,
-          travelMode: $window.google.maps.TravelMode.DRIVING,
-          waypoints: scope.waypoints,
-          optimizeWaypoints: true
+          travelMode: $window.google.maps.TravelMode.DRIVING
+          // waypoints: scope.waypoints,
+          // optimizeWaypoints: true
         };
 
         directionsService.route(request, (response, status) => {
