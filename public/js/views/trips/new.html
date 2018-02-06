@@ -16,32 +16,27 @@
   <label class="label" for="description">Description</label>
   <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description">
 
-
+  <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" ng-model="vm.newUser.image" upload-image>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Choose a file…
+              </span>
+            </span>
+          </label>
+        </div>
 
   <input type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location">
   <input type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location">
   {{vm.trip}}
 
   <button ng-submit="calcRoute()">Route</button>
-  <!-- <div class="field">
-    <p class="control">
-      <label class="label" for="family">Family</label>
-    </p>
-    <input type="text" class="input" id="family" name="family" ng-model="vm.bird.family">
-  </div>
 
-  <div class="field">
-    <p class="control">
-      <label class="label" for="image">Image Url</label>
-    </p>
-    <input type="text" class="input" id="image" name="image" ng-model="vm.bird.image">
-  </div>
-
-  <div class="field">
-    <p class="control"> -->
     <button type="submit" name="button">Add Trip</button>
-  <!-- <input type="submit" class="button is-primary is-fullwidth" value="Add"> -->
-    <!-- </p>
-  </div> -->
+
 
 </form>
