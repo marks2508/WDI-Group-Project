@@ -1,4 +1,15 @@
 
+<google-map start="vm.trip.start.location" waypoints="vm.trip.waypoints" end="vm.trip.end.location" show-page="true"></google-map>
+
+<div>
+  <p>Find places of intrest</p>
+  <select google-places location="vm.trip.end.location">
+    <option disabled selected>Please choose an option</option>
+    <option value="cafe">Cafe</option>
+    <option value="convenience_store">Convenience Store</option>
+  </select>
+</div>
+
 <google-map start="vm.trip.start.location" end="vm.trip.end.location" show-page="true"></google-map>
 
 
@@ -12,12 +23,12 @@
     <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>
   </div>
 
+<input type=text google-placesdirective ng-model="vm.trip.places" location="vm.trip.location">
+
+
   <div class="comments">
-
     <h2>Comments for trip</h2>
-
     <p ng-if="!vm.post.comments.length">0 comments</p>
-
     <ul class="comments__created">
       <li ng-repeat="comment in vm.trip.comments track by $index">
         <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
@@ -25,11 +36,9 @@
         <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
       </li>
     </ul>
-
     <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
       <textarea ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
       <button class="button button--full">Add comment</button>
     </form>
-
     </div>
 </section>
