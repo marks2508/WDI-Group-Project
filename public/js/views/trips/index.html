@@ -1,16 +1,19 @@
 <br>
 <h1>Index page - list of seeded trips</h1>
 <br>
-<div ng-repeat="trip in vm.all">
-  <div>
-    <!-- <div ui-sref="postsShow({ id: post.id })"></div> -->
-    <p><strong>{{ trip.title }}</strong></p>
-    <p>{{ trip.description }}</p>
-    <img ng-src="{{trip.image}}">
-    <button class="button is-small" ui-sref="tripsShow({ id: trip.id })">View</button>
+<div class="columns">
+  <div ng-repeat="trip in vm.all">
+    <div class="column indexClip">
+      <div class="clipImage" style="background: url('{{trip.image}}') no-repeat left center; background-size: cover"></div>
+      <p class="clipTitle"><strong>{{ trip.title }}</strong></p>
+      <p class="clipDescription">{{ trip.description }}</p>
 
+      <button class="button is-small" ui-sref="tripsShow({ id: trip.id })">View</button>
+
+    </div>
   </div>
 </div>
+
 <!-- <p>{{ vm.all }}</p> -->
 
 
