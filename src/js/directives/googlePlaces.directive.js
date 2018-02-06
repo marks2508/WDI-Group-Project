@@ -24,7 +24,7 @@ function googlePlaces($window, $rootScope) {
         }, (results) => {
           results.forEach(place => createMarker(place));
           // set map center to be location
-          // set zoom 
+          // set zoom
         });
 
       });
