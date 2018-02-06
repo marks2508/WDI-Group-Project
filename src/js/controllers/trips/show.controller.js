@@ -1,12 +1,19 @@
 angular
   .module('roadTrippers')
   .controller('TripsShowCtrl', TripsShowCtrl);
+// .filter('contains', function() {
+//   return function (array, needle) {
+//     return array.indexOf(needle) >= 0;
+//   };
+// });
 
-TripsShowCtrl.$inject = ['Trip', 'TripComment', '$state', '$http'];
-function TripsShowCtrl(Trip, TripComment, $state, $http) {
+TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state'];
+function TripsShowCtrl(Trip, $http, TripComment, $state) {
   const vm = this;
+  vm.modalOpen = null;
   vm.trip = Trip.get($state.params);
   // vm.geocode = geocode;
+  vm.users = [];
 
   Trip
     .get($state.params)
@@ -15,7 +22,32 @@ function TripsShowCtrl(Trip, TripComment, $state, $http) {
       vm.trip = trip;
     });
 
+  $http
+    .get('/api/users')
+    .then((res) => {
+      vm.users = res.data;
+      console.log('users', vm.users);
+    });
 
+
+  function openModal() {
+    vm.modalOpen = true;
+  }
+  function closeModal() {
+    vm.modalOpen = false;
+  }
+  vm.closeModal = closeModal;
+  vm.openModal = openModal;
+  vm.addUser = addUser;
+  vm.removeUser = removeUser;
+  function addUser(user) {
+    vm.trip.users.push(user);
+    console.log(vm.trip);
+  }
+  function removeUser(user) {
+    vm.trip.users.splice(user);
+    console.log(vm.trip);
+  }
 
   // function geocode() {
   //   $http

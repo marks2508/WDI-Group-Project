@@ -13,6 +13,15 @@ function showRoute(req, res, next) {
     .catch(next);
 }
 
+function indexRoute(req, res, next) {
+  User
+    .find()
+    .exec()
+    .then((users) => res.json(users))
+    .catch(next);
+}
+
 module.exports = {
-  show: showRoute
+  show: showRoute,
+  index: indexRoute
 };
