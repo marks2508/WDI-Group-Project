@@ -47,7 +47,6 @@
     <ul class="comments__created">
       <li ng-repeat="comment in vm.trip.comments track by $index">
         <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-        <p>{{ main.currentUserId }}{{ comment.createdBy.id }}</p>
         <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
       </li>
     </ul>
