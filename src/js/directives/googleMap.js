@@ -69,10 +69,7 @@ function googleMap($window, $rootScope) {
       }
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 8849b0178a37431cdaafd03dbdd240c2f17ead2c
       const marker = new $window.google.maps.Marker({
         position: scope.center,
         map: map
