@@ -15,7 +15,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   vm.trip = Trip.get($state.params);
   // vm.geocode = geocode;
   vm.users = [];
-  vm.trip.image = [];
+  vm.slides = vm.trip.images;
   Trip
     .get($state.params)
     .$promise
@@ -27,7 +27,6 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
     .get('/api/users')
     .then((res) => {
       vm.users = res.data;
-      console.log('users', vm.users);
     });
 
   function openAlbumModal() {
@@ -56,6 +55,14 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
     vm.trip.users.splice(user);
     console.log(vm.trip);
   }
+
+
+  var result = document.getElementsByClassName('file-input');
+  var wrappedResult = angular.element(result);
+  wrappedResult.bind('change', e => {
+    console.log(e);
+    vm.trip.images.push(e.url);
+  });
 
   // function geocode() {
   //   $http

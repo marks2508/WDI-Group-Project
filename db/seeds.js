@@ -95,7 +95,7 @@ User
           // description: 'Hollywood, USA'
         }
       },
-      image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/USA/Route%2066/AP_Route66_Travel.jpg',
+      images: ['http://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/USA/Route%2066/AP_Route66_Travel.jpg'],
       createdBy: users[0]
 
     }, {
@@ -120,7 +120,7 @@ User
         },
         description: 'Uluru, Australia'
       },
-      image: 'https://www.mappingmegan.com/wp-content/uploads/2015/01/IMG_1196.jpg',
+      images: ['https://www.mappingmegan.com/wp-content/uploads/2015/01/IMG_1196.jpg', 'http://south-seas-adventures.com/sites/default/files/country-cover-photo/2017-01/Sydney-Opera-House.jpg', 'https://www.australia.com/etc/designs/tourismaustralia/clientlibs/imgs/fallback/kangaroo_600_600.jpg', 'http://www.qygjxz.com/data/out/233/5775509-wallpaper-australia.jpg'],
       createdBy: users[1]
 
     }, {
@@ -145,7 +145,7 @@ User
         },
         description: 'San Francisco, USA'
       },
-      image: 'https://i.ytimg.com/vi/s5SgIvdVdGg/maxresdefault.jpg',
+      images: ['https://i.ytimg.com/vi/s5SgIvdVdGg/maxresdefault.jpg'],
       createdBy: users[2]
 
     },{
@@ -170,7 +170,7 @@ User
         },
         description: 'Port Elizabeth, Africa'
       },
-      image: 'https://nomadtours.co.za/media/garden-route.jpg',
+      images: ['https://nomadtours.co.za/media/garden-route.jpg'],
       createdBy: users[1]
 
     },{
@@ -195,7 +195,7 @@ User
         },
         description: 'Reykjavik, Iceland'
       },
-      image: 'https://photos.smugmug.com/Europe/Iceland/i-ZtdVdBr/0/XL/ring-road-landscape-XL.jpg',
+      images: ['https://photos.smugmug.com/Europe/Iceland/i-ZtdVdBr/0/XL/ring-road-landscape-XL.jpg'],
       createdBy: users[0]
 
     },{
@@ -220,7 +220,7 @@ User
         },
         description: 'Stilfs, Italy'
       },
-      image: 'http://www.colcorsa.com/wp-content/uploads/2016/07/Stelvio-Pass.jpg',
+      images: ['http://www.colcorsa.com/wp-content/uploads/2016/07/Stelvio-Pass.jpg'],
       createdBy: users[2]
 
     }])

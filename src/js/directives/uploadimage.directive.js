@@ -13,7 +13,7 @@ function uploadImage(filepickerService) {
         filepickerService
           .pick({ mimetype: 'image/*' }, data => {
             model.$setViewValue(data.url);
-            console.log(model);
+            console.log(data);
           });
       });
     }
