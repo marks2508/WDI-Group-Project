@@ -16,8 +16,36 @@
 <section class="section">
   <h2 class="title">{{ vm.trip.title}}</h2>
   <h3>Description: <em>{{ vm.trip.description }}</em></h3>
+  <ul ng-repeat="user in vm.trip.users">
+    <li>{{ user.username }}</li>
+  </ul>
   <img ng-src="{{ vm.trip.image }}">
-
+  <div>
+    <button class="button is-small is-primary" ng-click="vm.openModal()">Add User</button>
+    <!--MODAL-->
+    <div class="modal" ng-class="{'is-active': vm.modalOpen}">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Modal title</p>
+          <button class="delete" ng-click="vm.closeModal()" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div ng-repeat="user in vm.users">
+            <div>
+              <p>{{ user.username }}</p>
+              <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
+              <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-success">Save changes</button>
+          <button class="button">Cancel</button>
+        </footer>
+      </div>
+    </div>
+  </div>
   <div>
     <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button>
     <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('./user.js');
 
 const waypointSchema = new mongoose.Schema({
   lat: Number,
@@ -29,7 +30,7 @@ const tripSchema = new mongoose.Schema({
     places: []
   },
   waypoints: [ waypointSchema ],
-
+  users: [],
   end: {
     location: {
       lat: Number,

@@ -23,6 +23,7 @@ function googlePlaces($window, $rootScope) {
           type: [selectedIntrest]
         }, (results) => {
           results.forEach(place => createMarker(place));
+          console.log(results);
           // set map center to be location
           // set zoom
         });
