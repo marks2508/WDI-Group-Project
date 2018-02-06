@@ -45,48 +45,48 @@ User
         description: 'Chicago, USA'
       },
 
-      waypoints: [
-        {
-          lat: 41.094059,
-          lng: -88.425994
-        // description: 'Dwight, USA'
-        },
-        {
-          lat: 37.208957,
-          lng: -93.292299
-        // description: 'SpringField, USA'
-        },
-        {
-          lat: 40.521893,
-          lng: -111.939102
-        // description: 'Riverton, USA'
-        },
-        {
-          lat: 36.874515,
-          lng: -94.877455
-          // description: 'Miami, USA'
-        },
-        {
-          lat: 35.270674,
-          lng: -102.672823
-        // description: 'Midpoint cafe, USA'
-        },
-        {
-          lat: 35.085334,
-          lng: -106.605553
-        // description: 'Alburquerque, USA'
-        },
-        {
-          lat: 35.207404,
-          lng: -111.642392
-        // description: 'Flagstaff, USA'
-        },
-        {
-          lat: 35.270674,
-          lng: -102.672823
-        // description: 'Midpoint cafe, USA'
-        }
-      ],
+      // waypoints: [
+      //   {
+      //     lat: 41.094059,
+      //     lng: -88.425994
+      //   // description: 'Dwight, USA'
+      //   },
+      //   {
+      //     lat: 37.208957,
+      //     lng: -93.292299
+      //   // description: 'SpringField, USA'
+      //   },
+      //   {
+      //     lat: 40.521893,
+      //     lng: -111.939102
+      //   // description: 'Riverton, USA'
+      //   },
+      //   {
+      //     lat: 36.874515,
+      //     lng: -94.877455
+      //     // description: 'Miami, USA'
+      //   },
+      //   {
+      //     lat: 35.270674,
+      //     lng: -102.672823
+      //   // description: 'Midpoint cafe, USA'
+      //   },
+      //   {
+      //     lat: 35.085334,
+      //     lng: -106.605553
+      //   // description: 'Alburquerque, USA'
+      //   },
+      //   {
+      //     lat: 35.207404,
+      //     lng: -111.642392
+      //   // description: 'Flagstaff, USA'
+      //   },
+      //   {
+      //     lat: 35.270674,
+      //     lng: -102.672823
+      //   // description: 'Midpoint cafe, USA'
+      //   }
+      // ],
 
       end: {
         location: {
