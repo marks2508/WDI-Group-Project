@@ -25,6 +25,11 @@ User
     email: 'rob@ga.com',
     password: 'password',
     passwordConfirmation: 'password'
+  }, {
+    username: 'm',
+    email: 'm@m',
+    password: 'm',
+    passwordConfirmation: 'm'
   }])
   .then((users) => {
     console.log(`${users.length} users created!`);
