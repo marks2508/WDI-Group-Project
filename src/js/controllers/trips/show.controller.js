@@ -10,11 +10,12 @@ angular
 TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state'];
 function TripsShowCtrl(Trip, $http, TripComment, $state) {
   const vm = this;
-  vm.modalOpen = null;
+  vm.userModalOpen = null;
+  vm.albumModalOpen = null;
   vm.trip = Trip.get($state.params);
   // vm.geocode = geocode;
   vm.users = [];
-
+  vm.trip.image = [];
   Trip
     .get($state.params)
     .$promise
@@ -29,15 +30,22 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
       console.log('users', vm.users);
     });
 
-
-  function openModal() {
-    vm.modalOpen = true;
+  function openAlbumModal() {
+    vm.albumModalOpen = true;
   }
-  function closeModal() {
-    vm.modalOpen = false;
+  function closeAlbumModal() {
+    vm.albumModalOpen = false;
   }
-  vm.closeModal = closeModal;
-  vm.openModal = openModal;
+  function openUserModal() {
+    vm.userModalOpen = true;
+  }
+  function closeUserModal() {
+    vm.userModalOpen = false;
+  }
+  vm.closeAlbumModal = closeAlbumModal;
+  vm.openAlbumModal = openAlbumModal;
+  vm.closeUserModal = closeUserModal;
+  vm.openUserModal = openUserModal;
   vm.addUser = addUser;
   vm.removeUser = removeUser;
   function addUser(user) {

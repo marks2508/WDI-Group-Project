@@ -19,7 +19,7 @@ const tripSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   comments: [ commentSchema ],
-  image: { type: String},
+  images: [],
   start: {
     location: {
       lat: Number,
