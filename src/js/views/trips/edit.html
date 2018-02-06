@@ -1,5 +1,5 @@
 <h1>Create a map thing</h1>
-<google-map center="{ lat: 0, lng: 0}"></google-map>
+<google-map start="vm.trip.start.location" end="vm.trip.end.location" show-page="true"></google-map>
 <form ng-submit="vm.update()">
   <label class="label" for="title">Title</label>
   <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title">
