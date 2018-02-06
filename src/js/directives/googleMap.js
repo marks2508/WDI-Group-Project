@@ -23,6 +23,8 @@ function googleMap($window, $rootScope) {
         center: {lat: 0, lng: 0}
       });
 
+      $rootScope.$broadcast('mapInit', { map });
+
       if(scope.showPage) {
         // if(!scope.start || !scope.end) return false;
         // console.log('its true');
