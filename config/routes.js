@@ -3,7 +3,7 @@ const router  = express.Router();
 const trips = require('../controllers/trips');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
-// const users = require('../controllers/users');
+const users = require('../controllers/users');
 
 // Routes go here
 
@@ -27,5 +27,8 @@ router.route('/trips/:id/comments')
 
 router.route('/trips/:id/comments/:commentId')
   .delete(secureRoute, trips.deleteComment);
+
+router.route('/users')
+  .get(secureRoute, users.index);
 
 module.exports = router;
