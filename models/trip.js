@@ -19,6 +19,13 @@ const tripSchema = new mongoose.Schema({
     },
     description: String
   },
+  waypoint: {
+    location: {
+      lat: Number,
+      lng: Number
+    },
+    description: String
+  },
   end: {
     location: {
       lat: Number,
