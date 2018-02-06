@@ -12,7 +12,8 @@ function googleMap($window, $rootScope) {
       center: '=',
       start: '=',
       end: '=',
-      showPage: '='
+      showPage: '=',
+      waypoints: '='
     },
     link(scope, element) {
       let start = null;
@@ -22,6 +23,8 @@ function googleMap($window, $rootScope) {
         zoom: 5,
         center: {lat: 0, lng: 0}
       });
+
+      $rootScope.$broadcast('mapInit', { map });
 
       if(scope.showPage) {
         // if(!scope.start || !scope.end) return false;
@@ -137,7 +140,9 @@ function googleMap($window, $rootScope) {
         const request = {
           origin: scope.start,
           destination: scope.end,
-          travelMode: $window.google.maps.TravelMode.DRIVING
+          travelMode: $window.google.maps.TravelMode.DRIVING,
+          waypoints: scope.waypoints,
+          optimizeWaypoints: true
         };
 
         directionsService.route(request, (response, status) => {

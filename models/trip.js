@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+const waypointSchema = new mongoose.Schema({
+  lat: Number,
+  lng: Number,
+  description: String
+});
+
+waypointSchema.set('toJSON', { virtuals: true });
+
 const commentSchema = new mongoose.Schema({
   text: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
@@ -17,8 +25,11 @@ const tripSchema = new mongoose.Schema({
       lat: Number,
       lng: Number
     },
-    description: String
+    description: String,
+    places: []
   },
+  waypoints: [ waypointSchema ],
+
   end: {
     location: {
       lat: Number,
