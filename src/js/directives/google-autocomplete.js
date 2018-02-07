@@ -16,7 +16,7 @@ function googleAutocomplete($window, $rootScope) {
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
         scope.location = place.geometry.location.toJSON();
-        model.$setViewValue(element.val());
+        model.$setViewValue(scope.location);
 
         $rootScope.$broadcast('NewPlaceEntered', { location: scope.location });
       });

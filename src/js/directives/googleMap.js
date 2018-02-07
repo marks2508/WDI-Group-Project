@@ -12,16 +12,19 @@ function googleMap($window, $rootScope) {
       center: '=',
       start: '=',
       end: '=',
+      waypoints: '=',
       showPage: '='
       // waypoints: '='
     },
     link(scope, element) {
       let start = null;
       let end = null;
+      let intrestMarker = null;
+
       const bounds = new $window.google.maps.LatLngBounds();
       const map = new $window.google.maps.Map(element[0], {
         zoom: 5,
-        center: {lat: 0, lng: 0}
+        center: scope.center
       });
 
       $rootScope.$broadcast('mapInit', { map });
@@ -71,15 +74,39 @@ function googleMap($window, $rootScope) {
 
       }
 
+      // $window.google.maps.event.addListener(map, 'click', event => {
+      //   const intrestCoords = { lat: event.latLng.lat(), lng: event.latLng.lng() };
+      //   setIntrestMarker(intrestCoords);
+      //   $rootScope.$broadcast('newIntrestLocation', { location: intrestCoords });
+      // });
+      //
+      // function setIntrestMarker(location) {
+      //   if (intrestMarker) intrestMarker.setMap(null);
+      //
+      //   intrestMarker = new $window.google.maps.Marker({
+      //     position: location,
+      //     map: map
+      //   });
+      // }
+
+      // function placeMarker(location) {
+      //   marker = new $window.google.maps.Marker({
+      //     position: location,
+      //     map: map
+      //   });
+      //   map.panTo(location);
+      // }
 
 
-      const marker = new $window.google.maps.Marker({
-        position: scope.center,
-        map: map
-      });
-      marker.addListener('click', () => {
-        infoWindow.open(map, marker);
-      });
+
+
+      // const marker = new $window.google.maps.Marker({
+      //   position: scope.center,
+      //   map: map
+      // });
+      // marker.addListener('click', () => {
+      //   infoWindow.open(map, marker);
+      // });
 
 
       // scope.$watch('start', addStartMarker);
@@ -117,6 +144,8 @@ function googleMap($window, $rootScope) {
 
 
 
+
+
       $rootScope.$on('newAddressFound', (e, data) => {
         console.log('listening for a new address');
         console.log(data.address);
@@ -137,8 +166,8 @@ function googleMap($window, $rootScope) {
         const request = {
           origin: scope.start,
           destination: scope.end,
-          travelMode: $window.google.maps.TravelMode.DRIVING
-          // waypoints: scope.waypoints,
+          travelMode: $window.google.maps.TravelMode.DRIVING,
+          waypoints: scope.waypoints
           // optimizeWaypoints: true
         };
 

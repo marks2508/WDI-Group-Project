@@ -21,6 +21,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
     .$promise
     .then((trip) => {
       vm.trip = trip;
+      vm.trip.waypoints = vm.trip.waypoints.map(obj => obj.location);
     });
 
   $http
@@ -62,7 +63,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   wrappedResult.bind('change', e => {
     console.log(e);
     vm.trip.images.push(e.url);
-    
+
   });
 
   // function geocode() {

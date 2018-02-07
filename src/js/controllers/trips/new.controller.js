@@ -2,19 +2,27 @@ angular
   .module('roadTrippers')
   .controller('TripsNewCtrl', TripsNewCtrl);
 
-TripsNewCtrl.$inject = ['Trip', '$state'];
-function TripsNewCtrl(Trip, $state) {
+TripsNewCtrl.$inject = ['Trip', '$state', '$scope'];
+function TripsNewCtrl(Trip, $state, $scope) {
   const vm = this;
-  vm.trip = {};
+  vm.trip = {
+    waypoints: []
+  };
 
   function tripsCreate() {
-    // if(vm.post.$valid) {
     Trip
       .save(vm.trip)
       .$promise
       .then(() => $state.go('tripsIndex'));
   }
-  // }
 
-  vm.create = tripsCreate;
+  function addWaypoint() {
+    if (vm.waypoint) {
+      vm.trip.waypoints.push({ location: vm.waypoint });
+      vm.waypoint = {};
+    }
+  }
+
+  vm.create      = tripsCreate;
+  vm.addWaypoint = addWaypoint;
 }
