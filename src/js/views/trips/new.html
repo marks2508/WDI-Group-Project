@@ -6,15 +6,19 @@
 
 
 
-<google-map center="{ lat: 52.1, lng: -0.085 }"></google-map>
+<google-map center="{ lat: 51.5074, lng: 0.1278 }"></google-map>
 
 
 <form ng-submit="vm.create()">
   <label class="label" for="title">Title</label>
   <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title">
+
   <label class="label" for="description">Description</label>
   <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description">
 
+<<<<<<< HEAD
+  <button type="submit" name="button">Add Trip</button>
+=======
   <input type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location">
   <input type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location">
 
@@ -23,4 +27,21 @@
     <button type="submit" name="button">Add Trip</button>
 
 
+>>>>>>> development
 </form>
+
+<div>
+  <label class="label" for="description">Starting Destination</label>
+  <input type="text" google-autocomplete ng-model="vm.trip.start.location" location="vm.trip.start.location">
+</div>
+
+<div>
+  <label class="label" for="description">Ending Destination</label>
+  <input type="text" google-autocomplete ng-model="vm.trip.end.location" location="vm.trip.end.location">
+</div>
+
+<div>
+  <h2>Any stops on the way?</h2>
+  <input type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
+  <button ng-click="vm.addWaypoint()">Save Stop</button>
+</div>

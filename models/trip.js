@@ -12,23 +12,25 @@ const tripSchema = new mongoose.Schema({
   description: { type: String, required: true },
   comments: [ commentSchema ],
   images: [String],
+  users: [],
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   start: {
     location: {
       lat: Number,
       lng: Number
-    },
-    description: String,
-    places: []
+    }
   },
+<<<<<<< HEAD
+=======
   users: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
+>>>>>>> development
   end: {
     location: {
       lat: Number,
       lng: Number
-    },
-    description: String
+    }
   },
-  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  waypoints: [{}]
 });
 
 commentSchema.set('toJSON', { virtuals: true });
