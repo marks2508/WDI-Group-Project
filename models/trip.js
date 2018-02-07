@@ -19,10 +19,14 @@ const tripSchema = new mongoose.Schema({
       lng: Number
     }
   },
+<<<<<<< HEAD
 
 
   users: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
 
+=======
+  users: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
+>>>>>>> tests
   end: {
     location: {
       lat: Number,
