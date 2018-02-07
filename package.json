@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "postinstall": "bower install && gulp deploy"
+    "postinstall": "bower install && gulp deploy",
+    "test": "nyc --reporter=html --reporter=text mocha --exit"
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
@@ -90,10 +91,14 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.2",
     "bulma-carousel": "^0.3.5",
+    "chai": "^4.1.2",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.1",
+    "mocha": "^5.0.0",
     "mongoose": "^5.0.1",
     "morgan": "^1.9.0",
-    "request-promise": "^4.2.2"
+    "nyc": "^11.4.1",
+    "request-promise": "^4.2.2",
+    "supertest": "^3.0.0"
   }
 }
