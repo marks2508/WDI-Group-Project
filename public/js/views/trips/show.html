@@ -59,9 +59,6 @@
 <section class="section">
   <h2 class="title">{{ vm.trip.title}}</h2>
   <h3>Description: <em>{{ vm.trip.description }}</em></h3>
-  <ul ng-repeat="user in vm.trip.users">
-    <li>{{ user.username }}</li>
-  </ul>
   <!-- <ui-carousel
     slides="main.slides"
     slides-to-show="1"
@@ -82,8 +79,13 @@
   </ui-carousel> -->
   <div>
     <!--USER-MODAL-->
-    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add User</button>
-
+    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
+    <form ng-submit="vm.saveUsers()">
+      <ul ng-repeat="user in vm.trip.users">
+        <input ng-model="vm.trip.users" ng-value="user.id">
+      </ul>
+      <input type="submit" value="Save changes">
+    </form>
     <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -94,9 +96,11 @@
         <section class="modal-card-body">
           <div ng-repeat="user in vm.users">
             <div>
-              <p>{{ user.username }}</p>
-              <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
-              <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
+              <form ng-submit="addUser(user)">
+                <p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}">
+                  <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
+                  <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
+              </form>
             </div>
           </div>
         </section>
@@ -133,19 +137,21 @@
         <footer class="modal-card-foot">
           <div class="card">
             <div class="card-content">
-              <div class="file">
-                <label class="file-label">
-                  <input class="file-input" type="file" ng-model="vm.newImage" upload-image>
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fa fa-upload"></i>
+
+                <div class="file">
+                  <label class="file-label">
+                    <input class="file-input" type="file" ng-model="vm.newImage" upload-image>
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fa fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                        Add new Image
+                      </span>
                     </span>
-                    <span class="file-label">
-                      Add new Image
-                    </span>
-                  </span>
-                </label>
-              </div>
+                  </label>
+                </div>
+
             </div>
           </div>
           <!-- <button class="button is-success">Save changes</button>
@@ -153,6 +159,9 @@
         </footer>
       </div>
     </div>
+    <form ng-submit="vm.addPic()">
+      <input type="submit" value="add picture">
+    </form>
   </div>
   <div>
     <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button>

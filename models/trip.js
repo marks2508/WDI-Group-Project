@@ -28,6 +28,10 @@ const tripSchema = new mongoose.Schema({
       lng: Number
     }
   },
+<<<<<<< HEAD
+=======
+  users: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
+>>>>>>> development
   end: {
     location: {
       lat: Number,
