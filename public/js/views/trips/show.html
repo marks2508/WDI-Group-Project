@@ -1,1 +1,172 @@
+<<<<<<< HEAD
 <div class="field"><br><br><br><label class="label">Find places of interest</label><div class="control"><div class="select"><select google-places location="vm.trip.end.location"><option>Please choose an option</option><option value="amusement_park">Amusement park</option><option value="airport">Airport</option><option value="aquarium">Aquarium</option><option value="art_gallery">Art gallery</option><option value="bar">Bar</option><option value="cafe">Cafe</option><option value="casino">Casino</option><option value="convenience_store">Convenience store</option><option value="department_store">Department store</option><option value="gas_station">Petrol station</option><option value="lodging">Accommodation</option><option value="movie_theater">Cinema</option><option value="restaurant">Restaurant</option><option value="museum">Museum</option><option value="nightclub">Nightclub</option><option value="zoo">Zoo</option></select></div></div></div><google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map><div ng-controller="ListCtrl"><h1>Things to bring on the trip:</h1><form name="skillsFrm" ng-submit="addSkill()"><input type="text" name="newSkill" ng-model="newSkill" required> <button ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add an item</button></form><ul><li ng-repeat="skill in skills" class="{'fadeOut' : skill.done}"><button class="delete is-large" ng-click="deleteSkill()">Delete</button> <span>{{skill.title}}</span></li></ul></div><section class="section"><h2 class="title">{{ vm.trip.title}}</h2><h3>Description: <em>{{ vm.trip.description }}</em></h3><div><button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button><form ng-submit="vm.saveUsers()"><ul ng-repeat="user in vm.trip.users"><input type="hidden" ng-model="vm.trip.users" ng-value="user.id"></ul><input type="submit" value="Save changes"></form><div class="modal" ng-class="{'is-active': vm.userModalOpen}"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Users</p><button class="delete" ng-click="vm.closeUserModal()" aria-label="close"></button></header><section class="modal-card-body"><div ng-repeat="user in vm.users"><div><form ng-submit="addUser(user)"><p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}"> <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button> <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button></form></div></div></section><footer class="modal-card-foot"><ul ng-repeat="user in vm.trip.users"><li class="userModalUsers">{{user.username}}</li></ul><button class="button is-success userModalButton">Save changes</button></footer></div></div><button class="button is-small is-primary" ng-click="vm.openAlbumModal()">View Album</button><div class="modal" ng-class="{'is-active': vm.albumModalOpen}"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">{{vm.trip.title}} Album</p><button class="delete" ng-click="vm.closeAlbumModal()" aria-label="close"></button></header><section class="modal-card-body columns"><div ng-repeat="image in vm.trip.images"><div class="card column albumCard"><div class="card-image"><img src="{{image}}" class="albumImages"></div></div></div></section><footer class="modal-card-foot"><div class="card"><div class="card-content"></div></div></footer></div></div><form ng-submit="vm.savePic()"><div class="file"><label class="file-label"><input class="file-input" type="file" ng-model="vm.trip.images" upload-image> <span class="file-cta"><span class="file-icon"><i class="fa fa-upload"></i> </span><span class="file-label">Add new Image</span></span></label></div><img src="pic.url"> <input type="submit" value="Save changes"></form></div><div><button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button> <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button></div><input type="text" google-placesdirective ng-model="vm.trip.places" location="vm.trip.location"><div class="comments"><h2>Comments for trip</h2><p ng-if="!vm.post.comments.length">0 comments</p><ul class="comments__created"><li ng-repeat="comment in vm.trip.comments track by $index"><a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }} <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button></li></ul><form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()"><textarea ng-model="vm.newComment.text" placeholder="comment here..."></textarea><button class="button button--full">Add comment</button></form></div></section>
+=======
+<!-- waypoints="vm.trip.waypoints" -->
+<!-- To put in google map if we have time -->
+<div class="field">
+  <br>
+  <br>
+  <br>
+  <label class="label">Find places of interest</label>
+  <div class="control">
+    <div class="select">
+      <select google-places location="vm.trip.end.location">
+        <option>Please choose an option</option>
+        <option value="amusement_park">Amusement park</option>
+        <option value="airport">Airport</option>
+        <option value="aquarium">Aquarium</option>
+        <option value="art_gallery">Art gallery</option>
+        <option value="bar">Bar</option>
+        <option value="cafe">Cafe</option>
+        <option value="casino">Casino</option>
+        <option value="convenience_store">Convenience store</option>
+        <option value="department_store">Department store</option>
+        <option value="gas_station">Petrol station</option>
+        <option value="lodging">Accommodation</option>
+        <option value="movie_theater">Cinema</option>
+        <option value="restaurant">Restaurant</option>
+        <option value="museum">Museum </option>
+        <option value="nightclub">Nightclub</option>
+        <option value="zoo">Zoo</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <p>Find places of intrest</p>
+  <select google-places location="vm.trip.end.location">
+    <option disabled selected>Please choose an option</option>
+
+  </select>
+</div> -->
+
+<google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
+{{vm.trip.createdBy}}
+<div ng-controller="ListCtrl">
+  <h1>Things to bring on the trip: </h1>
+<form name="skillsFrm" ng-submit="addSkill()">
+     <input type="text" name="newSkill" ng-model="newSkill" required />
+     <button  ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add an item</button>
+  </form>
+
+  <ul>
+    <li ng-repeat="skill in skills" class="{'fadeOut' : skill.done}">
+      <button class="delete is-large" ng-click="deleteSkill()">Delete</button>
+      <span>{{skill.title}}</span> 
+    </li>
+  </ul>
+</div>
+
+
+<section class="section">
+  <h2 class="title">{{ vm.trip.title}}</h2>
+  <h3>Description: <em>{{ vm.trip.description }}</em></h3>
+  <div>
+
+    <!--USER-MODAL-->
+    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
+    <form ng-submit="vm.saveUsers()">
+      <ul ng-repeat="user in vm.trip.users">
+        <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
+      </ul>
+      <input type="submit" value="Save changes">
+    </form>
+    <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Users</p>
+          <button class="delete" ng-click="vm.closeUserModal()" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div ng-repeat="user in vm.users">
+            <div>
+              <form ng-submit="addUser(user)">
+                <p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}">
+                  <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
+                  <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <ul ng-repeat="user in vm.trip.users">
+            <li class="userModalUsers">{{user.username}}</li>
+          </ul>
+          <button class="button is-success userModalButton">Save changes</button>
+        </footer>
+      </div>
+    </div>
+
+    <!--ALBUM-MODAL-->
+    <button class="button is-small is-primary" ng-click="vm.openAlbumModal()">View Album</button>
+    <div class="modal" ng-class="{'is-active': vm.albumModalOpen}">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">{{vm.trip.title}} Album</p>
+          <button class="delete" ng-click="vm.closeAlbumModal()" aria-label="close"></button>
+        </header>
+
+        <section class="modal-card-body columns">
+          <div ng-repeat="image in vm.trip.images">
+            <div class="card column albumCard">
+
+              <div class="card-image">
+                  <img src="{{image}}" class="albumImages">
+              </div>
+            </div>
+            </div>
+            </section>
+            <footer class="modal-card-foot">
+              <div class="card">
+                <div class="card-content">
+
+                </div>
+              </div>
+            </footer>
+      </div>
+    </div>
+    <form ng-submit="vm.savePic()">
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" ng-model="vm.trip.images" upload-image>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Add new Image
+              </span>
+            </span>
+          </label>
+        </div>
+        <img src="vm.trip.images">
+      <input type="submit" value="Save changes">
+    </form>
+  </div>
+  <div>
+    <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button>
+    <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>
+  </div>
+
+<input type=text google-placesdirective ng-model="vm.trip.places" location="vm.trip.location">
+
+
+  <div class="comments">
+    <h2>Comments for trip</h2>
+    <p ng-if="!vm.post.comments.length">0 comments</p>
+    <ul class="comments__created">
+      <li ng-repeat="comment in vm.trip.comments track by $index">
+        <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
+        <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
+      </li>
+    </ul>
+    <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+      <textarea ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
+      <button class="button button--full">Add comment</button>
+    </form>
+    </div>
+</section>
+>>>>>>> development
