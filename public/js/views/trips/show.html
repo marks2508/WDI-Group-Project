@@ -5,10 +5,11 @@
   <section class="section">
     <h2 class="title">{{ vm.trip.title}}</h2>
     <h3>Description: <em>{{ vm.trip.description }}</em></h3>
-    <div>
+
   </section>
 <section class="section">
 
+<div class="column">
 <div class="field">
   <label class="label">Find places of interest</label>
   <div class="control">
@@ -36,7 +37,7 @@
   </div>
 </div>
 </section>
-
+</div>
 <!-- <div>
   <p>Find places of intrest</p>
   <select google-places location="vm.trip.end.location">
@@ -44,15 +45,20 @@
 
   </select>
 </div> -->
+
 <section class="section">
 <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
 </section>
+<div class="column">
+  <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button>
+  <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>
+</div>
 
 </div>
 </div>
 
 <div class="columns">
-  <div class="column is-three-quarters">
+  <div class="column">
 <section>
 <div ng-controller="ListCtrl">
   <h1>Things to bring on the trip: </h1>
@@ -98,12 +104,12 @@
             </div>
           </div>
         </section>
-        <footer class="modal-card-foot">
+        <div class="modal-card-foot">
           <ul ng-repeat="user in vm.trip.users">
             <li class="userModalUsers">{{user.username}}</li>
           </ul>
-          <button class="button is-success userModalButton">Save changes</button>
-        </footer>
+          <!-- <button class="button is-success userModalButton">Save changes</button> -->
+        </div>
       </div>
     </div>
   </div>
@@ -111,6 +117,7 @@
   </div>
 
     <!--ALBUM-MODAL-->
+
     <button class="button is-small is-primary" ng-click="vm.openAlbumModal()">View Album</button>
     <div class="modal" ng-class="{'is-active': vm.albumModalOpen}">
       <div class="modal-background"></div>
@@ -139,6 +146,9 @@
             </footer>
       </div>
     </div>
+
+    <div class="columns">
+    <div class="column">
     <form ng-submit="vm.savePic()">
         <div class="file">
           <label class="file-label">
@@ -147,22 +157,18 @@
               <span class="file-icon">
                 <i class="fa fa-upload"></i>
               </span>
-              <span class="file-label">
-                Add new Image
-              </span>
+              <span class="file-label">Add new Image</span>
             </span>
           </label>
         </div>
-        <img src="vm.trip.images">
-      <input type="submit" value="Save changes">
+        <!-- <img src="vm.trip.images">
+      <input type="submit" value="Save changes"> -->
     </form>
   </div>
-  <div>
-    <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button>
-    <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>
-  </div>
 
-<input type=text google-placesdirective ng-model="vm.trip.places" location="vm.trip.location">
+
+<div class="column">
+<!-- <input type=text google-placesdirective ng-model="vm.trip.places" location="vm.trip.location"> -->
 
 
   <div class="comments">
@@ -180,3 +186,5 @@
     </form>
     </div>
 </section>
+</div>
+</div>
