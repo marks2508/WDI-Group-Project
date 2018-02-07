@@ -6,11 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "postinstall": "bower install && gulp deploy",
-<<<<<<< HEAD
     "test": "nyc --reporter=html --reporter=text mocha --exit"
-=======
-    "test": "nyc --reporter=text --reporter=html mocha --exit"
->>>>>>> development
   },
   "author": "Alex Chin <alex@alexchin.co.uk>",
   "license": "ISC",
