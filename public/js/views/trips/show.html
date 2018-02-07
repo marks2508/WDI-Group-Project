@@ -105,14 +105,15 @@
           </div>
         </section>
         <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button>
+          <ul ng-repeat="user in vm.trip.users">
+            <li class="userModalUsers">{{user.username}}</li>
+          </ul>
+          <button class="button is-success userModalButton">Save changes</button>
         </footer>
       </div>
     </div>
     <!--ALBUM-MODAL-->
     <button class="button is-small is-primary" ng-click="vm.openAlbumModal()">View Album</button>
-
     <div class="modal" ng-class="{'is-active': vm.albumModalOpen}">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -131,36 +132,33 @@
             </div>
             </div>
             </section>
+            <footer class="modal-card-foot">
+              <div class="card">
+                <div class="card-content">
 
-
-
-        <footer class="modal-card-foot">
-          <div class="card">
-            <div class="card-content">
-
-                <div class="file">
-                  <label class="file-label">
-                    <input class="file-input" type="file" ng-model="vm.newImage" upload-image>
-                    <span class="file-cta">
-                      <span class="file-icon">
-                        <i class="fa fa-upload"></i>
-                      </span>
-                      <span class="file-label">
-                        Add new Image
-                      </span>
-                    </span>
-                  </label>
                 </div>
-
-            </div>
-          </div>
-          <!-- <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button> -->
-        </footer>
+              </div>
+              <!-- <button class="button is-success">Save changes</button>
+              <button class="button">Cancel</button> -->
+            </footer>
       </div>
     </div>
-    <form ng-submit="vm.addPic()">
-      <input type="submit" value="add picture">
+    <form ng-submit="vm.savePic()">
+        <div class="file">
+          <label class="file-label">
+            <input class="file-input" type="file" ng-model="vm.trip.images" upload-image>
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Add new Image
+              </span>
+            </span>
+          </label>
+        </div>
+        <img src="pic.url">
+      <input type="submit" value="Save changes">
     </form>
   </div>
   <div>
