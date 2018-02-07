@@ -38,7 +38,7 @@
   </select>
 </div> -->
 
-<google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
+<google-map class="map" start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
 {{vm.trip.createdBy}}
 <div ng-controller="ListCtrl">
   <h1>Things to bring on the trip: </h1>
@@ -50,7 +50,7 @@
   <ul>
     <li ng-repeat="skill in skills" class="{'fadeOut' : skill.done}">
       <button class="delete is-large" ng-click="deleteSkill()">Delete</button>
-      <span>{{skill.title}}</span> 
+      <span>{{skill.title}}</span>
     </li>
   </ul>
 </div>

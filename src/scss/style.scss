@@ -3,7 +3,6 @@
 .google-map {
   height: 500px;
   width: 500px;
-  display: inline-block;
 }
 
 .searchbar {
@@ -21,13 +20,13 @@ html {
   background: #94afcc;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #556270, #94afcc);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #556270, #94afcc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-
 }
 
 .intro {
-  color: white;
+  color: black;
+  padding-left: 5px;
+  font-size: 26px;
+  text-align: center;
 }
 
 .modal-card {
@@ -75,4 +74,9 @@ html {
   background: #ACB4C5;
   padding: 50px;
   margin-top: 60px;
+}
+
+.new {
+  display: flex;
+  justify-content: flex-end;
 }
