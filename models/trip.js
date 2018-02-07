@@ -28,7 +28,7 @@ const tripSchema = new mongoose.Schema({
     description: String,
     places: []
   },
-  users: [],
+  users: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
   end: {
     location: {
       lat: Number,

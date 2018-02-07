@@ -49,36 +49,40 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   vm.removeUser = removeUser;
   function addUser(user) {
     vm.trip.users.push(user);
-    console.log(vm.trip);
   }
   function removeUser(user) {
     vm.trip.users.splice(user);
-    console.log(vm.trip);
   }
 
+  function saveUsers() {
+    Trip
+      .update({ tripId: vm.trip.id}, vm.trip)
+      .$promise
+      .then((res) => {
+        console.log(res);
+      });
+  }
+  vm.saveUsers = saveUsers;
 
   var result = document.getElementsByClassName('file-input');
   var wrappedResult = angular.element(result);
   wrappedResult.bind('change', e => {
     console.log(e);
     vm.trip.images.push(e.url);
-    
+
   });
 
-  // function geocode() {
-  //   $http
-  //     .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${vm.address}&key=AIzaSyDFdykQIbI6dMLCGyov2befnGnaHEtKA5w`,
-  //       { skipAuthorization: true })
-  //     .then(res => {
-  //       if (res.data.results.length) {
-  //         $rootScope.$broadcast('newAddressFound', { address: res.data.results[0] });
-  //         vm.error = false;
-  //       } else {
-  //         vm.result = null;
-  //         vm.error = true;
-  //       }
-  //     });
-  // }
+  function addPic() {
+    vm.trip.images
+      .save(vm.newImage)
+      .$promise
+      .then((image) => {
+        vm.trip.images.push(image);
+        vm.newImage = {};
+      });
+  }
+  vm.adduser = addUser;
+  vm.addPic = addPic;
 
   function TripsDelete() {
     vm.trip
