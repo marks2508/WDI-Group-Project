@@ -5,7 +5,11 @@ const { secret } = require('../config/environment');
 function register(req, res, next) {
   User
     .create(req.body)
-    .then(() => res.json({ message: 'Registration successful'}))
+    .then(() => {
+
+      const token = jwt.sign({ userId: req.body.id }, secret, { expiresIn: '1hr' });
+      return res.json({ message: 'Registration successful', token});
+    })
     .catch(next);
 }
 
