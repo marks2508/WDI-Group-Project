@@ -1,28 +1,17 @@
-<br>
-<h1>Index page - list of seeded trips</h1>
-<br>
-<div class="columns">
-  <div ng-repeat="trip in vm.all">
-    <div class="column indexClip">
-      <div class="clipImage" style="background: url('{{trip.image}}') no-repeat left center; background-size: cover"></div>
-      <p class="clipTitle"><strong>{{ trip.title }}</strong></p>
-      <p class="clipDescription">{{ trip.description }}</p>
 
-      <button class="button is-small" ui-sref="tripsShow({ id: trip.id })">View</button>
+<br>
+<div class="container is-fluid">
+  <div class="columns is-multiline">
 
+    <div ng-repeat="trip in vm.all" class="column is-one-third">
+      <div class="column indexClip">
+        <div class="clipImage" style="background: url('{{trip.image}}') no-repeat left center; background-size: cover"></div>
+        <p class="clipTitle"><strong>{{ trip.title }}</strong></p>
+        <p class="clipDescription">{{ trip.description | limitTo : 100 }}...</p>
+
+        <button class="button is-normal is-primary is-outlined is-rounded" ui-sref="tripsShow({ id: trip.id })">View</button>
+
+      </div>
     </div>
   </div>
 </div>
-
-<!-- <p>{{ vm.all }}</p> -->
-
-
-
-<!--
-itle: 'Route 66',
-description: 'Grab your cowboy hat and hit the road on the historic Route 66 - America\'s most famous highway. Follow in the tyre-marks of settlers, cowboys, migrants and travellers on the main street of America and learn about the importance of this pathway through America\'s heartland. From the green shores of the Great Lakes, watch the landscape gradually change from fertile farmlands to arid desert, eventually giving way to the celebrated beaches of the Californian coastline.',
-startPointLat: '41.878245',
-startPointLng: '-87.624432',
-endPointLat: '34.010959',
-endPointLng: '-118.495381',
-image: 'http://www.telegraph.co.uk/content/dam/Travel/Destinations/North%20America/USA/Route%2066/AP_Route66_Travel.jpg' -->
