@@ -10,26 +10,30 @@ function googlePlaces($window, $rootScope) {
       'location': '='
     },
     link: function(scope, element)  {
-      let map = null;
+      let map      = null;
+      let location = null;
 
       $rootScope.$on('mapInit', (e, data) => map = data.map);
 
+      $rootScope.$on('newIntrestLocation', (e, data) => location = data.location);
+
       element.bind('change', e => {
-        const selectedIntrest = e.target.value;
-        const service = new $window.google.maps.places.PlacesService(map);
-        service.nearbySearch({
-          location: scope.location,
-          radius: 1000,
-          type: [selectedIntrest]
-        }, (results) => {
-          results.forEach(place => createMarker(place));
-          map.setCenter(scope.location);
-          map.setZoom(14);
-          // set map center to be location
-          // set zoom
 
-        });
-
+        if(location) {
+          const selectedIntrest = e.target.value;
+          const service = new $window.google.maps.places.PlacesService(map);
+          service.nearbySearch({
+            location: location,
+            radius: 1000,
+            type: [selectedIntrest]
+          }, (results) => {
+            results.forEach(place => createMarker(place));
+            map.setCenter(location);
+            map.setZoom(14);
+            // set map center to be location
+            // set zoom
+          });
+        }
       });
 
       function createMarker(place) {

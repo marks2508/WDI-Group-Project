@@ -21,6 +21,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
     .$promise
     .then((trip) => {
       vm.trip = trip;
+      vm.trip.waypoints = vm.trip.waypoints.map(obj => obj.location);
     });
 
   $http
