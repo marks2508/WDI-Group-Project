@@ -10,8 +10,8 @@ const userSchema = new mongoose.Schema({
 
 userSchema.virtual('trips', {
   ref: 'Trip',
-  localField: '_id', // use the _id field from this schema
-  foreignField: 'createdBy' // to match up with the createdBy field in the Post schema
+  localField: '_id',
+  foreignField: 'createdBy'
 });
 
 userSchema

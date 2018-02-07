@@ -1,11 +1,6 @@
 angular
   .module('roadTrippers')
   .controller('TripsShowCtrl', TripsShowCtrl);
-// .filter('contains', function() {
-//   return function (array, needle) {
-//     return array.indexOf(needle) >= 0;
-//   };
-// });
 
 TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state'];
 function TripsShowCtrl(Trip, $http, TripComment, $state) {
@@ -13,9 +8,22 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   vm.userModalOpen = null;
   vm.albumModalOpen = null;
   vm.trip = Trip.get($state.params);
-  // vm.geocode = geocode;
   vm.users = [];
   vm.slides = vm.trip.images;
+
+  vm.closeAlbumModal = closeAlbumModal;
+  vm.openAlbumModal = openAlbumModal;
+  vm.closeUserModal = closeUserModal;
+  vm.openUserModal = openUserModal;
+  vm.addUser = addUser;
+  vm.removeUser = removeUser;
+  vm.deleteComment = deleteComment;
+  vm.addComment = addComment;
+  vm.delete = TripsDelete;
+  vm.adduser = addUser;
+  vm.savePic = savePic;
+  vm.saveUsers = saveUsers;
+
   Trip
     .get($state.params)
     .$promise
@@ -42,12 +50,6 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   function closeUserModal() {
     vm.userModalOpen = false;
   }
-  vm.closeAlbumModal = closeAlbumModal;
-  vm.openAlbumModal = openAlbumModal;
-  vm.closeUserModal = closeUserModal;
-  vm.openUserModal = openUserModal;
-  vm.addUser = addUser;
-  vm.removeUser = removeUser;
   function addUser(user) {
     vm.trip.users.push(user);
   }
@@ -57,33 +59,17 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
 
   function saveUsers() {
     Trip
+      .update({ tripId: vm.trip.id}, vm.trip);
+  }
+
+  function savePic() {
+    Trip
       .update({ tripId: vm.trip.id}, vm.trip)
       .$promise
       .then((res) => {
-        console.log(res);
+        console.log(res.url);
       });
   }
-  vm.saveUsers = saveUsers;
-
-  var result = document.getElementsByClassName('file-input');
-  var wrappedResult = angular.element(result);
-  wrappedResult.bind('change', e => {
-    console.log(e);
-    vm.trip.images.push(e.url);
-
-  });
-
-  function addPic() {
-    vm.trip.images
-      .save(vm.newImage)
-      .$promise
-      .then((image) => {
-        vm.trip.images.push(image);
-        vm.newImage = {};
-      });
-  }
-  vm.adduser = addUser;
-  vm.addPic = addPic;
 
   function TripsDelete() {
     vm.trip
@@ -110,8 +96,4 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
         vm.trip.comments.splice(index, 1);
       });
   }
-
-  vm.deleteComment = deleteComment;
-  vm.addComment = addComment;
-  vm.delete = TripsDelete;
 }

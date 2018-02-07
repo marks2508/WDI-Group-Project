@@ -5,8 +5,6 @@ const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const users = require('../controllers/users');
 
-// Routes go here
-
 router.route('/trips')
   .get(secureRoute, trips.index)
   .post(secureRoute, trips.create);

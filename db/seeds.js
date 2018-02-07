@@ -14,22 +14,26 @@ User
     username: 'JackD',
     email: 'jack@ga.com',
     password: 'password',
-    passwordConfirmation: 'password'
+    passwordConfirmation: 'password',
+    picture: 'http://static2.businessinsider.com/image/5899ffcf6e09a897008b5c04-1200/.jpg'
   }, {
     username: 'MarkS',
     email: 'mark@ga.com',
     password: 'password',
-    passwordConfirmation: 'password'
+    passwordConfirmation: 'password',
+    picture: 'http://presidentofindia.nic.in/images/president-profile-download.jpg'
   }, {
     username: 'RobT',
     email: 'rob@ga.com',
     password: 'password',
-    passwordConfirmation: 'password'
+    passwordConfirmation: 'password',
+    picture: 'https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg'
   }, {
     username: 'm',
     email: 'm@m',
     password: 'm',
-    passwordConfirmation: 'm'
+    passwordConfirmation: 'm',
+    picture: 'https://vignette.wikia.nocookie.net/jamesbond/images/9/90/M_%28Judi_Dench%29_-_Profile.jpg/revision/latest?cb=20130506215045'
   }])
   .then((users) => {
     console.log(`${users.length} users created!`);
@@ -44,50 +48,6 @@ User
         },
         description: 'Chicago, USA'
       },
-
-      // waypoints: [
-      //   {
-      //     lat: 41.094059,
-      //     lng: -88.425994
-      //   // description: 'Dwight, USA'
-      //   },
-      //   {
-      //     lat: 37.208957,
-      //     lng: -93.292299
-      //   // description: 'SpringField, USA'
-      //   },
-      //   {
-      //     lat: 40.521893,
-      //     lng: -111.939102
-      //   // description: 'Riverton, USA'
-      //   },
-      //   {
-      //     lat: 36.874515,
-      //     lng: -94.877455
-      //     // description: 'Miami, USA'
-      //   },
-      //   {
-      //     lat: 35.270674,
-      //     lng: -102.672823
-      //   // description: 'Midpoint cafe, USA'
-      //   },
-      //   {
-      //     lat: 35.085334,
-      //     lng: -106.605553
-      //   // description: 'Alburquerque, USA'
-      //   },
-      //   {
-      //     lat: 35.207404,
-      //     lng: -111.642392
-      //   // description: 'Flagstaff, USA'
-      //   },
-      //   {
-      //     lat: 35.270674,
-      //     lng: -102.672823
-      //   // description: 'Midpoint cafe, USA'
-      //   }
-      // ],
-
       end: {
         location: {
           lat: 34.010959,
@@ -120,7 +80,7 @@ User
         },
         description: 'Uluru, Australia'
       },
-      images: ['https://www.mappingmegan.com/wp-content/uploads/2015/01/IMG_1196.jpg', 'http://south-seas-adventures.com/sites/default/files/country-cover-photo/2017-01/Sydney-Opera-House.jpg', 'https://www.australia.com/etc/designs/tourismaustralia/clientlibs/imgs/fallback/kangaroo_600_600.jpg', 'http://www.qygjxz.com/data/out/233/5775509-wallpaper-australia.jpg'],
+      images: ['https://www.mappingmegan.com/wp-content/uploads/2015/01/IMG_1196.jpg', 'http://south-seas-adventures.com/sites/default/files/country-cover-photo/2017-01/Sydney-Opera-House.jpg', 'https://www.australia.com/etc/designs/tourismaustralia/clientlibs/imgs/fallback/kangaroo_600_600.jpg'],
       createdBy: users[1]
 
     }, {

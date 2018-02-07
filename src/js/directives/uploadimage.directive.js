@@ -11,7 +11,7 @@ function uploadImage(filepickerService) {
       element.bind('click', (e) => {
         e.preventDefault();
         filepickerService
-          .pick({ mimetype: 'image/*' }, data => {
+          .pick({ mimetype: 'image/*', fromSources: 'facebook'}, data => {
             model.$setViewValue(data.url);
             console.log(data);
           });
