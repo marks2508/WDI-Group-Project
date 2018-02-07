@@ -20,7 +20,6 @@ const tripSchema = new mongoose.Schema({
   description: { type: String, required: true },
   comments: [ commentSchema ],
   images: [String],
-  users: [],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   start: {
     location: {
@@ -28,10 +27,10 @@ const tripSchema = new mongoose.Schema({
       lng: Number
     }
   },
-<<<<<<< HEAD
-=======
+
+
   users: [ { type: mongoose.Schema.ObjectId, ref: 'User' }],
->>>>>>> development
+
   end: {
     location: {
       lat: Number,
