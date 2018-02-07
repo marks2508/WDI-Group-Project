@@ -31,19 +31,6 @@ function createRoute(req, res, next) {
     .catch(next);
 }
 
-function updateRoute(req, res, next) {
-  Trip
-    .findById(req.params.id)
-    .exec()
-    .then((trip) => {
-      if(!trip) return res.notFound();
-
-      Object.assign(trip, req.body);
-      return trip.save();
-    })
-    .then((trip) => res.json(trip))
-    .catch(next);
-}
 
 function addCommentRoute(req, res, next) {
 
@@ -98,7 +85,6 @@ module.exports = {
   index: indexRoute,
   show: showRoute,
   create: createRoute,
-  update: updateRoute,
   delete: deleteRoute,
   addComment: addCommentRoute,
   deleteComment: deleteCommentRoute
