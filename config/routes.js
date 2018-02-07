@@ -11,7 +11,6 @@ router.route('/trips')
 
 router.route('/trips/:id')
   .get(secureRoute, trips.show)
-  .put(secureRoute, trips.update)
   .delete(secureRoute, trips.delete);
 
 router.route('/register')

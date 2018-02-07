@@ -41,16 +41,16 @@
 <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
 
 <div ng-controller="ListCtrl">
-  <h1>Add an item</h1>
+  <h1>Things to bring on the trip: </h1>
 <form name="skillsFrm" ng-submit="addSkill()">
      <input type="text" name="newSkill" ng-model="newSkill" required />
-     <button  ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add</button>
+     <button  ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add an item</button>
   </form>
 
   <ul>
     <li ng-repeat="skill in skills" class="{'fadeOut' : skill.done}">
       <button class="delete is-large" ng-click="deleteSkill()">Delete</button>
-      <span>{{skill.title}}</span>
+      <span>{{skill.title}}</span> 
     </li>
   </ul>
 </div>
