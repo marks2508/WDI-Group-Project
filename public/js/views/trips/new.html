@@ -1,8 +1,12 @@
 
 <div class="columns">
+<<<<<<< HEAD
+=======
+  <div class="column is-half">
+>>>>>>> development
   <google-map center="{ lat: 51.5074, lng: 0.1278 }"></google-map>
-</div>
-<div class="add">
+
+<div class="column is-half">
   <form ng-submit="vm.create()">
     <label class="label" for="title">Name of trip:</label>
     <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title" placeholder="What do you want to call your trip?" required>
@@ -21,15 +25,14 @@
 
     <div>
       <label class="label">Any stops on the way, you can add multiple</label>
-<<<<<<< HEAD
       <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
       <input type="submit" ng-click="vm.addWaypoint()">
-=======
-      <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location" required>
->>>>>>> development
+      <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
     </div>
 
     <br>
     <button class="button is-large is-primary" ng-submit="calcRoute()" ng-click="vm.addWaypoint()">Route and Create Your Trip</button>
   </form>
+</div>
+</div>
 </div>
