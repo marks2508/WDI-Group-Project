@@ -1,5 +1,52 @@
 <!-- waypoints="vm.trip.waypoints" -->
 <!-- To put in google map if we have time -->
+<<<<<<< HEAD
+=======
+<section class="mapStuff">
+  <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
+  <div class="field placesOfInterest">
+    <div class="interestLabel">
+      <label class="label">Find places of interest</label>
+    </div>
+    <div class="control interestSelect">
+      <div class="select">
+        <select google-places location="vm.trip.end.location">
+          <option>Please choose an option</option>
+          <option value="amusement_park">Amusement park</option>
+          <option value="airport">Airport</option>
+          <option value="aquarium">Aquarium</option>
+          <option value="art_gallery">Art gallery</option>
+          <option value="bar">Bar</option>
+          <option value="cafe">Cafe</option>
+          <option value="casino">Casino</option>
+          <option value="convenience_store">Convenience store</option>
+          <option value="department_store">Department store</option>
+          <option value="gas_station">Petrol station</option>
+          <option value="lodging">Accommodation</option>
+          <option value="movie_theater">Cinema</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="museum">Museum </option>
+          <option value="nightclub">Nightclub</option>
+          <option value="zoo">Zoo</option>
+        </select>
+      </div>
+    </div>
+    <div class="control markerSelect">
+      <div class="select">
+        <select google-places location="vm.trip.end.location">
+          <option>Please choose an option</option>
+          <div ng-repeat="location in vm.trip.waypoints">
+            <option value="{{location}}">A</option>
+          </div>
+
+
+        </select>
+      </div>
+    </div>
+  </div>
+
+</section>``
+>>>>>>> development
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">
@@ -7,36 +54,6 @@
     <h3>Description: <em>{{ vm.trip.description }}</em></h3>
 
   </section>
-<section class="section">
-
-<div class="column">
-<div class="field">
-  <label class="label">Find places of interest</label>
-  <div class="control">
-    <div class="select">
-      <select google-places location="vm.trip.end.location">
-        <option>Please choose an option</option>
-        <option value="amusement_park">Amusement park</option>
-        <option value="airport">Airport</option>
-        <option value="aquarium">Aquarium</option>
-        <option value="art_gallery">Art gallery</option>
-        <option value="bar">Bar</option>
-        <option value="cafe">Cafe</option>
-        <option value="casino">Casino</option>
-        <option value="convenience_store">Convenience store</option>
-        <option value="department_store">Department store</option>
-        <option value="gas_station">Petrol station</option>
-        <option value="lodging">Accommodation</option>
-        <option value="movie_theater">Cinema</option>
-        <option value="restaurant">Restaurant</option>
-        <option value="museum">Museum </option>
-        <option value="nightclub">Nightclub</option>
-        <option value="zoo">Zoo</option>
-      </select>
-    </div>
-  </div>
-</div>
-</section>
 </div>
 <!-- <div>
   <p>Find places of intrest</p>
