@@ -67,8 +67,9 @@
     <form ng-submit="vm.saveUsers()">
       <ul ng-repeat="user in vm.trip.users">
         <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
-        <button type="submit"></button>
+
       </ul>
+      <button class="button btn-primary" type="submit">Save users</button>
     </form>
     <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
       <div class="modal-background"></div>
@@ -127,7 +128,7 @@
 </div>
 
 
-    <form ng-submit="vm.savePic()">
+    <form>
       <div class="file">
         <label class="file-label">
           <input class="file-input" type="file" ng-model="vm.trip.images" upload-image>
@@ -136,11 +137,14 @@
               <i class="fa fa-upload"></i>
             </span>
             <span class="file-label">Add new Image</span>
+
+
           </span>
         </label>
       </div>
     </form>
-<div>
+    <button ng-submit="vm.savePic()"></button>
+    <img class="imagePreview" src="{{vm.trip.images}}">
 </div>
 <section class="comments">
 

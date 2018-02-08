@@ -76,28 +76,31 @@
 
   }
 }
-
-
-
-
-
-.comments {
+.imagePreview {
+  max-height: 100px;
   display: block;
-  margin-bottom: 20px;
-  margin-top: 4%;
-  margin-left: 2%;
-  margin-right: 2%;
-  text-align: left;
-  float: left;
-  clear: left;
-  width: 250%;
-  textarea {
-    height: 5% !important;
-    width: 60% !important !important !important !important !important !important !important;
-  }
+}
+.field {
 
-  .textarea {
-    height: 5% !important;
-    width: 60% !important;
+  .comments {
+    width: 40%;
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: left;
+    float: left;
+    clear: left;
+    width: 250%;
+    textarea {
+      height: 5% !important;
+      width: 60% !important;
+    }
+
+    .textarea {
+      height: 5% !important;
+      width: 60% !important;
+    }
   }
 }
