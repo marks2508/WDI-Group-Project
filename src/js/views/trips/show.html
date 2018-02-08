@@ -63,7 +63,7 @@
 
 <div class="column is-one-quarter">
     <!--USER-MODAL-->
-    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
+    <button class="button is-large is-primary" ng-click="vm.openUserModal()">Add Users</button>
     <form ng-submit="vm.saveUsers()">
       <ul ng-repeat="user in vm.trip.users">
         <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
@@ -99,7 +99,7 @@
 
 <!--ALBUM-MODAL-->
 
-<button class="button is-small is-primary" ng-click="vm.openAlbumModal()">View Album</button>
+<button class="button is-large is-primary" ng-click="vm.openAlbumModal()">View Album</button>
 <div class="modal" ng-class="{'is-active': vm.albumModalOpen}">
   <div class="modal-background"></div>
   <div class="modal-card">
