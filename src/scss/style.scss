@@ -1,9 +1,14 @@
 @import "indexPage";
+@import "showPage";
 
+
+<<<<<<< HEAD
+=======
 .google-map {
   height: 500px;
   width: 500px;
 }
+>>>>>>> development
 
 .searchbar {
   height: 5px;
@@ -22,6 +27,8 @@ html {
   background: linear-gradient(to left, #556270, #94afcc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+
+
 .intro {
   color: black;
   padding-left: 5px;
@@ -35,27 +42,7 @@ html {
 
 }
 
-.userModalUsers {
-  padding-right: 3px;
-}
 
-.userModalButton {
-  float: right !important;
-}
-
-.modal-card-body {
-  margin-bottom: 0 !important;
-}
-
-.albumImages {
-  height: 300px;
-}
-
-.albumCard {
-  display: block;
-  height: 200px;
-  width: auto;
-}
 
 .userProfilePic {
   height: 50px;
@@ -79,4 +66,13 @@ html {
 .new {
   display: flex;
   justify-content: flex-end;
+}
+
+.add {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  top: 200px;
+  padding-left: 10px;
+
 }
