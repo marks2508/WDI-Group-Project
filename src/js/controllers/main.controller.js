@@ -59,7 +59,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth, filterFilter, $scope)
 
   function filterTrip() {
     const params = { name: vm.searchBoxValue };
-    vm.filtered = filterFilter(vm.all, params);
+    vm.filtered = filterFilter(vm.title, params);
   }
 
   $scope.$watch(() => vm.searchBoxValue, filterTrip);

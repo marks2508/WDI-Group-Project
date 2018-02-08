@@ -26,22 +26,16 @@
             <option value="zoo">Zoo</option>
           </select>
         </div>
-<<<<<<< HEAD
+
         <div class="control markerSelect">
           <div class="select">
             <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
             </select>
           </div>
-          <button google-places location="vm.place" type="vm.interest" map="vm.map"></button>
-=======
-      </div>
-      <div class="control markerSelect">
-        <div class="select">
-          <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
-          </select>
->>>>>>> development
+          <button google-places class="button is-medium is-primary"location="vm.place" type="vm.interest" map="vm.map">Search</button>
+
         </div>
-        <button google-places location="vm.place" type="vm.interest"></button>
+
       </div>
     </div>
   </form>
@@ -52,18 +46,23 @@
     <section class="section">
       <h2 class="title">{{ vm.trip.title}}</h2>
       <h3>Description: <em>{{ vm.trip.description }}</em></h3>
+      <a href="https://www.tripadvisor.co.uk/">For a better website please visit</a>
     </section>
   </div>
 
   <div class="column">
-    <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>
+    <button class="button is-small is-danger" ng-if="vm.isAuthenticated() && currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
   </div>
 </div>
 
 
 <div class="column is-one-quarter">
     <!--USER-MODAL-->
+<<<<<<< HEAD
     <button class="button is-large is-primary" ng-click="vm.openUserModal()">Add Users</button>
+=======
+    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
+>>>>>>> development
     <form ng-submit="vm.saveUsers()">
       <ul ng-repeat="user in vm.trip.users">
         <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
@@ -144,24 +143,25 @@
   </div>
 
 
-  <div class="column">
 
-    <div class="field">
-      <label class="label">Comments for trip</label>
-      <p ng-if="!vm.post.comments.length">0 comments</p>
-      <ul class="comments__created">
-        <li ng-repeat="comment in vm.trip.comments track by $index">
-          <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-          <button class="delete" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
-        </li>
-      </ul>
-      <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-        <textarea class="textarea" ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
-        <button class="button">Add comment</button>
-      </form>
-    </div>
-
-
-  </section>
 </div>
+<div class="comments">
+
+  <div class="field">
+    <label class="label">Comments for trip</label>
+    <p ng-if="!vm.post.comments.length">0 comments</p>
+    <ul class="comments__created">
+      <li ng-repeat="comment in vm.trip.comments track by $index">
+        <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
+        <button class="delete" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
+      </li>
+    </ul>
+    <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+      <textarea class="textarea" ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
+      <button class="button">Add comment</button>
+    </form>
+  </div>
+
+
+</section>
 </div>
