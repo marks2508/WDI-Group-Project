@@ -26,7 +26,6 @@ function googleMap($window, $rootScope) {
         zoom: 5,
         center: scope.center
       });
-      console.log('google map directive ==========> ', map);
 
       $rootScope.$broadcast('mapInit', { map });
 

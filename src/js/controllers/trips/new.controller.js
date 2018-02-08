@@ -19,7 +19,7 @@ function TripsNewCtrl(Trip, $state) {
 
   function addWaypoint() {
     if (vm.waypoint) {
-      vm.trip.waypoints.push({ location: vm.waypoint });
+      vm.trip.waypoints.push(vm.waypoint);
       vm.waypoint = {};
     }
   }
