@@ -11,19 +11,11 @@
     <label class="label" for="description">Description:</label>
     <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description" placeholder="Enter a quick rundown on your trip" required>
 
-<<<<<<< HEAD
     <label class="label" for="description">Start Point</label>
     <input  class="input" type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location">
 
     <label class="label" for="description">End Point</label>
     <input class="input" type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location">
-=======
-    <label class="label" for="start">Start:</label>
-    <input  class="input" type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location" required>
-
-    <label class="label" for="start">End:</label>
-    <input class="input" type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location" required>
->>>>>>> development
 
     <label class="label" for="image">Add A Cover Photo For Your Journey</label>
     <input type="text" class="input" id="image" name="image" ng-model="vm.trip.images" placeholder="Add image URL" required>
@@ -31,13 +23,7 @@
     <div>
       <label class="label">Any stops on the way, you can add multiple</label>
       <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
-<<<<<<< HEAD
-       <!-- <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location"> -->
       <p class="button is-medium is-primary" ng-click="vm.addWaypoint()">Save Stop</p>
-=======
-      <input type="submit" ng-click="vm.addWaypoint()">
-      <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
->>>>>>> development
     </div>
     <br>
     <button class="button is-large is-primary" ng-submit="calcRoute()" ng-click="vm.addWaypoint()">Route and Create Your Trip</button>

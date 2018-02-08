@@ -35,17 +35,17 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     if (vm.stateHasChanged) vm.message = null;
     if (!vm.stateHasChanged) vm.stateHasChanged = true;
   });
-    if(vm.stateHasChanged) vm.messgae = null;
-    if(!vm.stateHasChanged) vm.stateHasChanged = true;
-    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+  if(vm.stateHasChanged) vm.messgae = null;
+  if(!vm.stateHasChanged) vm.stateHasChanged = true;
+  if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
 
-    if(!$auth.isAuthenticated() && protectedStates.includes(vm.pageName)) {
-      vm.message = 'You must be logged in';
-      return $state.go('login');
-    }
-    if (vm.stateHasChanged) vm.message = null;
-    if (!vm.stateHasChanged) vm.stateHasChanged = true;
-  });
+  if(!$auth.isAuthenticated() && protectedStates.includes(vm.pageName)) {
+    vm.message = 'You must be logged in';
+    return $state.go('login');
+  }
+  if (vm.stateHasChanged) vm.message = null;
+  if (!vm.stateHasChanged) vm.stateHasChanged = true;
+
 
   vm.slides = [
     { image: 'https://images.unsplash.com/photo-1498637841888-108c6b723fcb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54d1fa94e704450bcdd1aa84dae243cf&auto=format&fit=crop&w=2691&q=80' },
