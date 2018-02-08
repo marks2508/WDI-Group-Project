@@ -34,20 +34,20 @@
             <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
             </select>
           </div>
-          <button google-places location="vm.place" type="vm.interest"></button>
+          <button google-places location="vm.place" type="vm.interest" map="vm.map"></button>
         </div>
     </div>
-<<<<<<< HEAD
+
   </form>
 </section>
 
-=======
+
   </div>
 
 </section>
 
 </section>
->>>>>>> development
+
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">
@@ -64,9 +64,6 @@
   </select>
 </div> -->
 
-<section class="section">
-<google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
-</section>
 <div class="column">
   <button class="button is-small is-primary" ui-sref="tripsEdit({ id: vm.trip.id })">Edit trip</button>
   <button class="button is-small is-danger" ng-click="vm.delete()">Delete trip</button>
