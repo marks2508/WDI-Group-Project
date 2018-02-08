@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$transitions', '$rootScope', '$state','$auth'];
-function MainCtrl($transitions, $rootScope, $state, $auth) {
+MainCtrl.$inject = ['$transitions', '$rootScope', '$state','$auth', 'filterFilter', '$scope'];
+function MainCtrl($transitions, $rootScope, $state, $auth, filterFilter, $scope) {
   const vm = this;
 
   vm.isAuthenticated = $auth.isAuthenticated;
@@ -54,4 +54,14 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     { image: 'https://images.unsplash.com/photo-1469535933002-df571c1c6713?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=19c1b791f36f833c3b6ae5b91d08b377&auto=format&fit=crop&w=1650&q=80' },
     { image: 'https://images.unsplash.com/photo-1464974196937-6e6220ad7247?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59a1334fb1395c37f5760bc64d7e54f7&auto=format&fit=crop&w=1650&q=80' }
   ];
+
+  filterTrip();
+
+  function filterTrip() {
+    const params = { name: vm.searchBoxValue };
+    vm.filtered = filterFilter(vm.all, params);
+  }
+
+  $scope.$watch(() => vm.searchBoxValue, filterTrip);
+
 }
