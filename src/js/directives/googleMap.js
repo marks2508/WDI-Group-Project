@@ -20,6 +20,7 @@ function googleMap($window, $rootScope) {
       let start = null;
       let end = null;
       let intrestMarker = null;
+      let markers = [];
 
       const bounds = new $window.google.maps.LatLngBounds();
       const map = new $window.google.maps.Map(element[0], {
@@ -61,17 +62,17 @@ function googleMap($window, $rootScope) {
       function createMarker(location) {
         if (!location) return false;
 
-        new $window.google.maps.Marker({
+        markers.push(new $window.google.maps.Marker({
           position: location,
           map: map
-        });
+        }));
 
         bounds.extend(location);
         map.fitBounds(bounds);
         if(scope.start && scope.end) {
           calcRoute();
         }
-
+        console.log(markers);
       }
 
       // $window.google.maps.event.addListener(map, 'click', event => {

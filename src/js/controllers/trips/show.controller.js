@@ -24,6 +24,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   vm.savePic = savePic;
   vm.saveUsers = saveUsers;
 
+
   Trip
     .get($state.params)
     .$promise
