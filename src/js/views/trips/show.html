@@ -56,29 +56,29 @@
 
 
 <div class="column is-one-quarter">
-  <!--USER-MODAL-->
-  <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
-  <form ng-submit="vm.saveUsers()">
-    <ul ng-repeat="user in vm.trip.users">
-      <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
-    </ul>
-    <input type="submit" value="Save changes">
-  </form>
-  <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Users</p>
-        <button class="delete" ng-click="vm.closeUserModal()" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
-        <div ng-repeat="user in vm.users">
-          <div>
-            <form ng-submit="addUser(user)">
-              <p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}">
-              <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
-              <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
-            </form>
+    <!--USER-MODAL-->
+    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
+    <form ng-submit="vm.saveUsers()">
+      <ul ng-repeat="user in vm.trip.users">
+        <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
+      </ul>
+    </form>
+    <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Users</p>
+          <button class="delete" ng-click="vm.closeUserModal()" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <div ng-repeat="user in vm.users">
+            <div>
+              <form ng-submit="addUser(user)">
+                <p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}">
+                  <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
+                  <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
