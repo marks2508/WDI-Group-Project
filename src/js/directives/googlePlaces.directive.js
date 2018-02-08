@@ -14,6 +14,7 @@ function googlePlaces($window) {
     link: function(scope, element)  {
       let map = null;
       let infoWindow = null;
+      let markers = [];
 
       element.bind('click', () => {
         map = scope.map;
@@ -29,6 +30,9 @@ function googlePlaces($window) {
             radius: 1000,
             type: [selectedIntrest]
           }, (results) => {
+            markers.forEach(marker => marker.setMap(null));
+            markers = [];
+
             results.forEach(place => {
               createMarker(place);
             });
@@ -53,6 +57,9 @@ function googlePlaces($window) {
           map: map,
           animation: $window.google.maps.Animation.DROP
         });
+
+        markers.push(marker);
+
         marker.addListener('click', () => {
           if(infoWindow) infoWindow.close();
 

@@ -25,8 +25,6 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
   vm.saveUsers = saveUsers;
 
 
-
-
   Trip
     .get($state.params)
     .$promise
@@ -37,9 +35,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
 
   $http
     .get('/api/users')
-    .then((res) => {
-      vm.users = res.data;
-    });
+    .then((res) => vm.users = res.data);
 
   function openAlbumModal() {
     vm.albumModalOpen = true;
@@ -61,17 +57,11 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
   }
 
   function saveUsers() {
-    Trip
-      .update({ tripId: vm.trip.id}, vm.trip);
+    Trip.update({ tripId: vm.trip.id}, vm.trip);
   }
 
   function savePic() {
-    Trip
-      .update({ tripId: vm.trip.id}, vm.trip)
-      .$promise
-      .then((res) => {
-        console.log(res.url);
-      });
+    Trip.update({ tripId: vm.trip.id}, vm.trip);
   }
 
   function TripsDelete() {
@@ -99,6 +89,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
         vm.trip.comments.splice(index, 1);
       });
   }
+
   const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'];
   let selectDone = null;
   vm.place = null;
@@ -107,6 +98,7 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
   $rootScope.$on('waypoints', (e, data) => {
     if(!selectDone) {
       vm.locations = data.markers;
+
       selectDone = true;
     }
     if(selectDone) {
