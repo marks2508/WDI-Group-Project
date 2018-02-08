@@ -1,9 +1,9 @@
 
-<div class="columns">
-  <div class="column is-half">
+
   <google-map center="{ lat: 51.5074, lng: 0.1278 }"></google-map>
 
-<div class="column is-half">
+<div class="columns">
+  <div class="column is-one-third">
   <form ng-submit="vm.create()">
     <label class="label" for="title">Name of trip:</label>
     <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title" placeholder="What do you want to call your trip?" required>
@@ -28,6 +28,3 @@
     <br>
     <button class="button is-large is-primary" ng-submit="calcRoute()" ng-click="vm.addWaypoint()">Route and Create Your Trip</button>
   </form>
-</div>
-</div>
-</div>
