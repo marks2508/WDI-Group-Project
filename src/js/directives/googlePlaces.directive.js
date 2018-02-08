@@ -16,10 +16,9 @@ function googlePlaces($window, $rootScope) {
 
       $rootScope.$on('mapInit', (e, data) => map = data.map);
 
-      $rootScope.$on('newIntrestLocation', (e, data) => location = data.location);
+      // $rootScope.$on('newIntrestLocation', (e, data) => location = data.location);
 
       element.bind('click', () => {
-        console.log(scope.location, scope.type);
         const selectedIntrest = scope.type;
         location = scope.location;
         if(location) {
@@ -29,11 +28,11 @@ function googlePlaces($window, $rootScope) {
             radius: 1000,
             type: [selectedIntrest]
           }, (results) => {
-            console.log(results);
             results.forEach(place => {
-              console.log(place.geometry);
-              createMarker(place.geometry.location());
+              // const posish = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
+              createMarker(place);
             });
+            console.log('a');
             map.setCenter(location);
             map.setZoom(14);
             // set map center to be location
@@ -44,9 +43,12 @@ function googlePlaces($window, $rootScope) {
 
       function createMarker(place) {
         if (!place) return false;
-
+        const lat = place.geometry.location.lat();
+        const lng = place.geometry.location.lng();
+        const posish = {lat: lat, lng: lng};
+        console.log(posish);
         new $window.google.maps.Marker({
-          position: place.geometry.location,
+          position: posish,
           icon: {
             url: place.icon,
             scaledSize: new $window.google.maps.Size(20, 20)
