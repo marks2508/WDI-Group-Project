@@ -20,7 +20,6 @@ function googleMap($window, $rootScope) {
       let start = null;
       let end = null;
       let intrestMarker = null;
-      let markers = [];
 
       const bounds = new $window.google.maps.LatLngBounds();
       const map = new $window.google.maps.Map(element[0], {
@@ -30,16 +29,7 @@ function googleMap($window, $rootScope) {
 
       $rootScope.$broadcast('mapInit', { map });
 
-      if(scope.showPage) {
-        // if(!scope.start || !scope.end) return false;
-        // console.log('its true');
-        // createMarker(scope.start);
-        // createMarker(scope.end);
-        // bounds.extend(scope.start);
-        // bounds.extend(scope.end);
-        // map.fitBounds(bounds);
-        // calcRoute();
-      }
+
 
 
 
@@ -62,88 +52,18 @@ function googleMap($window, $rootScope) {
       function createMarker(location) {
         if (!location) return false;
 
-        markers.push(new $window.google.maps.Marker({
+        new $window.google.maps.Marker({
           position: location,
           map: map
-        }));
+        });
 
         bounds.extend(location);
         map.fitBounds(bounds);
         if(scope.start && scope.end) {
           calcRoute();
         }
-        console.log(markers);
+
       }
-
-      // $window.google.maps.event.addListener(map, 'click', event => {
-      //   const intrestCoords = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-      //   setIntrestMarker(intrestCoords);
-      //   $rootScope.$broadcast('newIntrestLocation', { location: intrestCoords });
-      // });
-      //
-      // function setIntrestMarker(location) {
-      //   if (intrestMarker) intrestMarker.setMap(null);
-      //
-      //   intrestMarker = new $window.google.maps.Marker({
-      //     position: location,
-      //     map: map
-      //   });
-      // }
-
-      // function placeMarker(location) {
-      //   marker = new $window.google.maps.Marker({
-      //     position: location,
-      //     map: map
-      //   });
-      //   map.panTo(location);
-      // }
-
-
-
-
-      // const marker = new $window.google.maps.Marker({
-      //   position: scope.center,
-      //   map: map
-      // });
-      // marker.addListener('click', () => {
-      //   infoWindow.open(map, marker);
-      // });
-
-
-      // scope.$watch('start', addStartMarker);
-      // scope.$watch('end', addEndMarker);
-
-      // function addStartMarker() {
-      //   if(!scope.start) return false;
-      //   console.log(scope.start);
-      //   const marker = new $window.google.maps.Marker({
-      //     position: scope.start,
-      //     map: map
-      //   });
-      //   map.setCenter(scope.start);
-      // }
-      //
-      // function addEndMarker() {
-      //   if(!scope.end) return false;
-      //   console.log(scope.end);
-      //   const marker = new $window.google.maps.Marker({
-      //     position: scope.end,
-      //     map: map
-      //   });
-      //   map.setCenter(scope.end);
-      // }
-
-
-      // const marker = new $window.google.maps.Marker({
-      //   position: scope.center,
-      //   map: map
-      // });
-      // marker.addListener('click', () => {
-      //   infoWindow.open(map, marker);
-      // });
-
-
-
 
 
 
@@ -164,12 +84,14 @@ function googleMap($window, $rootScope) {
       directionsDisplay.setMap(map);
 
       function calcRoute() {
+
         const request = {
           origin: scope.start,
           destination: scope.end,
           travelMode: $window.google.maps.TravelMode.DRIVING,
           waypoints: scope.waypoints
           // optimizeWaypoints: true
+
         };
 
         directionsService.route(request, (response, status) => {
@@ -180,6 +102,22 @@ function googleMap($window, $rootScope) {
             alert('Directions Request from ' + start.toUrlValue(6) + ' to ' + end.toUrlValue(6) + ' failed: ' + status);
           }
         });
+
+        const markers = [scope.start];
+        for (let i=0; i<(scope.waypoints.length); i++) {
+          console.log('here');
+          markers.push(scope.waypoints[i].location.location);
+          if (i === (scope.waypoints.length-1)) {
+            markers.push(scope.end);
+          }
+        }
+
+        $rootScope.$broadcast('waypoints', { markers: markers });
+
+
+
+
       }
+
     }};
 }

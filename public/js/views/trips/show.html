@@ -1,10 +1,5 @@
 <!-- waypoints="vm.trip.waypoints" -->
 <!-- To put in google map if we have time -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> development
 <section class="mapStuff">
   <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
   <div class="field placesOfInterest">
@@ -38,9 +33,9 @@
       <div class="select">
         <select google-places location="vm.trip.end.location">
           <option>Please choose an option</option>
-          <div ng-repeat="location in vm.trip.waypoints">
-            <option value="{{location}}">A</option>
-          </div>
+
+            <option ng-repeat="location in vm.locations" value="{{location}}">{{location}}</option>
+
 
 
         </select>
@@ -48,12 +43,7 @@
     </div>
   </div>
 
-</section>``
-<<<<<<< HEAD
-=======
-=======
->>>>>>> development
->>>>>>> development
+</section>
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">
@@ -81,61 +71,6 @@
 </div>
 </div>
 
-<<<<<<< HEAD
-
-<div class="items">
-  <h1>Things to bring on the trip: </h1>
-<form name="skillsFrm" ng-submit="vm.addItem()">
-     <input type="text" name="newSkill" ng-model="vm.newItem.text" required />
-     <button  class="button button--full">Add an item</button>
-  </form>
-
-  <ul>
-    <li ng-repeat="item in vm.trip.items track by $index" class="{'fadeOut' : skill.done}">
-      <button class="delete is-large" ng-click="vm.deleteItem(item)">Delete</button>
-      <span>{{skill.title}}</span>
-    </li>
-  </ul>
-</div>
-</div>
-
-
-<div class="comments">
-  <h2>Comments for trip</h2>
-  <p ng-if="!vm.post.comments.length">0 comments</p>
-  <ul class="comments__created">
-    <li ng-repeat="comment in vm.trip.comments track by $index">
-      <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-      <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
-    </li>
-  </ul>
-  <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-    <textarea ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
-    <button class="button button--full">Add comment</button>
-  </form>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> development
 
 <div class="column is-one-quarter">
     <!--USER-MODAL-->

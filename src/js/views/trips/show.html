@@ -1,6 +1,5 @@
 <!-- waypoints="vm.trip.waypoints" -->
 <!-- To put in google map if we have time -->
-<<<<<<< HEAD
 <section class="mapStuff">
   <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
   <div class="field placesOfInterest">
@@ -34,9 +33,9 @@
       <div class="select">
         <select google-places location="vm.trip.end.location">
           <option>Please choose an option</option>
-          <div ng-repeat="location in vm.trip.waypoints">
-            <option value="{{location}}">A</option>
-          </div>
+
+            <option ng-repeat="location in vm.locations" value="{{location}}">{{location}}</option>
+
 
 
         </select>
@@ -44,9 +43,7 @@
     </div>
   </div>
 
-</section>``
-=======
->>>>>>> development
+</section>
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">
