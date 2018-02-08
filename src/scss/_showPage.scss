@@ -52,21 +52,25 @@
   width: auto;
 }
 
-.userButton {
-  display: inline-block;
+.buttons {
   vertical-align: top;
+  .userButton {
+    display: inline-block;
+  }
+
+  .albumButton {
+    display: inline-block;
+  }
+  .file {
+    display: inline-block;
+    float: center;
+
+  }
 }
 
-.albumButton {
-  display: inline-block;
-  vertical-align: top
-}
 
-.file {
-  display: inline-block;
-  float: right;
 
-}
+
 
 .comments {
   display: inline-block;
@@ -75,8 +79,7 @@
   margin-left: 2%;
   margin-right: 2%;
   text-align: left;
-  float: left;
-  width: 40%;
+  width: 160%;
   textarea {
     height: 5% !important;
     width: 60% !important !important !important !important !important !important !important;
