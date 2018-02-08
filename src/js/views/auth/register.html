@@ -1,7 +1,8 @@
 
 <div class="column is-one-third  is-offset-one-third">
   <div class="card enter">
-    <h2>Register Your Profile</h2>
+    <h1>Register Your Profile</h1>
+    <br>
     <form name="vm.registerForm" ng-submit="vm.submit()" novalidate>
 
       <div>
@@ -41,7 +42,6 @@
 
       <div class="file">
         <label class="file-label">
-          <label class="label">Add Profile Picture</label>
           <br>
           <input class="file-input" type="file" ng-model="vm.user.picture" upload-image>
           <span class="file-cta">
@@ -54,7 +54,7 @@
           </span>
         </label>
       </div>
-
+      <br>
       <button class="button is-normal is-rounded">Register</button>
     </form>
   </div>
