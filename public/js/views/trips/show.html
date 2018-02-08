@@ -57,13 +57,39 @@
 </div>
 </div>
 
+
+<div class="card">
+  <div ng-controller="ListCtrl" class="card-content">
+    <p class="title">Things to bring on the trip: </p>
+    <form name="skillsFrm" ng-submit="addSkill()">
+   <input type="text" name="newSkill" ng-model="newSkill" required />
+
+  </div>
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        View on <a href="https://twitter.com/codinghorror/status/506010907021828096">Twitter</a>
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        Share on <a href="#">Facebook</a>
+      </span>
+    </p>
+  </footer>
+</div>
+
+
+
+
+
 <div class="columns">
   <div class="column">
 <section>
 <div ng-controller="ListCtrl">
   <h1>Things to bring on the trip: </h1>
 <form name="skillsFrm" ng-submit="addSkill()">
-     <input type="text" name="newSkill" ng-model="newSkill" required />
+
      <button  ng-disabled="skillsFrm.$invalid" ng-click="addSkill()">Add an item</button>
   </form>
 
