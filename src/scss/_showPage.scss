@@ -1,0 +1,38 @@
+.mapStuff {
+  float: right;
+  overflow: hidden;
+  padding-top: 3%;
+  padding-right: 2%;
+  .google-map {
+    height: 500px;
+    width: 500px;
+    display: inline-block;
+    float: right;
+  }
+  .placesOfInterest {
+    display: inline-block;
+    float: right;
+    clear: right;
+  }
+}
+.userModalUsers {
+  padding-right: 3px;
+}
+
+.userModalButton {
+  float: right !important;
+}
+
+.modal-card-body {
+  margin-bottom: 0 !important;
+}
+
+.albumImages {
+  height: 300px;
+}
+
+.albumCard {
+  display: block;
+  height: 200px;
+  width: auto;
+}
