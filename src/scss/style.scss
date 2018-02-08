@@ -67,3 +67,12 @@ html {
   display: flex;
   justify-content: flex-end;
 }
+
+.add {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  top: 200px;
+  padding-left: 10px;
+
+}
