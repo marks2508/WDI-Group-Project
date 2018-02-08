@@ -73,13 +73,15 @@
 
 
 .comments {
-  display: inline-block;
+  display: block;
   margin-bottom: 20px;
   margin-top: 4%;
   margin-left: 2%;
   margin-right: 2%;
   text-align: left;
-  width: 160%;
+  float: left;
+  clear: left;
+  width: 250%;
   textarea {
     height: 5% !important;
     width: 60% !important !important !important !important !important !important !important;
