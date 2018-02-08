@@ -2,52 +2,44 @@
 <!-- To put in google map if we have time -->
 <section class="mapStuff">
   <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
-  <div class="field placesOfInterest">
-    <div class="interestLabel">
-      <label class="label">Find places of interest</label>
-    </div>
-    <div class="control interestSelect">
-      <div class="select">
-        <select google-places location="vm.trip.end.location">
-          <option>Please choose an option</option>
-          <option value="amusement_park">Amusement park</option>
-          <option value="airport">Airport</option>
-          <option value="aquarium">Aquarium</option>
-          <option value="art_gallery">Art gallery</option>
-          <option value="bar">Bar</option>
-          <option value="cafe">Cafe</option>
-          <option value="casino">Casino</option>
-          <option value="convenience_store">Convenience store</option>
-          <option value="department_store">Department store</option>
-          <option value="gas_station">Petrol station</option>
-          <option value="lodging">Accommodation</option>
-          <option value="movie_theater">Cinema</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="museum">Museum </option>
-          <option value="nightclub">Nightclub</option>
-          <option value="zoo">Zoo</option>
-        </select>
+  <form name="placesForm">
+    <div class="field placesOfInterest">
+      <div class="interestLabel">
+        <label class="label">Find places of interest</label>
       </div>
+        <div class="control interestSelect">
+          <div class="select">
+            <select ng-model="vm.interest" >
+              <option value="amusement_park">Amusement park</option>
+              <option value="airport">Airport</option>
+              <option value="aquarium">Aquarium</option>
+              <option value="art_gallery">Art gallery</option>
+              <option value="bar">Bar</option>
+              <option value="cafe">Cafe</option>
+              <option value="casino">Casino</option>
+              <option value="convenience_store">Convenience store</option>
+              <option value="department_store">Department store</option>
+              <option value="gas_station">Petrol station</option>
+              <option value="lodging">Accommodation</option>
+              <option value="movie_theater">Cinema</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="museum">Museum </option>
+              <option value="nightclub">Nightclub</option>
+              <option value="zoo">Zoo</option>
+            </select>
+          </div>
+        </div>
+        <div class="control markerSelect">
+          <div class="select">
+            <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
+            </select>
+          </div>
+          <button google-places location="vm.place" type="vm.interest"></button>
+        </div>
     </div>
-    <div class="control markerSelect">
-      <div class="select">
-        <select google-places location="vm.trip.end.location">
-          <option>Please choose an option</option>
-
-            <option ng-repeat="location in vm.locations" value="{{location}}">{{location}}</option>
-
-
-
-        </select>
-      </div>
-    </div>
-  </div>
-
-<<<<<<< HEAD
+  </form>
 </section>
-=======
-</section>``
->>>>>>> development
+
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">

@@ -99,11 +99,25 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
         vm.trip.comments.splice(index, 1);
       });
   }
+  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'];
   let selectDone = null;
+  vm.place = null;
+  vm.log = log;
+  vm.interest = 'amusement_park';
+  function log() {
+    console.log(vm.place);
+  }
   $rootScope.$on('waypoints', (e, data) => {
     if(!selectDone) {
       vm.locations = data.markers;
+      console.log(vm.locations);
       selectDone = true;
+    }
+    if(selectDone) {
+      for (let i=0; i<vm.locations.length; i++) {
+        vm.locations[i].letter = alphabet[i];
+        console.log(vm.locations);
+      }
     }
   });
 }
