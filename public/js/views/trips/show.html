@@ -1,38 +1,5 @@
 <!-- waypoints="vm.trip.waypoints" -->
 <!-- To put in google map if we have time -->
-<<<<<<< HEAD
-<section class="mapStuff">
-  <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
-  <div class="field placesOfInterest">
-    <label class="label">Find places of interest</label>
-    <div class="control">
-      <div class="select">
-        <select google-places location="vm.trip.end.location">
-          <option>Please choose an option</option>
-          <option value="amusement_park">Amusement park</option>
-          <option value="airport">Airport</option>
-          <option value="aquarium">Aquarium</option>
-          <option value="art_gallery">Art gallery</option>
-          <option value="bar">Bar</option>
-          <option value="cafe">Cafe</option>
-          <option value="casino">Casino</option>
-          <option value="convenience_store">Convenience store</option>
-          <option value="department_store">Department store</option>
-          <option value="gas_station">Petrol station</option>
-          <option value="lodging">Accommodation</option>
-          <option value="movie_theater">Cinema</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="museum">Museum </option>
-          <option value="nightclub">Nightclub</option>
-          <option value="zoo">Zoo</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-</section>
-{{vm.trip.createdBy}}
-=======
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">
@@ -89,66 +56,6 @@
 
 </div>
 </div>
-
-<<<<<<< HEAD
-
-<div class="items">
-=======
-<div class="columns">
-  <div class="column">
-<section>
->>>>>>> development
-<div ng-controller="ListCtrl">
->>>>>>> development
-  <h1>Things to bring on the trip: </h1>
-<form name="skillsFrm" ng-submit="vm.addItem()">
-     <input type="text" name="newSkill" ng-model="vm.newItem.text" required />
-     <button  class="button button--full">Add an item</button>
-  </form>
-
-  <ul>
-    <li ng-repeat="item in vm.trip.items track by $index" class="{'fadeOut' : skill.done}">
-      <button class="delete is-large" ng-click="vm.deleteItem(item)">Delete</button>
-      <span>{{skill.title}}</span>
-    </li>
-  </ul>
-</div>
-</div>
-
-
-<div class="comments">
-  <h2>Comments for trip</h2>
-  <p ng-if="!vm.post.comments.length">0 comments</p>
-  <ul class="comments__created">
-    <li ng-repeat="comment in vm.trip.comments track by $index">
-      <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-      <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
-    </li>
-  </ul>
-  <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-    <textarea ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
-    <button class="button button--full">Add comment</button>
-  </form>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="column is-one-quarter">
