@@ -8,10 +8,9 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
   vm.logout = logout;
-<<<<<<< HEAD
-=======
+
+
   const protectedStates = ['postsNew'];
->>>>>>> 654a8a99432db6dd781b0c3c16fdfbeba301fb56
 
   function logout() {
     $auth.logout();
@@ -32,12 +31,10 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     vm.menuIsOpen = false;
     // attaches the state name to the main controller to be used as a class name on the body
     vm.pageName = transition.to().name;
-<<<<<<< HEAD
 
     if (vm.stateHasChanged) vm.message = null;
     if (!vm.stateHasChanged) vm.stateHasChanged = true;
   });
-=======
     if(vm.stateHasChanged) vm.messgae = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
@@ -57,5 +54,4 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     { image: 'https://images.unsplash.com/photo-1469535933002-df571c1c6713?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=19c1b791f36f833c3b6ae5b91d08b377&auto=format&fit=crop&w=1650&q=80' },
     { image: 'https://images.unsplash.com/photo-1464974196937-6e6220ad7247?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=59a1334fb1395c37f5760bc64d7e54f7&auto=format&fit=crop&w=1650&q=80' }
   ];
->>>>>>> 654a8a99432db6dd781b0c3c16fdfbeba301fb56
 }
