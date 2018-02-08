@@ -1,1 +1,35 @@
-<h1>test</h1>
+
+<div class="columns">
+  <div class="column is-half">
+  <google-map center="{ lat: 51.5074, lng: 0.1278 }"></google-map>
+
+<div class="column is-half">
+  <form ng-submit="vm.create()">
+    <label class="label" for="title">Name of trip:</label>
+    <input type="text" class="input" id="title" name="title" ng-model="vm.trip.title" placeholder="What do you want to call your trip?" required>
+
+    <label class="label" for="description">Description:</label>
+    <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description" placeholder="Enter a quick rundown on your trip" required>
+
+    <label class="label" for="start">Start:</label>
+    <input  class="input" type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location" required>
+
+    <label class="label" for="start">End:</label>
+    <input class="input" type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location" required>
+
+    <label class="label" for="image">Add A Cover Photo For Your Journey</label>
+    <input type="text" class="input" id="image" name="image" ng-model="vm.trip.images" placeholder="Add image URL" required>
+
+    <div>
+      <label class="label">Any stops on the way, you can add multiple</label>
+      <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
+      <input type="submit" ng-click="vm.addWaypoint()">
+      <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
+    </div>
+
+    <br>
+    <button class="button is-large is-primary" ng-submit="calcRoute()" ng-click="vm.addWaypoint()">Route and Create Your Trip</button>
+  </form>
+</div>
+</div>
+</div>

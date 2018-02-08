@@ -12,7 +12,7 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
-    .populate('createdBy')
+    // .populate('createdBy')
     .exec()
     .then((trip) => {
       if(!trip) return res.notFound();
@@ -23,13 +23,50 @@ function showRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
-  // req.body.createdBy = req.user;
+  req.body.createdBy = req.user;
 
   Trip
     .create(req.body)
     .then((trip) => res.status(201).json(trip))
     .catch(next);
 }
+
+
+function addCommentRoute(req, res, next) {
+
+  req.body.createdBy = req.user;
+
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+
+      const comment = trip.comments.create(req.body);
+      trip.comments.push(comment);
+
+      return trip.save()
+        .then(() => res.json(comment));
+    })
+    .catch(next);
+}
+
+function deleteCommentRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .exec()
+    .then((trip) => {
+      if(!trip) return res.notFound();
+
+      const comment = trip.comments.id(req.params.commentId);
+      comment.remove();
+
+      return trip.save();
+    })
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 
 function deleteRoute(req, res, next) {
   Trip
@@ -48,5 +85,7 @@ module.exports = {
   index: indexRoute,
   show: showRoute,
   create: createRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  addComment: addCommentRoute,
+  deleteComment: deleteCommentRoute
 };

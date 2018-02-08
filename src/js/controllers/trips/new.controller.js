@@ -5,16 +5,25 @@ angular
 TripsNewCtrl.$inject = ['Trip', '$state'];
 function TripsNewCtrl(Trip, $state) {
   const vm = this;
-  vm.post = {};
+  vm.trip = {
+    waypoints: []
+  };
 
   function tripsCreate() {
-    if(vm.newForm.$valid) {
-      Trip
-        .save(vm.trip)
-        .$promise
-        .then(() => $state.go('tripsIndex'));
+    vm.trip.images = [vm.trip.images];
+    Trip
+      .save(vm.trip)
+      .$promise
+      .then(() => $state.go('tripsIndex'));
+  }
+
+  function addWaypoint() {
+    if (vm.waypoint) {
+      vm.trip.waypoints.push({ location: vm.waypoint });
+      vm.waypoint = {};
     }
   }
 
-  vm.create = tripsCreate;
+  vm.create      = tripsCreate;
+  vm.addWaypoint = addWaypoint;
 }

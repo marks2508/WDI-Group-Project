@@ -1,18 +1,92 @@
 <!DOCTYPE html>
 <html ng-app="roadTrippers">
+<script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+
+
 <head>
   <title>WDI Group Project</title>
   <base href="/">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFdykQIbI6dMLCGyov2befnGnaHEtKA5w&libraries=places"></script>
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
 </head>
-<body>
-  <h1>WDI Group Project! by Fatals Errors</h1>
-  <a ui-sref="register">register</a>
-  <a ui-sref="login">login</a>
+<body ng-controller="MainCtrl as main" ng-class="main.pageName">
+
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <i class="fas fa-road" height="100"></i>
+      </a>
+      <div class="navbar-burger burger nav-toggle" ng-class="{ 'is-active': main.menuIsOpen }" ng-click="main.menuIsOpen = !main.menuIsOpen" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu" ng-class="{ 'is-active': main.menuIsOpen}">
+      <div class="navbar-start">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="/trips">
+            Trips
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="/trips/new" ng-if="main.isAuthenticated()">
+              Add a trip
+            </a>
+            <a class="navbar-item" href="/trips">
+              See all trips
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-primary" ng-if="!main.isAuthenticated()" ui-sref="register" ui-sref-active="active">
+                <span class="icon">
+                  <i class="fas fa-user-plus"></i>
+                </span>
+                <span>register</span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-primary" ng-if="!main.isAuthenticated()" ui-sref="login" ui-sref-active="active">
+                <span class="icon">
+                  <i class="fas fa-sign-in-alt"></i>
+                </span>
+                <span>login</span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-primary" ng-click="main.logout()" ng-if="main.isAuthenticated()" ui-sref="/">
+                <span class="icon">
+                  <i class="fas fa-sign-out-alt"></i>
+                </span>
+                <span>logout</span>
+              </a>
+                <form class="field has-addons searchbar" method="get" action="/search">
+                  <div class="control"><input class="input" type="search" placeholder="Search" name="omni"></div>
+                  <div class="control"><button class="button is-primary" type="submit">Search</button></div>
+                </form>
+              </p>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <main ui-view>
   </main>
-</body>
-</html>
+
+  </body>
+  </html>

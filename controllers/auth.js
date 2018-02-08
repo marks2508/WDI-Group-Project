@@ -1,10 +1,15 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const { secret } = require('../config/environment');
 
 function register(req, res, next) {
   User
     .create(req.body)
-    .then(() => res.json({ message: 'Registration successful'}))
+    .then(() => {
+
+      const token = jwt.sign({ userId: req.body.id }, secret, { expiresIn: '1hr' });
+      return res.json({ message: 'Registration successful', token});
+    })
     .catch(next);
 }
 
@@ -13,8 +18,7 @@ function login(req, res, next) {
     .findOne({ email: req.body.email })
     .then((user) => {
       if(!user || !user.validatePassword(req.body.password)) return res.unauthorized();
-
-      const token = jwt.sign({ userId: user.id }, { expiresIn: '1hr' });
+      const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
       return res.json({ token, message: `Welcome back ${user.username}` });
     })
     .catch(next);
