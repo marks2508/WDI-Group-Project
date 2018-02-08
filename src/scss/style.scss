@@ -1,10 +1,7 @@
 @import "indexPage";
+@import "showPage";
 
-.google-map {
-  height: 500px;
-  width: 500px;
-  display: inline-block;
-}
+
 
 .searchbar {
   height: 5px;
@@ -26,6 +23,8 @@ html {
 
 }
 
+
+
 .intro {
   color: white;
 }
@@ -36,27 +35,7 @@ html {
 
 }
 
-.userModalUsers {
-  padding-right: 3px;
-}
 
-.userModalButton {
-  float: right !important;
-}
-
-.modal-card-body {
-  margin-bottom: 0 !important;
-}
-
-.albumImages {
-  height: 300px;
-}
-
-.albumCard {
-  display: block;
-  height: 200px;
-  width: auto;
-}
 
 .userProfilePic {
   height: 50px;
