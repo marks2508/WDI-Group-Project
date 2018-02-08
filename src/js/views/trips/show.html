@@ -1,5 +1,3 @@
-<!-- waypoints="vm.trip.waypoints" -->
-<!-- To put in google map if we have time -->
 <section class="mapStuff">
   <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
   <form name="placesForm">
@@ -55,13 +53,7 @@
 
   </section>
 </div>
-<!-- <div>
-  <p>Find places of intrest</p>
-  <select google-places location="vm.trip.end.location">
-    <option disabled selected>Please choose an option</option>
 
-  </select>
-</div> -->
 
 <section class="section">
 <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
@@ -106,7 +98,6 @@
           <ul ng-repeat="user in vm.trip.users">
             <li class="userModalUsers">{{user.username}}</li>
           </ul>
-          <!-- <button class="button is-success userModalButton">Save changes</button> -->
         </div>
       </div>
     </div>
@@ -159,15 +150,11 @@
             </span>
           </label>
         </div>
-        <!-- <img src="vm.trip.images">
-      <input type="submit" value="Save changes"> -->
     </form>
   </div>
 
 
 <div class="column">
-<!-- <input type=text google-placesdirective ng-model="vm.trip.places" location="vm.trip.location"> -->
-
 
 <div class="field">
   <label class="label">Comments for trip</label>
