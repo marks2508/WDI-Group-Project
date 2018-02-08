@@ -52,18 +52,14 @@
   </div>
 
   <div>
-    <button class="button is-small is-danger" ng-if="vm.isAuthenticated() && currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
+    <button class="button is-small is-danger" ng-if="currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
   </div>
 </div>
 
 
 <div>
     <!--USER-MODAL-->
-<<<<<<< HEAD
     <button class="button is-large is-primary userButton" ng-click="vm.openUserModal()">Add Users</button>
-=======
-    <button class="button is-large is-primary" ng-click="vm.openUserModal()">Add Users</button>
->>>>>>> development
     <form ng-submit="vm.saveUsers()">
       <ul ng-repeat="user in vm.trip.users">
         <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">

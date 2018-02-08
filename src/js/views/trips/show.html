@@ -52,7 +52,7 @@
   </div>
 
   <div>
-    <button class="button is-small is-danger" ng-if="vm.isAuthenticated() && currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
+    <button class="button is-small is-danger" ng-if="currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
   </div>
 </div>
 
