@@ -10,8 +10,10 @@
     <label class="label" for="description">Description</label>
     <input type="text" class="input" id="description" name="description" ng-model="vm.trip.description" placeholder="Enter a quick rundown on your trip">
 
+    <label class="label" for="description">Start Point</label>
     <input  class="input" type="text" google-autocomplete ng-model="vm.trip.start.description" location="vm.trip.start.location">
 
+    <label class="label" for="description">End Point</label>
     <input class="input" type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location">
 
     <label class="label" for="image">Add A Cover Photo For Your Journey</label>
@@ -20,8 +22,9 @@
     <div>
       <label class="label">Any stops on the way, you can add multiple</label>
       <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">
+       <!-- <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location"> -->
+      <p class="button is-medium is-primary" ng-click="vm.addWaypoint()">Save Stop</p>
     </div>
-
     <br>
     <button class="button is-large is-primary" ng-submit="calcRoute()" ng-click="vm.addWaypoint()">Route and Create Your Trip</button>
   </form>
