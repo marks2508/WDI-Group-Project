@@ -55,13 +55,16 @@
   </div>
 </div>
 
+<div class="buttons">
 
+<button class="button is-large is-primary userButton" ng-click="vm.openUserModal()">Add Users</button>
 <div>
     <!--USER-MODAL-->
-    <button class="button is-large is-primary userButton" ng-click="vm.openUserModal()">Add Users</button>
+
     <form ng-submit="vm.saveUsers()">
       <ul ng-repeat="user in vm.trip.users">
         <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
+        <button type="submit"></button>
       </ul>
     </form>
     <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
@@ -90,7 +93,6 @@
       </div>
     </div>
   </div>
-</div>
 
 <!--ALBUM-MODAL-->
 
@@ -121,8 +123,7 @@
   </div>
 </div>
 
-<div class="columns">
-  <div class="column">
+
     <form ng-submit="vm.savePic()">
       <div class="file">
         <label class="file-label">
@@ -136,11 +137,7 @@
         </label>
       </div>
     </form>
-  </div>
-
-
-
-</div>
+<div>
 <div class="comments">
 
   <div class="field">
@@ -157,7 +154,4 @@
       <button class="button">Add comment</button>
     </form>
   </div>
-
-
-</section>
 </div>
