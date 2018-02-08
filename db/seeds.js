@@ -100,7 +100,7 @@ User
       description: 'Hugging the curve of the coast around the very southern tip of Africa from Cape Town to Port Elizabeth, this celebrated touring route travels past white sandy beaches and over mountain passes through South Africa\'s holiday heartland. Named after the region\'s bountiful wildflowers, other attractions, beyond the majestic scenery, include forests with 800-year-old trees, vineyards and plenty of wildlife.',
       start: {
         location: {
-          lat: 33.9249,
+          lat: -33.9249,
           lng: 18.4241
         }
       },
