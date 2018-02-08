@@ -26,11 +26,20 @@
             <option value="zoo">Zoo</option>
           </select>
         </div>
+<<<<<<< HEAD
+        <div class="control markerSelect">
+          <div class="select">
+            <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
+            </select>
+          </div>
+          <button google-places location="vm.place" type="vm.interest" map="vm.map"></button>
+=======
       </div>
       <div class="control markerSelect">
         <div class="select">
           <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
           </select>
+>>>>>>> development
         </div>
         <button google-places location="vm.place" type="vm.interest"></button>
       </div>
