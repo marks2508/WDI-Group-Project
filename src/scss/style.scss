@@ -1,16 +1,9 @@
 @import "indexPage";
 @import "showPage";
 
-
-
-// .google-map {
-//   height: 500px;
-//   width: 500px;
-// }
-
-.searchbar {
-  height: 5px;
-  padding-bottom: 15px;
+.google-map {
+  height: 500px;
+  width: 500px;
 }
 
 .carousel-image {
@@ -70,7 +63,11 @@ html {
   display: flex;
   justify-content: flex-start;
   position: absolute;
-  top: 200px;
-  padding-left: 10px;
+  top: 15%;
+  padding-left: 10%;
+}
 
+.searchbar {
+  height: 5px;
+  padding-bottom: 15px;
 }
