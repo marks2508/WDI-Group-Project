@@ -13,8 +13,6 @@ describe('Trips Controller Test', () => {
   // INDEX ROUTE
   describe('GET /api/trips', () => {
     beforeEach(done => {
-      let user  = null;
-      let token = null;
 
       User
         .create({
