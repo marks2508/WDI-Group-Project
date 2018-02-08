@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', 'TripItem', '$state'];
-function TripsShowCtrl(Trip, $http, TripComment, TripItem, $state) {
+TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state'];
+function TripsShowCtrl(Trip, $http, TripComment, $state) {
   const vm = this;
   vm.userModalOpen = null;
   vm.albumModalOpen = null;
@@ -23,8 +23,7 @@ function TripsShowCtrl(Trip, $http, TripComment, TripItem, $state) {
   vm.adduser = addUser;
   vm.savePic = savePic;
   vm.saveUsers = saveUsers;
-  vm.addItem = addItem;
-  vm.deleteItem = deleteItem;
+
 
   Trip
     .get($state.params)
@@ -98,27 +97,4 @@ function TripsShowCtrl(Trip, $http, TripComment, TripItem, $state) {
         vm.trip.comments.splice(index, 1);
       });
   }
-
-
-  function addItem() {
-    TripItem
-      .save({ tripId: vm.trip.id }, vm.newItem)
-      .$promise
-      .then((item) => {
-        vm.trip.items.push(item);
-        vm.newItem = {};
-      });
-  }
-
-  function deleteItem(item) {
-    TripItem
-      .delete({ tripId: vm.trip.id, id: item.id})
-      .$promise
-      .then(() => {
-        const index = vm.trip.items.indexOf(item);
-        vm.trip.items.splice(index, 1);
-      });
-  }
-
-
 }
