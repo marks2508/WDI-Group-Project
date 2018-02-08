@@ -27,6 +27,7 @@ function googlePlaces($window, $rootScope) {
             radius: 1000,
             type: [selectedIntrest]
           }, (results) => {
+            console.log(results);
             results.forEach(place => createMarker(place));
             map.setCenter(location);
             map.setZoom(14);

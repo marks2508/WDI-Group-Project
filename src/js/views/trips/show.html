@@ -33,9 +33,9 @@
       <div class="select">
         <select google-places location="vm.trip.end.location">
           <option>Please choose an option</option>
-          <div ng-repeat="location in vm.trip.waypoints">
-            <option value="{{location}}">A</option>
-          </div>
+
+            <option ng-repeat="location in vm.locations" value="{{location}}">{{location}}</option>
+
 
 
         </select>
@@ -43,7 +43,11 @@
     </div>
   </div>
 
+<<<<<<< HEAD
+</section>
+=======
 </section>``
+>>>>>>> development
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">

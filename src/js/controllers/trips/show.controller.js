@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state'];
-function TripsShowCtrl(Trip, $http, TripComment, $state) {
+TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state', '$rootScope'];
+function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
   const vm = this;
   vm.userModalOpen = null;
   vm.albumModalOpen = null;
@@ -23,6 +23,8 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   vm.adduser = addUser;
   vm.savePic = savePic;
   vm.saveUsers = saveUsers;
+
+
 
 
   Trip
@@ -97,4 +99,11 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
         vm.trip.comments.splice(index, 1);
       });
   }
+  let selectDone = null;
+  $rootScope.$on('waypoints', (e, data) => {
+    if(!selectDone) {
+      vm.locations = data.markers;
+      selectDone = true;
+    }
+  });
 }
