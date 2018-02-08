@@ -41,8 +41,8 @@
   </form>
 </section>
 
-<div class="columms">
-  <div class="column is-three-quarters">
+<div>
+  <div>
     <section class="section">
       <h2 class="title">{{ vm.trip.title}}</h2>
       <h3>Description: <em>{{ vm.trip.description }}</em></h3>
@@ -50,19 +50,15 @@
     </section>
   </div>
 
-  <div class="column">
+  <div>
     <button class="button is-small is-danger" ng-if="vm.isAuthenticated() && currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
   </div>
 </div>
 
 
-<div class="column is-one-quarter">
+<div>
     <!--USER-MODAL-->
-<<<<<<< HEAD
-    <button class="button is-large is-primary" ng-click="vm.openUserModal()">Add Users</button>
-=======
-    <button class="button is-small is-primary" ng-click="vm.openUserModal()">Add Users</button>
->>>>>>> development
+    <button class="button is-large is-primary userButton" ng-click="vm.openUserModal()">Add Users</button>
     <form ng-submit="vm.saveUsers()">
       <ul ng-repeat="user in vm.trip.users">
         <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
@@ -98,7 +94,7 @@
 
 <!--ALBUM-MODAL-->
 
-<button class="button is-large is-primary" ng-click="vm.openAlbumModal()">View Album</button>
+<button class="button is-large is-primary albumButton" ng-click="vm.openAlbumModal()">View Album</button>
 <div class="modal" ng-class="{'is-active': vm.albumModalOpen}">
   <div class="modal-background"></div>
   <div class="modal-card">
