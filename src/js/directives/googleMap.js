@@ -26,6 +26,7 @@ function googleMap($window, $rootScope) {
         zoom: 5,
         center: scope.center
       });
+      console.log('google map directive ==========> ', map);
 
       $rootScope.$broadcast('mapInit', { map });
 
@@ -105,14 +106,13 @@ function googleMap($window, $rootScope) {
 
         const markers = [scope.start];
         for (let i=0; i<(scope.waypoints.length); i++) {
-          console.log('here');
           markers.push(scope.waypoints[i].location.location);
           if (i === (scope.waypoints.length-1)) {
             markers.push(scope.end);
           }
         }
 
-        $rootScope.$broadcast('waypoints', { markers: markers });
+        $rootScope.$broadcast('waypoints', { markers: markers, map: map });
 
 
 
