@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .controller('TripsNewCtrl', TripsNewCtrl);
 
-TripsNewCtrl.$inject = ['Trip', '$state', '$scope'];
-function TripsNewCtrl(Trip, $state, $scope) {
+TripsNewCtrl.$inject = ['Trip', '$state'];
+function TripsNewCtrl(Trip, $state) {
   const vm = this;
   vm.trip = {
     waypoints: []
