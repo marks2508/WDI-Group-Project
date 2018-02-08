@@ -34,12 +34,21 @@
   padding-right: 3px;
 }
 
+.userModal {
+  display: inline-block;
+}
+
 .userModalButton {
   float: right !important;
 }
 
 .modal-card-body {
   margin-bottom: 0 !important;
+  display: inline-block;
+  vertical-align: top;
+  div {
+    display: inline-block;
+  }
 }
 
 .albumImages {
