@@ -12,6 +12,10 @@
   background-position: center;
 }
 
+form {
+  display: inline-block;
+}
+
 html {
   background: #94afcc;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #556270, #94afcc);  /* Chrome 10-25, Safari 5.1-6 */
