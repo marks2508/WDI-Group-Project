@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .controller('TripsShowCtrl', TripsShowCtrl);
 
-TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state'];
-function TripsShowCtrl(Trip, $http, TripComment, $state) {
+TripsShowCtrl.$inject = ['Trip', '$http', 'TripComment', '$state', '$rootScope'];
+function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
   const vm = this;
   vm.userModalOpen = null;
   vm.albumModalOpen = null;
@@ -23,6 +23,8 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
   vm.adduser = addUser;
   vm.savePic = savePic;
   vm.saveUsers = saveUsers;
+
+
 
 
   Trip
@@ -97,4 +99,25 @@ function TripsShowCtrl(Trip, $http, TripComment, $state) {
         vm.trip.comments.splice(index, 1);
       });
   }
+  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o'];
+  let selectDone = null;
+  vm.place = null;
+  vm.log = log;
+  vm.interest = 'amusement_park';
+  function log() {
+    console.log(vm.place);
+  }
+  $rootScope.$on('waypoints', (e, data) => {
+    if(!selectDone) {
+      vm.locations = data.markers;
+      console.log(vm.locations);
+      selectDone = true;
+    }
+    if(selectDone) {
+      for (let i=0; i<vm.locations.length; i++) {
+        vm.locations[i].letter = alphabet[i];
+        console.log(vm.locations);
+      }
+    }
+  });
 }

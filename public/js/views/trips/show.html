@@ -2,48 +2,52 @@
 <!-- To put in google map if we have time -->
 <section class="mapStuff">
   <google-map start="vm.trip.start.location" end="vm.trip.end.location" waypoints="vm.trip.waypoints" show-page="true"></google-map>
-  <div class="field placesOfInterest">
-    <div class="interestLabel">
-      <label class="label">Find places of interest</label>
-    </div>
-    <div class="control interestSelect">
-      <div class="select">
-        <select google-places location="vm.trip.end.location">
-          <option>Please choose an option</option>
-          <option value="amusement_park">Amusement park</option>
-          <option value="airport">Airport</option>
-          <option value="aquarium">Aquarium</option>
-          <option value="art_gallery">Art gallery</option>
-          <option value="bar">Bar</option>
-          <option value="cafe">Cafe</option>
-          <option value="casino">Casino</option>
-          <option value="convenience_store">Convenience store</option>
-          <option value="department_store">Department store</option>
-          <option value="gas_station">Petrol station</option>
-          <option value="lodging">Accommodation</option>
-          <option value="movie_theater">Cinema</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="museum">Museum </option>
-          <option value="nightclub">Nightclub</option>
-          <option value="zoo">Zoo</option>
-        </select>
+  <form name="placesForm">
+    <div class="field placesOfInterest">
+      <div class="interestLabel">
+        <label class="label">Find places of interest</label>
       </div>
-    </div>
-    <div class="control markerSelect">
-      <div class="select">
-        <select google-places location="vm.trip.end.location">
-          <option>Please choose an option</option>
-          <div ng-repeat="location in vm.trip.waypoints">
-            <option value="{{location}}">A</option>
+        <div class="control interestSelect">
+          <div class="select">
+            <select ng-model="vm.interest" >
+              <option value="amusement_park">Amusement park</option>
+              <option value="airport">Airport</option>
+              <option value="aquarium">Aquarium</option>
+              <option value="art_gallery">Art gallery</option>
+              <option value="bar">Bar</option>
+              <option value="cafe">Cafe</option>
+              <option value="casino">Casino</option>
+              <option value="convenience_store">Convenience store</option>
+              <option value="department_store">Department store</option>
+              <option value="gas_station">Petrol station</option>
+              <option value="lodging">Accommodation</option>
+              <option value="movie_theater">Cinema</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="museum">Museum </option>
+              <option value="nightclub">Nightclub</option>
+              <option value="zoo">Zoo</option>
+            </select>
           </div>
-
-
-        </select>
-      </div>
+        </div>
+        <div class="control markerSelect">
+          <div class="select">
+            <select ng-model="vm.place" ng-options="location.letter for location in vm.locations">
+            </select>
+          </div>
+          <button google-places location="vm.place" type="vm.interest"></button>
+        </div>
     </div>
+<<<<<<< HEAD
+  </form>
+</section>
+
+=======
   </div>
 
-</section>``
+</section>
+
+</section>
+>>>>>>> development
 <div class="columms">
 <div class="column is-three-quarters">
   <section class="section">
@@ -166,20 +170,22 @@
 <!-- <input type=text google-placesdirective ng-model="vm.trip.places" location="vm.trip.location"> -->
 
 
-  <div class="comments">
-    <h2>Comments for trip</h2>
-    <p ng-if="!vm.post.comments.length">0 comments</p>
-    <ul class="comments__created">
-      <li ng-repeat="comment in vm.trip.comments track by $index">
-        <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
-        <button class="button" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
-      </li>
-    </ul>
-    <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
-      <textarea ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
-      <button class="button button--full">Add comment</button>
-    </form>
-    </div>
+<div class="field">
+  <label class="label">Comments for trip</label>
+  <p ng-if="!vm.post.comments.length">0 comments</p>
+  <ul class="comments__created">
+    <li ng-repeat="comment in vm.trip.comments track by $index">
+      <a ui-sref="usersShow({ id: comment.createdBy.id })"><strong>{{ comment.createdBy.username }}</strong></a> - {{ comment.text }}
+      <button class="delete is-large" ng-click="vm.deleteComment(comment)" ng-if="main.isAuthenticated() && main.currentUserId === comment.createdBy.id">Delete comment</button>
+    </li>
+  </ul>
+  <form ng-submit="vm.addComment()" ng-if="main.isAuthenticated()">
+    <textarea class="textarea" ng-model="vm.newComment.text" placeholder="comment here..."></textarea>
+    <button class="button button is-link">Add comment</button>
+  </form>
+</div>
+
+
 </section>
 </div>
 </div>

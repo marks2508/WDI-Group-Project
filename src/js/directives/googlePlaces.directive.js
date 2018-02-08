@@ -7,7 +7,8 @@ function googlePlaces($window, $rootScope) {
   return {
     restrict: 'A',
     scope: {
-      'location': '='
+      'location': '=',
+      'type': '='
     },
     link: function(scope, element)  {
       let map      = null;
@@ -17,17 +18,22 @@ function googlePlaces($window, $rootScope) {
 
       $rootScope.$on('newIntrestLocation', (e, data) => location = data.location);
 
-      element.bind('change', e => {
-
+      element.bind('click', () => {
+        console.log(scope.location, scope.type);
+        const selectedIntrest = scope.type;
+        location = scope.location;
         if(location) {
-          const selectedIntrest = e.target.value;
           const service = new $window.google.maps.places.PlacesService(map);
           service.nearbySearch({
             location: location,
             radius: 1000,
             type: [selectedIntrest]
           }, (results) => {
-            results.forEach(place => createMarker(place));
+            console.log(results);
+            results.forEach(place => {
+              console.log(place.geometry);
+              createMarker(place.geometry.location());
+            });
             map.setCenter(location);
             map.setZoom(14);
             // set map center to be location
