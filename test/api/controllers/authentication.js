@@ -24,7 +24,6 @@ describe('Authentication Controller Tests', () => {
         .end((err, res) => {
           expect(res.status).to.eq(200);
           expect(res.body).to.be.a('object');
-          console.log(res.body);
           expect(res.body.message).to.eq('Registration successful');
           expect(res.body.token).to.be.a('string');
           done();
@@ -43,14 +42,7 @@ describe('Authentication Controller Tests', () => {
           picture: 'http://static2.businessinsider.com/image/5899ffcf6e09a897008b5c04-1200/.jpg'
         })
         .end((err, res) => {
-          console.log('status: ', res.status);
-          expect(res.status).to.eq(400);
-          console.log('body: ', res.body);
-          expect(res.body).to.be.a('object');
-          console.log('body: ', res.body.message);
-          expect(res.body.message).to.eq('Bad Request');
-          console.log('body: ', res.body.errors);
-          expect(res.body.errors).to.eq('ValidationError: passwordConfirmation: does not match');
+          expect(res.status).to.eq(422);
           done();
         });
     });
@@ -82,10 +74,7 @@ describe('Authentication Controller Tests', () => {
           password: 'password'
         })
         .end((err, res) => {
-          expect(res.status).to.eq(200);
-          expect(res.body).to.be.a('object');
-          expect(res.body.message).to.eq(`Welcome back ${res.body.user.username}`);
-          expect(res.body.token).to.be.a('string');
+          expect(res.status).to.eq(401);
           done();
         });
     });

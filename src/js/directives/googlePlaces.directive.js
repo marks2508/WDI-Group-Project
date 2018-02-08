@@ -12,22 +12,15 @@ function googlePlaces($window, $rootScope) {
       'map': '='
     },
     link: function(scope, element)  {
-
       let map = null;
-
-
-      $rootScope.$on('mapInit', (e, data) => {
-        // map = data.map;
-        console.log(data);
-      });
-
-
-      // $rootScope.$on('newIntrestLocation', (e, data) => location = data.location);
+      let infoWindow = null;
 
       element.bind('click', () => {
         map = scope.map;
+
         const selectedIntrest = scope.type;
         const location = scope.location;
+
         if(location) {
           const service = new $window.google.maps.places.PlacesService(map);
 
@@ -36,15 +29,12 @@ function googlePlaces($window, $rootScope) {
             radius: 1000,
             type: [selectedIntrest]
           }, (results) => {
-            console.log(results);
+            console.log('-----------------results', results);
             results.forEach(place => {
               createMarker(place);
             });
             map.setCenter(location);
             map.setZoom(14);
-            console.log('places map ========>',map);
-            // set map center to be location
-            // set zoom
           });
         }
       });
@@ -55,7 +45,7 @@ function googlePlaces($window, $rootScope) {
         const lat = place.geometry.location.lat();
         const lng = place.geometry.location.lng();
         const posish = {lat: lat, lng: lng};
-        const infoWindow = new $window.google.maps.InfoWindow();
+
         const marker = new $window.google.maps.Marker({
           position: posish,
           icon: {
@@ -65,8 +55,16 @@ function googlePlaces($window, $rootScope) {
           map: map,
           animation: $window.google.maps.Animation.DROP
         });
-        infoWindow.setContent(place.name);
-        infoWindow.open(map, marker);
+
+        marker.addListener('click', () => {
+          if(infoWindow) infoWindow.close();
+
+          infoWindow = new $window.google.maps.InfoWindow({
+            content: `<p>${place.name}</p>`
+          });
+
+          infoWindow.open(map, marker);
+        });
 
       }
     }
