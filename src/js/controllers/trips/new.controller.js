@@ -10,6 +10,7 @@ function TripsNewCtrl(Trip, $state, $scope) {
   };
 
   function tripsCreate() {
+    vm.trip.images = [vm.trip.images];
     Trip
       .save(vm.trip)
       .$promise
