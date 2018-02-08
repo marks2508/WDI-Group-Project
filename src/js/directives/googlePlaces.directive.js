@@ -2,8 +2,8 @@ angular
   .module('roadTrippers')
   .directive('googlePlaces', googlePlaces);
 
-googlePlaces.$inject = ['$window', '$rootScope'];
-function googlePlaces($window, $rootScope) {
+googlePlaces.$inject = ['$window'];
+function googlePlaces($window) {
   return {
     restrict: 'A',
     scope: {
@@ -29,7 +29,6 @@ function googlePlaces($window, $rootScope) {
             radius: 1000,
             type: [selectedIntrest]
           }, (results) => {
-            console.log('-----------------results', results);
             results.forEach(place => {
               createMarker(place);
             });
@@ -38,9 +37,8 @@ function googlePlaces($window, $rootScope) {
           });
         }
       });
-
       function createMarker(place) {
-        console.log('inside create marker');
+
         if (!place) return false;
         const lat = place.geometry.location.lat();
         const lng = place.geometry.location.lng();
@@ -55,7 +53,6 @@ function googlePlaces($window, $rootScope) {
           map: map,
           animation: $window.google.maps.Animation.DROP
         });
-
         marker.addListener('click', () => {
           if(infoWindow) infoWindow.close();
 

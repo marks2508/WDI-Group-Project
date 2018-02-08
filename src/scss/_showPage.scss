@@ -53,17 +53,17 @@
 }
 
 .comments {
-  display: block;
-  vertical-align: bottom;
+  display: inline-block;
   margin-bottom: 20px;
   margin-top: 4%;
   margin-left: 2%;
   margin-right: 2%;
   text-align: left;
-  clear: right;
+  float: left;
+  width: 40%;
   textarea {
     height: 5% !important;
-    width: 60% !important;
+    width: 60% !important !important !important !important !important !important !important;
   }
 
   .textarea {
