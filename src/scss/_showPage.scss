@@ -51,3 +51,23 @@
   height: 200px;
   width: auto;
 }
+
+.comments {
+  display: block;
+  vertical-align: bottom;
+  margin-bottom: 20px;
+  margin-top: 4%;
+  margin-left: 2%;
+  margin-right: 2%;
+  text-align: left;
+  clear: right;
+  textarea {
+    height: 5% !important;
+    width: 60% !important;
+  }
+
+  .textarea {
+    height: 5% !important;
+    width: 60% !important;
+  }
+}
