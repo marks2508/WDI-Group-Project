@@ -1,0 +1,94 @@
+@import "indexPage";
+@import "showPage";
+
+.logo {
+  // height: 100;
+}
+
+.google-map {
+  height: 500px;
+  width: 500px;
+}
+
+.carousel-image {
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+}
+
+html {
+  background: #94afcc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #556270, #94afcc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #556270, #94afcc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.label {
+  // color: #F5F5F5;
+  font-family: gill sans;
+}
+
+.intro {
+  color: #F5F5F5;
+  padding-left: 5px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.modal-card {
+  width: 80%;
+  height: 70%;
+}
+
+.userProfilePic {
+  height: 100px;
+}
+
+.navbar {
+  background: #4ECDC4;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #556270, #4ECDC4);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #556270, #4ECDC4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-bottom: 2px solid black;
+}
+
+.enter {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #ACB4C5;
+  padding: 50px;
+  margin-top: 60px;
+}
+
+.new {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  top: 15%;
+  padding-left: 10%;
+}
+
+.searchbar {
+  height: 5px;
+  padding-bottom: 15px;
+}
+
+h1 {
+  color: #F5F5F5;
+  font-family: gill sans;
+}
+h2 {
+  color: #F5F5F5;
+  font-family: gill sans;
+}
+h3 {
+  color: #F5F5F5;
+  font-family: gill sans;
+}
+h4 {
+  color: #F5F5F5;
+  font-family: gill sans;
+}

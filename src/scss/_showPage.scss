@@ -1,0 +1,106 @@
+.mapStuff {
+  width: 50%;
+  float: right;
+  overflow: hidden;
+  padding: 1% 1% 1% 1%;
+  margin-right: 1%;
+  margin-top: 0.5%;
+  text-align: left;
+  margin-left: 1%;
+  background-color: #ECF1F9;
+  border-radius: 5px;
+  .google-map {
+    height: 500px;
+    width: 100% !important;
+    display: inline-block;
+    border: 1px solid grey;
+  }
+  .placesOfInterest {
+    display: inline-block;
+    clear: right;
+    .interestsLabel {
+      display: inline-block;
+      margin-bottom: 0 !important;
+      font-size: 20px;
+      vertical-align: middle;
+    }
+    .interestSelect {
+      display: inline-block;
+    }
+  }
+
+}
+.userModalUsers {
+  padding-right: 3px;
+}
+
+.userModal {
+  display: inline-block;
+}
+
+.userModalButton {
+  float: right !important;
+}
+
+.modal-card-body {
+  margin-bottom: 0 !important;
+  display: inline-block;
+  vertical-align: top;
+  div {
+    display: inline-block;
+  }
+}
+
+.albumImages {
+  height: 300px;
+}
+
+.albumCard {
+  display: block;
+  height: 200px;
+  width: auto;
+}
+
+.buttons {
+  vertical-align: top;
+  .userButton {
+    display: inline-block;
+  }
+
+  .albumButton {
+    display: inline-block;
+  }
+  .file {
+    display: inline-block;
+    float: center;
+
+  }
+}
+.imagePreview {
+  max-height: 100px;
+  display: block;
+}
+
+
+  .comments {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: left;
+    float: left;
+    clear: left;
+    width: 40%;
+    .field {
+    textarea {
+      height: 5% !important;
+      width: 60% !important;
+    }
+    .textarea {
+      height: 5% !important;
+      width: 60% !important;
+    }
+  }
+
+  }

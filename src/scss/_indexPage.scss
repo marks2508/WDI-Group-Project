@@ -1,0 +1,27 @@
+.indexClip {
+  background-color: #FAEDEB;
+  width: -webkit-fit-content;
+  height: -webkit-fit-content;
+  width: -moz-fit-content;
+  height: -moz-fit-content;
+  text-align: center;
+  margin: 3px;
+  padding-bottom: 2%;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 0px 6px 1px;
+  display: block;
+  width: 100%;
+  .clipImage {
+    height: 150px;
+    display: block;
+  }
+  .clipTitle {
+    display: inline-block;
+    position: relative;
+  }
+  .clipDescription {
+    display: inline-block;
+    position: relative;
+  }
+}
