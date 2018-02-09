@@ -1,8 +1,14 @@
 @import "indexPage";
 @import "showPage";
 
+.mount {
+  width: 50px;
+}
+
 .logo {
-  // height: 100;
+  width: 100px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .google-map {
@@ -14,6 +20,12 @@
   height: 350px;
   background-size: cover;
   background-position: center;
+}
+
+.logoHome {
+  margin-left: 40%;
+  height: 16%;
+  width: 16%;
 }
 
 html {

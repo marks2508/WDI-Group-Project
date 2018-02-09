@@ -30,6 +30,10 @@
   }
 
 }
+
+.section {
+  width: 50%;
+}
 .userModalUsers {
   padding-right: 3px;
 }
@@ -42,39 +46,91 @@
   float: right !important;
 }
 
+.albumDivs {
+  width: 50%;
+}
+
+.userModalFooter {
+  height: 20%;
+  width: 100%;
+  display: inline-block;
+  .userSubmitButton {
+    float: right;
+  }
+  ul {
+    display: inline-block;
+    li {
+      display: inline-block;
+    }
+  }
+}
+
+.userForm {
+  width: 50%;
+}
+
+.link{
+  vertical-align: top;
+}
+.userButtons {
+  margin-top: 3.5%;
+  display: inline-block;
+  width: 40%;
+  float: left;
+  .userButton {
+    margin-bottom: 1%;
+  }
+}
+
+.albumButtons {
+  width: 40%;
+  display: inline-block;
+}
+
 .modal-card-body {
   margin-bottom: 0 !important;
-  display: inline-block;
+  display: block;
   vertical-align: top;
   div {
     display: inline-block;
   }
+  .card-image {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
+
 .albumImages {
-  height: 300px;
+  height: 100%;
+  width: 100%;
 }
 
 .albumCard {
-  display: block;
+  display: inline-block;
   height: 200px;
-  width: auto;
+  width: 100%;
+}
+.userButton {
+  display: inline-block;
+}
+
+.albumButton {
+  display: inline-block;
+}
+.file {
+  margin-top: 1%;
+  display: inline-block;
+
 }
 
 .buttons {
   vertical-align: top;
-  .userButton {
-    display: inline-block;
-  }
 
-  .albumButton {
-    display: inline-block;
-  }
-  .file {
-    display: inline-block;
-    float: center;
 
-  }
 }
 .imagePreview {
   max-height: 100px;
