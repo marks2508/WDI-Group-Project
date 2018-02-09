@@ -11,6 +11,8 @@ function TripsNewCtrl(Trip, $state) {
 
   function tripsCreate() {
     vm.trip.images = [vm.trip.images];
+    vm.trip.waypoints = vm.trip.waypoints.filter(waypoint => Object.keys(waypoint).length !== 0);
+
     Trip
       .save(vm.trip)
       .$promise

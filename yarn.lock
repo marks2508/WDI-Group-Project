@@ -6790,6 +6790,10 @@ supports-color@^5.1.0:
   dependencies:
     has-flag "^2.0.0"
 
+svg-icons@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/svg-icons/-/svg-icons-1.0.13.tgz#bb135fcc0c496f18b047af6d3fbe0722cf37504d"
+
 svgo@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-1.0.4.tgz#b4c6c275316bc35022a5413a724abfd78bd26b9f"

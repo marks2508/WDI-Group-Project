@@ -16,8 +16,18 @@
     <input class="input" type="text" google-autocomplete ng-model="vm.trip.end.description" location="vm.trip.end.location">
 
     <label class="label" for="image">Add A Cover Photo For Your Journey</label>
-    <input type="text" class="input" id="image" name="image" ng-model="vm.trip.images" placeholder="Add image URL" required>
-
+    <label class="file-label">
+      <br>
+      <input class="file-input" type="file" ng-model="vm.user.picture" upload-image>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="fa fa-upload"></i>
+        </span>
+        <span class="file-label">
+          Add photos
+        </span>
+      </span>
+    </label>  
     <div>
       <label class="label">Any stops on the way, you can add multiple</label>
       <input class="input" type="text" google-autocomplete ng-model="vm.waypoint.location" location="vm.waypoint.location">

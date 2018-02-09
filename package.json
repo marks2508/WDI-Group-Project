@@ -47,7 +47,7 @@
       "css": "**/*.css",
       "scss": "**/*.scss",
       "html": "**/*.html",
-      "images": "**/*.{png,jpg,jpeg,gif,ico}",
+      "images": "**/*.{png,jpg,jpeg,gif,ico,svg}",
       "fonts": "**/*.{eot,svg,ttf,woff,woff2}"
     }
   },
@@ -103,6 +103,7 @@
     "morgan": "^1.9.0",
     "nyc": "^11.4.1",
     "request-promise": "^4.2.2",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "svg-icons": "^1.0.13"
   }
 }
