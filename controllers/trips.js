@@ -51,6 +51,16 @@ function addCommentRoute(req, res, next) {
     .catch(next);
 }
 
+
+function tripsUpdate(req, res) {
+  Trip
+    .findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+    .exec()
+    .then(shoe => res.status(200).json(shoe))
+    .catch(err => res.status(500).json(err));
+}
+
+
 function deleteCommentRoute(req, res, next) {
   Trip
     .findById(req.params.id)
@@ -86,6 +96,7 @@ module.exports = {
   show: showRoute,
   create: createRoute,
   delete: deleteRoute,
+  update: tripsUpdate,
   addComment: addCommentRoute,
   deleteComment: deleteCommentRoute
 };

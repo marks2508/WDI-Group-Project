@@ -65,14 +65,19 @@ function TripsShowCtrl(Trip, $http, TripComment, $state, $rootScope) {
       .update({ tripId: vm.trip.id}, vm.trip);
   }
 
+  vm.trip.image = null;
+
   function savePic() {
+    vm.trip.images.push(vm.trip.image);
     Trip
       .update({ tripId: vm.trip.id}, vm.trip)
       .$promise
-      .then((res) => {
-        console.log(res.url);
+      .then(() => {
+        vm.trip.image = null;
       });
+
   }
+  vm.savePic = savePic;
 
   function TripsDelete() {
     vm.trip
