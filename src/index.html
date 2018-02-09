@@ -40,7 +40,7 @@
             <a class="navbar-item" href="/trips/new" ng-if="main.isAuthenticated()">
               Add a trip
             </a>
-            <a class="navbar-item" href="/trips">
+            <a class="navbar-item" ng-if="main.isAuthenticated()" href="/trips">
               See all trips
             </a>
           </div>
