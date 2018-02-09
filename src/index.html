@@ -18,9 +18,9 @@
 
   <nav class="navbar">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">
+      <a class="navbar-item logo" href="/">
         <!-- <i class="fas fa-road" height="100"></i> -->
-        <img class="logo "src="Mountain_Logo.svg">
+        <img src="images/Mountain_Logo.svg">
       </a>
       <div class="navbar-burger burger nav-toggle" ng-class="{ 'is-active': main.menuIsOpen }" ng-click="main.menuIsOpen = !main.menuIsOpen" data-target="navbarExampleTransparentExample">
         <span></span>
@@ -33,7 +33,7 @@
       <div class="navbar-start">
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/" ng-if="main.isAuthenticated()">
+          <a class="navbar-link" href="/trips" ng-if="main.isAuthenticated()">
             Trips
           </a>
           <div class="navbar-dropdown is-boxed">
