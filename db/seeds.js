@@ -62,13 +62,13 @@ User
       description: 'There is plenty to do and see in this region. You can spot rock wallabies at Simpsons Gap or swim in Glen Helen Gorge both in the West MacDonnell Ranges. Swim in the tropical pools of the Garden of Eden or climb to the rim of Kings Canyon. You can even opt for a dawn camel trek around Uluṟu. Explore the steep russet domes of Kata Tjuṯa nearby and make your way through the mulga forest and the red desert sands. Immerse yourself in Aboriginal history and art on this unforgettable adventure through the ancient part of Australia.',
       start: {
         location: {
-          lat: 23.6980,
+          lat: -23.6980,
           lng: 133.8807
         }
       },
       end: {
         location: {
-          lat: 25.3444,
+          lat: -25.3444,
           lng: 131.0369
         }
       },
@@ -82,13 +82,13 @@ User
       start: {
         location: {
           lat: 32.7157,
-          lng: 117.1611
+          lng: -117.1611
         }
       },
       end: {
         location: {
           lat: 37.7749,
-          lng: 122.4194
+          lng: -122.4194
         }
       },
       images: ['https://i.ytimg.com/vi/s5SgIvdVdGg/maxresdefault.jpg'],
@@ -106,7 +106,7 @@ User
       },
       end: {
         location: {
-          lat: 33.7139,
+          lat: -33.7139,
           lng: 25.5207
         }
       },
@@ -120,13 +120,30 @@ User
       start: {
         location: {
           lat: 64.1265,
-          lng: 21.8174
+          lng: -21.8174
         }
       },
+      waypoints: [
+        {
+          location: {
+            lat: 63.4186,
+            lng: -19.0060
+          }
+        },{
+          location: {
+            lat: 64.2497,
+            lng: -15.2020
+          }
+        },{
+          location: {
+            lat: 65.2669,
+            lng: -14.3948
+          }
+        }],
       end: {
         location: {
           lat: 65.1264,
-          lng: 21.8173
+          lng: -21.8173
         }
       },
       images: ['https://photos.smugmug.com/Europe/Iceland/i-ZtdVdBr/0/XL/ring-road-landscape-XL.jpg'],
