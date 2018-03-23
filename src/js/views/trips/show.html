@@ -43,41 +43,41 @@
 </section>
 
 
-  <div>
-    <section class="section">
-      <h2 class="title">{{ vm.trip.title}}</h2>
-      <h3>Description: <em>{{ vm.trip.description }}</em></h3>
-      <a href="https://roadtrippers.com/" class="link">For a better website please visit</a>
-      <div class="userButtons">
+<div>
+  <section class="section">
+    <h2 class="title">{{ vm.trip.title}}</h2>
+    <h3>Description: <em>{{ vm.trip.description }}</em></h3>
+    <a href="https://roadtrippers.com/" class="link">For a better website please visit</a>
+    <div class="userButtons">
 
       <button class="button is-large is-primary userButton" ng-click="vm.openUserModal()">Add Users</button>
       <div>
-          <!--USER-MODAL-->
+        <!--USER-MODAL-->
 
-          <form ng-submit="">
-            <ul ng-repeat="user in vm.trip.users">
-              <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
+        <form ng-submit="">
+          <ul ng-repeat="user in vm.trip.users">
+            <input type="hidden" ng-model="vm.trip.users" ng-value="user.id">
 
-            </ul>
-            <button class="button btn-primary saveUsersButton" type="submit">Save users</button>
-          </form>
-          <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-              <header class="modal-card-head">
-                <p class="modal-card-title">Users</p>
-                <button class="delete" ng-click="vm.closeUserModal()" aria-label="close"></button>
-              </header>
-              <section class="modal-card-body">
-                <div ng-repeat="user in vm.users">
-                  <div>
-                    <form ng-submit="addUser(user)" class="userForm">
-                      <p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}">
-                        <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
-                        <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
-                    </form>
-                  </div>
+          </ul>
+          <button class="button btn-primary saveUsersButton" type="submit">Save users</button>
+        </form>
+        <div class="modal" ng-class="{'is-active': vm.userModalOpen}">
+          <div class="modal-background"></div>
+          <div class="modal-card">
+            <header class="modal-card-head">
+              <p class="modal-card-title">Users</p>
+              <button class="delete" ng-click="vm.closeUserModal()" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+              <div ng-repeat="user in vm.users">
+                <div>
+                  <form ng-submit="addUser(user)" class="userForm">
+                    <p>{{ user.username }}</p><img class="userProfilePic" src="{{user.picture}}">
+                    <button class="button is-small is-primary" ng-click="vm.addUser(user)">Add User</button>
+                    <button class="button is-small is-primary" ng-click="vm.removeUser(user)">Delete User</button>
+                  </form>
                 </div>
+              </div>
 
 
 
@@ -90,12 +90,12 @@
                 <button ng-click="vm.saveUsers()" class="button is-primary userSubmitButton">Save users</button>
               </div>
             </footer>
-            </div>
           </div>
         </div>
-
       </div>
-      <div class="albumButtons">
+
+    </div>
+    <div class="albumButtons">
 
       <!--ALBUM-MODAL-->
 
@@ -125,31 +125,31 @@
 
 
 
-            <div class="file">
-              <label class="file-label">
-                <input class="file-input" type="file" ng-model="vm.trip.image" upload-image>
-                <span class="file-cta">
-                  <span class="file-icon">
-                    <i class="fa fa-upload"></i>
-                  </span>
-                  <span class="file-label">Add new Image</span>
+      <div class="file">
+        <label class="file-label">
+          <input class="file-input" type="file" ng-model="vm.trip.image" upload-image>
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span>
+            <span class="file-label">Add new Image</span>
 
 
-                </span>
-              </label>
-            </div>
-          <form ng-submit="vm.savePic()">
-            <button type="submit">Save Picture</button>
-
-            <img class="imagePreview" src="{{vm.trip.image}}">
-          </form>
+          </span>
+        </label>
       </div>
-    </section>
-  </div>
+      <form ng-submit="vm.savePic()">
+        <button type="submit">Save Picture</button>
 
-  <div>
-    <button class="button is-small is-danger" ng-if="main.currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
-  </div>
+        <img class="imagePreview" src="{{vm.trip.image}}">
+      </form>
+    </div>
+  </section>
+</div>
+
+<div>
+  <button class="button is-small is-danger" ng-if="main.currentUserId === vm.trip.createdBy" ng-click="vm.delete()">Delete trip</button>
+</div>
 
 
 
